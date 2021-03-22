@@ -1,0 +1,24 @@
+$primary-color: #2A2C3F;
+$accent-color: #222336;
+$accent2-color: #3f4455;
+$text-color: #a2a3bd;
+
+// Node type colors
+$node-type-connector-color: rgb(58, 209, 209);
+$node-type-event-color: rgb(209, 169, 58);
+$node-type-entry-point-color: rgb(251, 255, 0);
+$node-type-function-color: rgb(58, 73, 209);
+$node-type-variable-color: rgb(0, 243, 81);
+$node-type-condition-color: rgb(235, 0, 243);
+
+// Parameter colors
+$parameter-type-execution-color: rgb(238, 255, 0);
+$parameter-type-connector-color: rgb(58, 209, 209);
+$parameter-type-object-color: rgb(0, 102, 255);
+$parameter-type-string-color: rgb(0, 255, 55);
+$parameter-type-int32-color: rgb(255, 123, 0);
+$parameter-type-int64-color: rgb(255, 123, 0);
+$parameter-type-uint64-color: rgb(255, 123, 0);
+$parameter-type-double-color: rgb(255, 123, 0);
+$parameter-type-boolean-color: rgb(209, 39, 144);
+$parameter-type-bytebb-color: rgb(170, 19, 32);

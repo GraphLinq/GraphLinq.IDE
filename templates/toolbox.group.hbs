@@ -1,0 +1,88 @@
+<div class="group-item">
+    <div class="group-title">
+        {{#ifEquals groupName "Blockchain.Ethereum"}}
+        <i class="fab fa-ethereum"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Time"}}
+        <i class="fas fa-clock"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Log"}}
+        <i class="fas fa-terminal"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "HTTP"}}
+        <i class="fas fa-cloud"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Math"}}
+        <i class="fas fa-calculator"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Storage"}}
+        <i class="fas fa-database"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Twitter"}}
+        <i class="fab fa-twitter"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Discord"}}
+        <i class="fab fa-discord"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Telegram"}}
+        <i class="fas fa-paper-plane"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Base Variable"}}
+        <i class="fas fa-circle"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Common"}}
+        <i class="fas fa-th-large"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "JSON"}}
+        <i class="fas fa-list"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "String"}}
+        <i class="fas fa-font"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "SMTP"}}
+        <i class="fas fa-envelope-open"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Binance"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.BSC"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "PancakeSwap"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Uniswap"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "CoinGecko"}}
+        <i class="fas fa-coins"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Base Condition"}}
+        <i class="fas fa-code-branch"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Range Condition"}}
+        <i class="fas fa-code-branch"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "CSV"}}
+        <i class="fas fa-table"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Data"}}
+        <i class="fas fa-database"></i>
+        {{/ifEquals}}
+         {{groupName}}
+        <div class="expand">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+    <div class="group-node-container">
+        {{#each items as |item|}}
+            <div class="group-node-item" data-toolbox-node-type="{{item.NodeType}}" data-name="{{item.FriendlyName}}">
+                {{item.FriendlyName}}
+                <div class="node-type {{item.NodeBlockType}}"></div>
+                <div class="tooltip">
+                    {{item.NodeDescription}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

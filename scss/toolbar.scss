@@ -1,0 +1,46 @@
+#toolbar {
+    position: fixed;
+    right: 20px;
+    top: 60px;
+    background-color: darken($primary-color, 8);
+    z-index: 999;
+    animation-name: appearIn;
+    animation-duration: 1s;
+    user-select: none;
+    box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.75);
+
+    .toolbar-btn {
+        padding: 12px;
+        transition: 0.3s;
+        display: inline-block;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($primary-color, 12);
+        }
+
+        &:active {
+            background-color: darken($primary-color, 15);
+            color: white;
+        }
+    }
+
+    .toolbar-input {
+        input {
+            padding: 8px;
+            font-size: 16px;
+            background: darken($primary-color, 8);
+            border: none;
+            color: $text-color;
+            text-align: center;
+
+            &:focus {
+                outline-width: 0;
+            }
+
+            &::placeholder {
+                color: darken($text-color, 10);
+            }
+        }
+    }
+}

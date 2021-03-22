@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>GraphLinq IDE</title>
+        <script defer src="./node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
+        <script defer src="./node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
+        <script defer src="./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
+        <script defer src="./node_modules/toastr/toastr.js"></script>
+
+        <link rel="stylesheet" href="./scss/index.scss">
+        <link rel="stylesheet" href="./node_modules/toastr/toastr.scss">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- menu -->
+        <div id="menu">
+            <div class="menu-item">
+                <i class="fas fa-file"></i> File
+                <div class="sub-menu">
+                    <div class="sub-menu-item" data-app-menu="file.new">
+                        <i class="fas fa-file"></i> New graph
+                    </div>
+                    <div class="sub-menu-item" data-app-menu="file.load">
+                        <input type="file" id="file-input" style="display: none;" />
+                        <i class="fas fa-file-upload"></i> Load graph
+                    </div>
+                    <div class="sub-menu-item" data-app-menu="file.save">
+                        <i class="fas fa-file-download"></i> Save graph
+                    </div>
+                    <div class="sub-menu-item" data-app-menu="file.export">
+                        <i class="fas fa-file-download"></i> Export as file
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-terminal"></i> Execution
+                <div class="sub-menu">
+                    <div class="sub-menu-item" data-app-menu="execution.launch">
+                        <i class="fas fa-play"></i> Launch
+                    </div>
+                    <!--
+                    <div class="sub-menu-item">
+                        <i class="fas fa-terminal"></i> Terminal
+                    </div>
+                    <div class="sub-menu-item">
+                        <i class="fas fa-list"></i> Show graphs
+                    </div>
+                    <div class="sub-menu-item">
+                        <i class="fas fa-bug"></i> Stacktrace
+                    </div>
+                    -->
+                </div>
+            </div>
+            <div class="menu-item" onclick="javascript: window.open('https://docs.graphlinq.io')">
+                <i class="fas fa-book"></i> Documentation
+            </div>
+            <div class="menu-item" onclick="javascript: window.open('https://t.me/graphlinq')">
+                <i class="fas fa-question-circle"></i> Help
+            </div>
+
+            <div class="right-container">
+                <div class="menu-item" data-app-menu="login">
+                    <i class="fas fa-sign-in-alt"></i> Connect to wallet
+                </div>
+
+                <div class="menu-item" data-app-menu="logged.as" style="display: none;">
+                    <i class="fas fa-wallet"></i> 
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- toolbox -->
+        <div id="toolbox">
+            <div class="searchbox">
+                <input type="text" id="toolbar-search-input" placeholder="Search a block by name" />
+            </div>
+            <div class="group-container">
+               
+            </div>
+        </div>
+
+        <div id="toolbar">
+            <div class="toolbar-input graph-name">
+                <input type="text" placeholder="Graph name.." spellcheck="false" />
+            </div>
+            <div class="toolbar-btn" data-app-menu="graph.add_comment">
+                <i class="fas fa-comment"></i>
+            </div>
+            <div class="toolbar-btn">
+                <i class="fab fa-creative-commons-zero"></i>
+            </div>
+        </div>
+
+        <!-- graph-container -->
+        <div id="graph-container">
+            <div class="inner-container">
+            </div>
+        </div>
+
+        <!-- console -->
+        <div id="console">
+            <div class="header">
+                <i class="fas fa-terminal"></i> Terminal (Beta)
+            </div>
+            <div style="display: flex; height: 100%;">
+                <div class="console-entry-scroll" style="flex: 1; overflow: auto; height: 100%;">
+                    <div class="console-entry-container">
+        
+                    </div>
+                </div>
+                <div class="logs-entry-scroll" style="flex: 1; overflow: auto; height: 100%;">
+                    <div class="logs-entry-container">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/app.js"></script>
+    </body>
+</html>

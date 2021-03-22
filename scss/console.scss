@@ -1,0 +1,56 @@
+#console {
+    position: fixed;
+    bottom: 0px;
+    left: 250px;
+    right: 0;
+    height: 20%;
+    background-color: $accent-color;
+    border-top: 1px solid $accent2-color;
+    margin-left: 1px;
+    padding-top: 5px;
+    padding-left: 3px;
+
+    .header {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    .console-entry-container {
+        flex: 1;
+        padding: 2px;
+    }
+
+    .logs-entry-container {
+        flex: 1;
+        background-color: $accent-color;
+        padding: 2px;
+    }
+
+    .console-entry {
+        margin: 2px;
+        color: $text-color;
+        font-family:monospace;
+        font-size: 11px;
+        //animation-name: consoleEntryAnimation;
+        //animation-duration: 0.3s;
+
+        &:hover {
+            background-color: lighten($color: $accent-color, $amount: 3);            
+        }
+
+        &.success {
+            color: greenyellow;
+        }
+
+        &.warning {
+            color: yellow;
+        }
+
+        &.error {
+            color: rgb(255, 81, 81);
+        }
+    }
+}

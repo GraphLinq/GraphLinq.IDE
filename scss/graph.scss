@@ -1,0 +1,322 @@
+#graph-container {
+    position: fixed;
+    left: 250px;
+    bottom: 20.5%;
+    right: 0px;
+    top: 37px;
+    transition: box-shadow 0.3s;
+    box-shadow: inset 0px 0px 66px -15px rgba(0,0,0,0.75);    
+    background-image: linear-gradient(darken($primary-color, 2) .1em, transparent .1em), linear-gradient(90deg,darken($primary-color, 2) .1em, transparent .1em);
+    background-size: 1em 1em;
+
+    .inner-container {
+        width: 10000%;
+        height: 10000%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .node-comment {
+            display: inline;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            user-select: none;
+            opacity: 0.7;
+            animation-name: appearIn;
+            animation-duration: 0.3s;
+            transition: background-color 0.3s;
+            border-radius: 15px;
+
+            &:hover {
+                background-color: $accent-color;
+                cursor: move;
+                .comment-toolbar .comment-toolbar-icon {
+                    opacity: 1;
+                }
+            }
+
+            .text-comment {
+                padding: 15px;
+                font-size: 25px;
+
+                input {
+                    margin: 5px;
+                    padding: 5px;
+                    font-size: 23px;
+                    background: none;
+                    border: none;
+                    color: $text-color;
+                    width: auto;
+                    text-align: center;
+                    width: 250px;
+                    
+                    &:focus {
+                        outline-width: 0;
+                    }
+        
+                    &::placeholder {
+                        color: $text-color;
+                    }
+                }
+            }
+
+            .comment-toolbar {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                min-height: 20px;
+
+                .comment-toolbar-icon {
+                    cursor: pointer;
+                    padding: 5px;
+                    transition: 0.3s;
+                    opacity: 0;
+
+                    &:hover {
+                        color: white;
+                        //background-color: darken($accent-color, 14);
+                    }
+                }
+            }
+        }
+
+        .node {
+            min-width: 150px;
+            min-height: 50px;
+            background-color: lighten($color: $primary-color, $amount: 6);
+            display: inline;
+            border: 1px solid $accent2-color;
+            box-shadow: 0px 0px 24px -10px rgba(0,0,0,0.75);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            user-select: none;
+            opacity: 0.95;
+            animation-name: appearIn;
+            animation-duration: 0.3s;
+
+            .none-toolbar {
+                display: flex;
+                background-color: $accent-color;
+
+                .node-title {
+                    font-size: 14px;
+                    color: white;
+                    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+                    text-align: center;
+                    cursor: move;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex: 5;
+                    height: 25px;
+                    vertical-align: center;
+                    padding-right: 12px;
+                    padding-left: 12px;
+                    white-space: nowrap;
+
+                    &.connector {
+                        background: linear-gradient(90deg, $node-type-connector-color 0%, rgba(243,50,255,0) 80%);
+                    }
+
+                    &.variable {
+                        background: linear-gradient(90deg, $node-type-variable-color 0%, rgba(243,50,255,0) 80%);
+                    }
+
+                    &.function {
+                        background: linear-gradient(90deg, $node-type-function-color 0%, rgba(243,50,255,0) 80%);
+                    }
+
+                    &.event {
+                        background: linear-gradient(90deg, $node-type-event-color 0%, rgba(243,50,255,0) 80%);
+                    }
+
+                    &.condition {
+                        background: linear-gradient(90deg, $node-type-condition-color 0%, rgba(243,50,255,0) 80%);
+                    }
+
+                    &.entry-point {
+                        background: linear-gradient(90deg, $node-type-entry-point-color 0%, rgba(243,50,255,0) 80%);
+                    }
+                }
+
+                .node-toolbar-icon {
+                    background-color: $accent-color;
+                    flex: 1;
+                    text-align: center;
+                    height: 25px;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    display: none;
+
+                    &:hover {
+                        background-color: lighten($color: $accent-color, $amount: 3);
+                    }
+                }
+
+                &:hover {
+                    .node-toolbar-icon {
+                        display: flex;
+                    }
+                }
+            }
+
+            .node-parameters {
+                display: flex;
+                padding-top: 5px;
+                padding-bottom: 2px;
+
+                .node-parameter-container {
+                    flex: 1;
+
+                    .node-parameter {
+                        min-height: 20px;
+                        font-size: 14px;
+                        position: relative;
+                        margin-top: 3px;
+                        margin-bottom: 3px;
+                        transition: color 0.2s;
+                        text-transform: capitalize;
+                        white-space: nowrap;
+
+                        &:hover {
+                            color: white;
+                        }
+
+                        .dot {
+                            $size: 10px;
+                            height: $size;
+                            width: $size;
+                            border-radius: 50px;
+                            background-color: white;
+                            position: absolute;
+                            top: 5px;
+                            cursor: pointer;
+                            transition: 0.2s;
+
+                            &:hover {
+                                transform: scale(1.2);
+                            }
+
+                            &.reference {
+                                background-color: $parameter-type-execution-color;
+                            }
+                        }
+
+                        &.connector {
+                            .dot {
+                                background-color: $parameter-type-connector-color;
+                            }
+                        }
+
+                        &.system-string {
+                            .dot {
+                                background-color: $parameter-type-string-color;
+                            }
+                        }
+
+                        &.system-int32 {
+                            .dot {
+                                background-color: $parameter-type-int32-color;
+                            }
+                        }
+
+                        &.system-int64 {
+                            .dot {
+                                background-color: $parameter-type-int64-color;
+                            }
+                        }
+
+                        &.system-uint64 {
+                            .dot {
+                                background-color: $parameter-type-int64-color;
+                            }
+                        }
+
+                        &.system-double {
+                            .dot {
+                                background-color: $parameter-type-double-color;
+                            }
+                        }
+
+                        &.system-object {
+                            .dot {
+                                background-color: $parameter-type-object-color;
+                            }
+                        }
+
+                        &.system-boolean {
+                            .dot {
+                                background-color: $parameter-type-boolean-color;
+                            }
+                        }
+
+                        &.system-bytebb {
+                            .dot {
+                                background-color: $parameter-type-bytebb-color;
+                            }
+                        }
+
+                        &.execution {
+                            .dot {
+                                background-color: $parameter-type-execution-color;
+                            }
+                        }
+
+                        .parameter-value-input {
+                            background-color: lighten($color: $primary-color, $amount: 20);
+                            height: 23px;
+                            margin-top: 3px;
+                            width: 100%;
+                            border: none;
+                            border-radius: 5px;
+                            color: white;
+                            text-align: center;
+                
+                            &:focus {
+                                outline-width: 0;
+                            }
+                
+                            &::placeholder {
+                                color: $text-color;
+                            }
+                        }
+                    }
+
+                    &.in {
+                        .node-parameter {
+                            padding-left: 10px;
+                            padding-right: 10px;
+
+                            .dot {
+                                left: -6px;
+                            }
+                        }
+                    }
+
+                    &.out {
+                        .node-parameter {
+                            text-align: right;
+                            padding-right: 10px;
+
+                            .dot {
+                                right: -6px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .node-graph-line {
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            position: absolute;
+        }
+    }
+}

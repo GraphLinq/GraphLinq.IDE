@@ -1,0 +1,21 @@
+@keyframes appearIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+}
+
+@keyframes consoleEntryAnimation {
+    from {
+        opacity: 0.5;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

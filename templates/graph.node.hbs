@@ -1,0 +1,50 @@
+<div class="node" data-node-id={{id}}>
+    <div class="none-toolbar">
+        <div class="node-title {{schema.NodeBlockType}}">
+            {{schema.FriendlyName}}
+        </div>
+        <div class="node-toolbar-icon delete-node">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+
+    <div class="node-parameters">
+        <div class="node-parameter-container in">
+            {{#if schema.CanBeExecuted}}
+                <div class="node-parameter execution">
+                    <div class="dot"></div>
+                </div>
+            {{/if}}
+            {{#each schema.InParameters as |parameter|}}
+                <div class="node-parameter {{normalize parameter.ValueType}}" data-parameter-name="{{parameter.Name}}">
+                    <div class="dot"></div>
+                    {{parameter.Name}}
+                </div>
+            {{/each}}
+        </div>
+        <div class="node-parameter-container out">
+            {{#if schema.CanExecute}}
+                <div class="node-parameter execution">
+                    <div class="dot"></div>
+                </div>
+            {{/if}}
+            {{#each schema.OutParameters as |parameter|}}
+                <div class="node-parameter {{normalize parameter.ValueType}}" data-parameter-name="{{parameter.Name}}">
+                    {{#if parameter.IsReference}}
+                        <div class="dot reference"></div>
+                    {{else}}
+                        <div class="dot"></div>
+                    {{/if}}
+                    {{parameter.Name}}
+                    {{#isParameterIsEditable parameter.ValueType}}
+                        {{#ifEquals ../schema.NodeBlockType "variable"}}
+                            <div>
+                                <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" />
+                            </div>
+                        {{/ifEquals}}
+                    {{/isParameterIsEditable}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
