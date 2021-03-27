@@ -120,6 +120,10 @@
                         background: linear-gradient(90deg, $node-type-connector-color 0%, rgba(243,50,255,0) 80%);
                     }
 
+                    &.deployer {
+                        background: linear-gradient(90deg, $node-type-deployer-color 0%, rgba(243,50,255,0) 80%);
+                    }
+
                     &.variable {
                         background: linear-gradient(90deg, $node-type-variable-color 0%, rgba(243,50,255,0) 80%);
                     }
@@ -257,6 +261,12 @@
                         &.system-bytebb {
                             .dot {
                                 background-color: $parameter-type-bytebb-color;
+                            }
+                        }
+
+                        &.nodeblock-plugin-ethereum-nodes-eth-coincreator-models-erc20creatormodel {
+                            .dot {
+                                background-color: $node-type-deployer-color;
                             }
                         }
 

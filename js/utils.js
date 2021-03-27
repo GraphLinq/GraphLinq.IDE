@@ -45,7 +45,7 @@ export const addHandlebarsHelpers = () => {
     });
 
     Handlebars.registerHelper('normalize', function (arg1, options) {
-        return arg1.replace(".", "-").toLowerCase().split(",")[0].replace(" ", "").replace("[", "b").replace("]", "b");
+        return arg1.replaceAll(".", "-").toLowerCase().split(",")[0].replaceAll(" ", "").replaceAll("[", "b").replaceAll("]", "b");
     });
 }
 

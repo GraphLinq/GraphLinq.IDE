@@ -126,6 +126,10 @@
                 &.entry-point {
                     background-color: $node-type-entry-point-color;
                 }
+
+                &.deployer {
+                    background-color: $node-type-deployer-color;
+                }
             }
         }
     }
