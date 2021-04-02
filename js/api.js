@@ -41,7 +41,7 @@ export const fetchDecompress = (data, token) => {
 export const fetchDecompressEngine = (data) => {
     return new Promise((result) => {
         fetch(engineBaseUrl + '/graphs/decompress', 
-        { method: 'POST', body: JSON.stringify({data: data}), headers: { 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
+        { method: 'POST', body: JSON.stringify({JsonData: data}), headers: { 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
             result(json)

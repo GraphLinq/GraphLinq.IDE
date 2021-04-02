@@ -39,7 +39,11 @@
                     {{#isParameterIsEditable parameter.ValueType}}
                         {{#ifEquals ../schema.NodeBlockType "variable"}}
                             <div>
-                                <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" />
+                                {{#ifEqualsNormalize parameter.ValueType "system-string"}}
+                                    <textarea spellcheck="false"  placeholder="..." class="parameter-value-input textarea" rows="5"></textarea>
+                                {{else}}
+                                    <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" />
+                                {{/ifEqualsNormalize}}
                             </div>
                         {{/ifEquals}}
                     {{/isParameterIsEditable}}

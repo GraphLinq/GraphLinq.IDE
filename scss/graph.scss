@@ -293,6 +293,15 @@
                             &::placeholder {
                                 color: $text-color;
                             }
+
+                            &.textarea {
+                                width: 130px;
+                                height: 40px;
+                                text-align: left;
+                                resize: none;
+                                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                                padding: 3px;
+                            }
                         }
                     }
 
