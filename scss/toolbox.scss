@@ -46,7 +46,8 @@
 
     .group-item {
         user-select: none;
-        font-size: 13px;
+        font-size: 15px;
+        color: white;
 
         .group-title {
             background-color: darken($color: $accent-color, $amount: 2);
@@ -66,6 +67,8 @@
             cursor: pointer;
             transition: 0.2s;
             position: relative;
+            font-size: 13px;
+            color: $text-color;
 
             .tooltip {
                 box-shadow: 0px 0px 24px -3px rgba(0,0,0,0.75);
@@ -81,12 +84,20 @@
                 transition: 0.2s;
                 pointer-events: none;
                 padding: 4px;
+                transform: scale(0);
             }
 
             &:hover {
-                background-color: lighten($color: $accent-color, $amount: 4);
+                background-color: $accent3-color;
+                font-weight: bold;
+                padding-left: 10px;
+                color: white;
+
                 .tooltip {
                     opacity: 0.9;
+                    bottom: 40px;
+                    font-weight: normal;
+                    transform: scale(1);
                 }
             }
 

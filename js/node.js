@@ -117,6 +117,9 @@ export default class Node {
     }
 
     linkExecution(toNode) {
+        if(this.outNodeLineElement != null) {
+            this.outNodeLineElement.remove();
+        }
         this.outNode = toNode.id;
         const fromDotPosition = this.element.getBoundingClientRect();
         const toDotPosition = toNode.element.getBoundingClientRect();

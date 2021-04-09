@@ -40,6 +40,11 @@ class App {
             });
     
             this.setupLogsWatcher();
+
+            setInterval(() => {
+                this.terminal.append("debug", "Autosave ..");
+                this.saveGraph();
+            }, 60000 * 1);
         })();
     }
 
@@ -313,7 +318,7 @@ class App {
 }
 
 let Application = null;
-let Version = "1.0.0 Alpha";
+let Version = "1.0.7 BETA";
 export { Application, Version };
 
 document.addEventListener('DOMContentLoaded', () => {

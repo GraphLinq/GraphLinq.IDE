@@ -86,6 +86,22 @@ export default class NodeParameter {
                     this.svgLineElement.remove();
                     this.svgLineElement = null;
                 }
+
+                if(p.isReference() && p.value != "") {
+                    if(p.svgLineElement != null) {
+                        p.value = "";
+                        p.svgLineElement.remove();
+                        p.svgLineElement = null;
+                    }
+                }
+            }
+        }
+        
+        if(this.isReference() && this.value != "") {
+            if(this.svgLineElement != null) {
+                this.value = "";
+                this.svgLineElement.remove();
+                this.svgLineElement = null;
             }
         }
     }

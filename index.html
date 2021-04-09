@@ -13,6 +13,8 @@
     <body>
         <!-- menu -->
         <div id="menu">
+            <div class="logo"></div>
+
             <div class="menu-item">
                 <i class="fas fa-file"></i> File
                 <div class="sub-menu">
@@ -83,24 +85,29 @@
             <div class="toolbar-input graph-name">
                 <input type="text" placeholder="Graph name.." spellcheck="false" />
             </div>
-            <div class="toolbar-btn" data-app-menu="graph.add_comment">
-                <i class="fas fa-comment"></i>
-            </div>
-            <div class="toolbar-btn">
-                <i class="fab fa-creative-commons-zero"></i>
-            </div>
+            <center>
+                <div class="toolbar-btn" data-app-menu="graph.add_comment">
+                    <i class="fas fa-comment"></i>
+                </div>
+            </center>
         </div>
 
         <!-- graph-container -->
         <div id="graph-container">
             <div class="inner-container">
             </div>
+
+            <div id="linker-block" class="disable">
+                <div class="btn red btn-cancel">
+                    <i class="fas fa-ban"></i> Cancel
+                </div>
+            </div>
         </div>
 
         <!-- console -->
         <div id="console">
             <div class="header">
-                <i class="fas fa-terminal"></i> Terminal (Beta)
+                <i class="fas fa-terminal"></i> Terminal
             </div>
             <div style="display: flex; height: 100%;">
                 <div class="console-entry-scroll" style="flex: 1; overflow: auto; height: 100%;">

@@ -9,6 +9,16 @@
     z-index: 1000;
     user-select: none;
 
+    .logo {
+        background-image: url(/assets/logo.svg);
+        background-repeat: no-repeat;
+        height: 20px;
+        margin-left: 15px;
+        width: 120px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
     .right-container {
         position: absolute;
         right: 0;
@@ -35,7 +45,7 @@
 
         &:hover {
             color: white;
-            background-color: $primary-color;
+            background-color: $accent3-color;
 
             .sub-menu {
                 pointer-events: initial;
@@ -54,7 +64,7 @@
             pointer-events: none;
             opacity: 0;
             text-align: left;
-            box-shadow: 0px 0px 24px -3px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 24px -3px rgba(0,0,0,0.90);
 
             .sub-menu-item {
                 display: block;
@@ -63,7 +73,7 @@
                 min-width: 150px;
 
                 &:hover {
-                    background-color: darken($color: $accent-color, $amount: 2);
+                    background-color: $accent3-color;
                     color: white;
                 }
             }

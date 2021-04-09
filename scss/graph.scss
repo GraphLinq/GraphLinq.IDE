@@ -6,7 +6,7 @@
     top: 37px;
     transition: box-shadow 0.3s;
     box-shadow: inset 0px 0px 66px -15px rgba(0,0,0,0.75);    
-    background-image: linear-gradient(darken($primary-color, 2) .1em, transparent .1em), linear-gradient(90deg,darken($primary-color, 2) .1em, transparent .1em);
+    background-image: linear-gradient(darken($primary-color, 1) .1em, transparent .1em), linear-gradient(90deg,darken($primary-color, 1) .1em, transparent .1em);
     background-size: 1em 1em;
 
     .inner-container {
@@ -95,10 +95,13 @@
             opacity: 0.95;
             animation-name: appearIn;
             animation-duration: 0.3s;
+            border-radius: 7px;
 
             .none-toolbar {
                 display: flex;
                 background-color: $accent-color;
+                border-top-left-radius: 7px;
+                border-top-right-radius: 7px;
 
                 .node-title {
                     font-size: 14px;
@@ -115,6 +118,8 @@
                     padding-right: 12px;
                     padding-left: 12px;
                     white-space: nowrap;
+                    border-top-left-radius: 7px;
+                    border-top-right-radius: 7px;
 
                     &.connector {
                         background: linear-gradient(90deg, $node-type-connector-color 0%, rgba(243,50,255,0) 80%);
@@ -336,6 +341,41 @@
             z-index: -1;
             pointer-events: none;
             position: absolute;
+        }
+    }
+
+    #linker-block {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        background-color: darken($primary-color, 8);
+        height: 40px;
+        border-radius: 7px;
+        pointer-events: initial;
+
+        &.disable {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .btn {
+            line-height: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            border-radius: 7px;
+            user-select: none;
+
+            &.red {
+                &:hover {
+                    background-color: rgb(180, 48, 48);
+                }
+
+                &:active {
+                    background-color: rgb(170, 34, 34);
+                }
+            }
         }
     }
 }

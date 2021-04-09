@@ -32,6 +32,18 @@ export default class GraphBoard {
 
         //this.clear();
         this.setupEvents();
+        setInterval(() => {
+            this.onUITicker();
+        }, 100);
+    }
+
+    onUITicker() {
+        if(this.isLinkingExecution || this.isLinkingParameters || this.isLinkingParametersReference) {
+            document.getElementById("linker-block").classList.remove("disable");
+        }
+        else {
+            document.getElementById("linker-block").classList.add("disable");
+        }
     }
 
     clear() {
@@ -218,6 +230,31 @@ export default class GraphBoard {
             }
             this.getGraphContainer().style.transform = "scale(" + this.currentScale + ")";
         });
+
+        document.querySelector("#linker-block .btn-cancel").addEventListener("mouseup", () => {
+            this.cancelLinking();
+        });
+    }
+
+    cancelLinking() {
+        if(this.isLinkingParameters) {
+            this.linkParametersLine.remove();
+            this.linkParametersLine = null;
+            this.isLinkingParameters = false;
+            return;
+        }
+
+        if(this.isLinkingExecution) {
+            this.linkExecutionLine.remove();
+            this.isLinkingExecution = false;
+            this.linkExecutionLine = null;
+        }
+
+        if(this.isLinkingParametersReference) {
+            this.linkParametersReferenceLine.remove();
+            this.isLinkingParametersReference = false;
+            this.linkParametersReferenceLine = null;
+        }
     }
 
     async appendNewNodeWithSchema(schema, options = {}) {
