@@ -164,6 +164,7 @@ export default class GraphBoard {
         document.addEventListener("mousemove", (e) => {
             this.mousePosition.x = e.clientX;
             this.mousePosition.y = e.clientY;
+            let curved = require('svg-line-curved');
             if (this.move) {
                 const offsetX = this.offset.x - (this.moveOriginOffset.x - this.mousePosition.x);
                 const offsetY = this.offset.y - (this.moveOriginOffset.y - this.mousePosition.y);
@@ -174,24 +175,25 @@ export default class GraphBoard {
             }
               
             if(this.isLinkingParameters) {
-                const line =  this.linkParametersLine.querySelector("line");
+                const line =  this.linkParametersLine.querySelector("path");
                 const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
-                line.setAttribute("x2", this.mousePosition.x - offset.x);
-                line.setAttribute("y2", this.mousePosition.y - offset.y);
+                let dotPosition = this.linkParametersFromParameter.dot.getBoundingClientRect();
+                line.setAttribute('d', curved(dotPosition.x + dotPosition.width - offset.x, dotPosition.y + 4 - offset.y, this.mousePosition.x - offset.x, this.mousePosition.y - offset.y));
             }
 
             if(this.isLinkingParametersReference) {
-                const line =  this.linkParametersReferenceLine.querySelector("line");
+                const line =  this.linkParametersReferenceLine.querySelector("path");
                 const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
-                line.setAttribute("x2", this.mousePosition.x - offset.x);
-                line.setAttribute("y2", this.mousePosition.y - offset.y);
+                let dotPosition = this.linkParametersReferenceFromParameter.dot.getBoundingClientRect();
+                line.setAttribute('d', curved(dotPosition.x + dotPosition.width - offset.x, dotPosition.y + 4 - offset.y, this.mousePosition.x - offset.x, this.mousePosition.y - offset.y));
+
             }
 
             if(this.isLinkingExecution) {
-                const line =  this.linkExecutionLine.querySelector("line");
-                const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
-                line.setAttribute("x2", this.mousePosition.x - offset.x);
-                line.setAttribute("y2", this.mousePosition.y - offset.y);
+                const line =  this.linkExecutionLine.querySelector("path");
+                const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};    
+                const dotPosition = this.linkExecutionFromNode.element.getBoundingClientRect();
+                line.setAttribute('d', curved(dotPosition.x + dotPosition.width - offset.x, dotPosition.y + 44 - offset.y, this.mousePosition.x - offset.x, this.mousePosition.y - offset.y));
             }
         });
 
@@ -283,17 +285,16 @@ export default class GraphBoard {
 
     createLine(x1, y1, x2, y2, color, dashed = true) {
         const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        let curved = require('svg-line-curved');
         svgElement.style.width = "100%";
         svgElement.style.height = "100%";
         svgElement.style.position = "absolute";
         svgElement.setAttribute("class", "node-graph-line");
-        const lineElement = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        const lineElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
         const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
-        lineElement.setAttribute("x1", x1 - offset.x);
-        lineElement.setAttribute("y1", y1 - offset.y);
-        lineElement.setAttribute("x2", x2 - offset.x);
-        lineElement.setAttribute("y2", y2 - offset.y);
+        lineElement.setAttribute('d', curved(x1 - offset.x, y1 - offset.y, x2 - offset.x, y2 - offset.y));
         lineElement.setAttribute("stroke", color);
+        
         if(dashed) {
             lineElement.setAttribute("stroke-width", "3px");
             lineElement.setAttribute("stroke-dasharray", "5px");

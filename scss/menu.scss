@@ -50,6 +50,7 @@
             .sub-menu {
                 pointer-events: initial;
                 opacity: 1;
+                transform: translateY(0px);
             }
         }
 
@@ -65,6 +66,7 @@
             opacity: 0;
             text-align: left;
             box-shadow: 0px 0px 24px -3px rgba(0,0,0,0.90);
+            transform: translateY(-10px);
 
             .sub-menu-item {
                 display: block;

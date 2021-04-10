@@ -115,18 +115,17 @@ export default class NodeParameter {
 
     createLine() {
         const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        let curved = require('svg-line-curved');
         svgElement.style.width = "100%";
         svgElement.style.height = "100%";
         svgElement.style.position = "absolute";
         svgElement.setAttribute("class", "node-graph-line");
-        const lineElement = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        const lineElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
         const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
         const parameterBound2 = this.node.graphboard.findNodeById(this.assignmentNode).getParameterById(this.assignment).element.querySelector(".dot").getBoundingClientRect();
         const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
-        lineElement.setAttribute("x1", parameterBound1.x - offset.x + 5);
-        lineElement.setAttribute("y1", parameterBound1.y - offset.y + 5);
-        lineElement.setAttribute("x2", parameterBound2.x - offset.x + 5);
-        lineElement.setAttribute("y2", parameterBound2.y - offset.y + 5);
+
+        lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x + 5, parameterBound2.y - offset.y + 5))
         lineElement.setAttribute("stroke", "white");
         lineElement.setAttribute("stroke-width", "3px");
         lineElement.setAttribute("stroke-dasharray", "5px");
@@ -142,22 +141,18 @@ export default class NodeParameter {
             const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
             const parameterBound2 = this.node.graphboard.findNodeById(this.assignmentNode).getParameterById(this.assignment).element.querySelector(".dot").getBoundingClientRect();
             const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
-            const lineElement = this.svgLineElement.querySelector("line");
-            lineElement.setAttribute("x1", parameterBound1.x - offset.x + 5);
-            lineElement.setAttribute("y1", parameterBound1.y - offset.y + 5);
-            lineElement.setAttribute("x2", parameterBound2.x - offset.x + 5);
-            lineElement.setAttribute("y2", parameterBound2.y - offset.y + 5);
+            const lineElement = this.svgLineElement.querySelector("path");
+            let curved = require('svg-line-curved');
+            lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x + 5, parameterBound2.y - offset.y + 5))
         }
 
         if(this.value != "" && this.isReference() && this.svgLineElement != null) {
             const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
             const parameterBound2 = this.node.graphboard.findNodeById(this.value).element.getBoundingClientRect();
             const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
-            const lineElement = this.svgLineElement.querySelector("line");
-            lineElement.setAttribute("x1", parameterBound1.x - offset.x + 5);
-            lineElement.setAttribute("y1", parameterBound1.y - offset.y + 5);
-            lineElement.setAttribute("x2", parameterBound2.x - offset.x);
-            lineElement.setAttribute("y2", parameterBound2.y - offset.y + 44);
+            const lineElement = this.svgLineElement.querySelector("path");
+            let curved = require('svg-line-curved');
+            lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 44));
         }
     }
 
@@ -167,14 +162,13 @@ export default class NodeParameter {
         svgElement.style.height = "100%";
         svgElement.style.position = "absolute";
         svgElement.setAttribute("class", "node-graph-line");
-        const lineElement = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        const lineElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        let curved = require('svg-line-curved');
         const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
         const parameterBound2 = this.node.graphboard.findNodeById(this.value).element.getBoundingClientRect();
         const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
-        lineElement.setAttribute("x1", parameterBound1.x - offset.x + 5);
-        lineElement.setAttribute("y1", parameterBound1.y - offset.y + 5);
-        lineElement.setAttribute("x2", parameterBound2.x - offset.x);
-        lineElement.setAttribute("y2", parameterBound2.y - offset.y + 44);
+        lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 44));
+
         lineElement.setAttribute("stroke", "yellow");
         lineElement.setAttribute("stroke-width", "5px");
 

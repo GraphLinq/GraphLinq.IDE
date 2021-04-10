@@ -132,8 +132,14 @@ export default class Node {
         if(this.outNode == null) return;
         const fromDotPosition = this.element.getBoundingClientRect();
         const toDotPosition = this.graphboard.findNodeById(this.outNode).element.getBoundingClientRect();
-        const lineElement = this.outNodeLineElement.querySelector("line");
+        let curved = require('svg-line-curved');
+        const lineElement = this.outNodeLineElement.querySelector("path");
         const offset = {x: this.graphboard.container.offsetLeft + this.graphboard.offset.x, y: this.graphboard.container.offsetTop + this.graphboard.offset.y};
+        lineElement.setAttribute('d', curved(fromDotPosition.x + fromDotPosition.width - offset.x,
+            fromDotPosition.y + 44 - offset.y, 
+            toDotPosition.x - offset.x, 
+            toDotPosition.y + 44 - offset.y))
+        
         lineElement.setAttribute("x1", fromDotPosition.x + fromDotPosition.width - offset.x);
         lineElement.setAttribute("y1", fromDotPosition.y + 44 - offset.y);
         lineElement.setAttribute("x2", toDotPosition.x - offset.x);

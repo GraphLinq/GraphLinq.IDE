@@ -20,6 +20,7 @@
     "js-cookie": "^2.2.1",
     "moment": "^2.29.1",
     "regenerator-runtime": "^0.13.7",
+    "svg-line-curved": "^1.0.0",
     "toastr": "^2.1.4",
     "uuid": "^8.3.2",
     "web3": "^1.3.4"
