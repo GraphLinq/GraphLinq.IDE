@@ -10,6 +10,7 @@ import { saveAs } from 'file-saver';
 import { getToken, initWeb3, isLogged, requestLogin } from "./blockchain";
 import { async } from 'regenerator-runtime/runtime';
 import Cookies from "js-cookie";
+import { fetchTemplatesFromGithub } from "./github_template_fetcher";
 
 class App {
     constructor() {
@@ -45,6 +46,8 @@ class App {
                 this.terminal.append("debug", "Autosave ..");
                 this.saveGraph();
             }, 60000 * 1);
+
+            await fetchTemplatesFromGithub();
         })();
     }
 
@@ -196,9 +199,12 @@ class App {
     }
 
     newGraph() {
-        this.terminal.append("success", "Initialize new empty graph");
-        this.graphboard.clear();
-        this.saveGraph();
+        var response = confirm("Are you sure to init a new empty graph ?");
+        if(response) {
+            this.terminal.append("success", "Initialize new empty graph");
+            this.graphboard.clear();
+            this.saveGraph();
+        }
     }
 
     saveGraph() {
