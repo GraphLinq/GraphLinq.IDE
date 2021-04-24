@@ -1,4 +1,4 @@
-import {Version} from "./app";
+import {Version} from "../app";
 import moment from "moment";
 
 export default class Terminal {

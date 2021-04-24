@@ -1,16 +1,14 @@
 import 'regenerator-runtime/runtime';
-import Terminal from "./terminal";
-import Toolbox from "./toolbox";
-import GraphBoard from "./graphboard";
+import Terminal from "./shared/terminal";
+import Toolbox from "./shared/toolbox";
+import GraphBoard from "./graph/graphboard";
 import toastr from "toastr";
-import { addHandlebarsHelpers } from "./utils";
-import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate } from "./api";
+import { addHandlebarsHelpers } from "./graph/utils/utils";
+import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate } from "./services/api";
 import hotkeys from 'hotkeys-js';
 import { saveAs } from 'file-saver';
-import { getToken, initWeb3, isLogged, requestLogin } from "./blockchain";
-import { async } from 'regenerator-runtime/runtime';
-import Cookies from "js-cookie";
-import { fetchTemplatesFromGithub } from "./github_template_fetcher";
+import { getToken, initWeb3, isLogged, requestLogin } from "./auth/blockchain";
+import { fetchTemplatesFromGithub } from "./shared/github_template_fetcher";
 
 class App {
     constructor() {

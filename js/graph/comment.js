@@ -22,7 +22,7 @@ export default class Comment {
     }
 
     async appendToGraph() {
-        const templateUrl = require("../templates/graph.comment.hbs");
+        const templateUrl = require("../../templates/graph.comment.hbs");
         const template = Handlebars.compile(await (await fetch(templateUrl)).text());
         const content = template({
             id: this.id,
