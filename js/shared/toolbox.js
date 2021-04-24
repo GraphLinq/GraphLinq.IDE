@@ -44,6 +44,19 @@ export default class Toolbox {
                 item.onclick = () => {
                     this.onClickItem(item.getAttribute("data-toolbox-node-type"));
                 };
+
+                item.onmouseenter = () => {
+                    let tooltip = document.createElement("div");
+                    
+                    tooltip.classList.add("tooltip");
+                    tooltip.setAttribute("id", "tooltip-node-description");
+                    tooltip.innerText = item.querySelectorAll(".node-description")[0].innerText.replaceAll("\n", "");
+                    document.body.appendChild(tooltip);
+                };
+
+                item.onmouseleave = () => {
+                    document.getElementById("tooltip-node-description").remove();
+                };
             }
         }
 

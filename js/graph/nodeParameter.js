@@ -26,25 +26,15 @@ export default class NodeParameter {
             else {
                 this.node.graphboard.beginLinkParameter(this.node, this);
             }
-            console.log("CLICK ON DOT");
-
-            // document.onclick = () => {
-            //     console.log("CLICK OUT");
-            //     this.node.graphboard.cancelLinking();
-            //     document.onclick = undefined;
-            // };
         });
 
         this.dot.addEventListener("mouseup", (ev) => {
             if (ev.which != 3) return;
-
-            console.log("DOT mouseup");
             this.deleteAssignment();
         });
 
         if(isParameterIsEditable(this.schema.ValueType) && this.element.querySelector(".parameter-value-input") != null) {
             this.element.querySelector(".parameter-value-input").addEventListener("keyup", (e) => {
-                console.log("DOT keyup parameter");
                 this.value = e.target.value;
             })
         }

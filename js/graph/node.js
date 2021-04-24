@@ -96,7 +96,6 @@ export default class Node {
         if(this.schema.CanExecute) {
             this.element.querySelector(".out .execution .dot").addEventListener("click", (e) => {
                 e.stopPropagation();
-                console.log("click canexecute");
                 this.graphboard.beginLinkExecution(this, "out");
             });
 
@@ -109,7 +108,6 @@ export default class Node {
         if(this.schema.CanBeExecuted) {
             this.element.querySelector(".in .execution .dot").addEventListener("click", (e) => {
                 e.stopPropagation();
-                console.log("click caneBeexecute");
                 this.graphboard.beginLinkExecution(this, "in");
             });
 
