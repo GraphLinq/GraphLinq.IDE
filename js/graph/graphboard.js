@@ -15,20 +15,7 @@ export default class GraphBoard {
         this.moveOffset = {x:0,y:0};
         this.mousePosition = {x:0,y:0};
         this.currentScale = 1;
-
-        this.isLinkingParameters = false;
-        this.linkParametersLine = null;
-        this.linkParametersFromNode = null;
-        this.linkParametersFromParameter = null;
-
-        this.isLinkingParametersReference = false;
-        this.linkParametersReferenceLine = null;
-        this.linkParametersReferenceFromNode = null;
-        this.linkParametersReferenceFromParameter = null;
-
-        this.isLinkingExecution = false;
-        this.linkExecutionLine = null;
-        this.linkExecutionFromNode = null;
+        this.currentLink = undefined;
 
         //this.clear();
         this.setupEvents();
@@ -38,7 +25,7 @@ export default class GraphBoard {
     }
 
     onUITicker() {
-        if(this.isLinkingExecution || this.isLinkingParameters || this.isLinkingParametersReference) {
+        if (this.currentLink?.type == "Execution" || this.currentLink?.type == "Parameter" || this.currentLink?.type == "ParametersReference") {
             document.getElementById("linker-block").classList.remove("disable");
         }
         else {
@@ -55,11 +42,13 @@ export default class GraphBoard {
     }
 
     beginLinkParameter(fromNode, fromParameter) {
-        if(this.isLinkingParameters) {
-            if(fromParameter.schema.Id == this.linkParametersFromParameter.schema.Id && fromNode.id == this.linkParametersFromNode.id) {
-                this.linkParametersLine.remove();
-                this.linkParametersLine = null;
-                this.isLinkingParameters = false;
+        if (fromParameter.direction == "out") {
+            fromParameter.deleteAssignment();// if dot have link remove that
+        }
+        if(this.currentLink?.type == "Parameter") { // ???
+            if(fromParameter.schema.Id == this.currentLink.fromParameter.schema.Id && fromNode.id == this.currentLink.fromNode.id) {
+                this.currentLink.element.remove();
+                this.currentLink = undefined;
                 return;
             }
             this.linkParameter(fromParameter);
@@ -70,17 +59,26 @@ export default class GraphBoard {
             this.app.terminal.append("error", "You need to select a OUT parameter point for beginning the linking");
             return;
         }
-        this.isLinkingParameters = true;
-        this.linkParametersFromNode = fromNode;
-        this.linkParametersFromParameter = fromParameter;
 
         const dotPosition = fromParameter.dot.getBoundingClientRect();
-        this.linkParametersLine = this.createLine(dotPosition.x + 5, dotPosition.y + 5, this.mousePosition.x, this.mousePosition.y, "gray");
-        this.getGraphContainer().appendChild(this.linkParametersLine);
+        const svgLine = this.createLine(dotPosition.x + 5, dotPosition.y + 5, this.mousePosition.x, this.mousePosition.y, "gray");
+        
+        this.currentLink = {
+            type: "Parameter",
+            direction: fromParameter.direction,
+            element: svgLine,
+            fromNode: fromNode,
+            fromParameter: fromParameter
+        };
+
+        this.getGraphContainer().appendChild(this.currentLink.element);
     }
 
     beginLinkReference(fromNode, fromParameter) {
-        if(this.isLinkingParametersReference) {
+        if (fromParameter.direction == "out") {
+            fromParameter.deleteAssignment();// if dot have link remove that
+        }
+        if(this.currentLink?.type == "ParametersReference") {
             return;
         }
         if(fromParameter.direction == "in") {
@@ -88,27 +86,33 @@ export default class GraphBoard {
             this.app.terminal.append("error", "You need to select a OUT parameter point for beginning the linking");
             return;
         }
-        this.isLinkingParametersReference = true;
-        this.linkParametersReferenceFromNode = fromNode;
-        this.linkParametersReferenceFromParameter = fromParameter;
 
         const dotPosition = fromParameter.dot.getBoundingClientRect();
-        this.linkParametersReferenceLine = this.createLine(dotPosition.x + 5, dotPosition.y + 5, this.mousePosition.x, this.mousePosition.y, "#989818");
-        this.getGraphContainer().appendChild(this.linkParametersReferenceLine);
+        const svgLine = this.createLine(dotPosition.x + 5, dotPosition.y + 5, this.mousePosition.x, this.mousePosition.y, "#989818");
+        
+        this.currentLink = {
+            type: "ParametersReference",
+            direction: fromParameter.direction,
+            element: svgLine,
+            fromNode: fromNode,
+            fromParameter: fromParameter
+        };
+
+        this.getGraphContainer().appendChild(this.currentLink.element);
     }
 
     linkParameter(toParameter) {
-        if(!this.isLinkingParameters) return;
-        this.linkParametersLine.remove();
-        this.linkParametersLine = null;
-        this.isLinkingParameters = false;
-        toParameter.linkParameter(this.linkParametersFromNode, this.linkParametersFromParameter);
-        this.linkParametersFromNode = null;
-        this.linkParametersFromParameter = null;
+        if (this.currentLink?.type != "Parameter") return ;
+        this.currentLink.element.remove();
+        toParameter.linkParameter(this.currentLink.fromNode, this.currentLink.fromParameter);
+        this.currentLink = undefined;
     }
 
     beginLinkExecution(fromNode, direction) {
-        if(this.isLinkingParametersReference) {
+        if (direction == "out") {
+            fromNode.deleteExecution();// if dot have link remove that
+        }
+        if (this.currentLink?.type == "ParametersReference") {
             if(direction != "in") {
                 toastr.error("You need to select a IN execution point");
                 this.app.terminal.append("error", "You need to select a IN execution point");
@@ -117,7 +121,7 @@ export default class GraphBoard {
             this.linkParameterReference(fromNode);
             return;
         }
-        if(this.isLinkingExecution) {
+        if(this.currentLink?.type == "Execution") {
             if(direction != "in") {
                 toastr.error("You need to select a IN execution point");
                 this.app.terminal.append("error", "You need to select a IN execution point");
@@ -131,33 +135,32 @@ export default class GraphBoard {
             this.app.terminal.append("error", "You need to select a OUT execution point for beginning the linking");
             return;
         }
-        this.isLinkingExecution = true;
         const dotPosition = fromNode.element.getBoundingClientRect();
-        this.linkExecutionFromNode = fromNode;
-        this.linkExecutionLine = this.createLine(dotPosition.x + dotPosition.width, dotPosition.y + 44, this.mousePosition.x, this.mousePosition.y, "#989818");
+        const svgLine = this.createLine(dotPosition.x + dotPosition.width, dotPosition.y + 44, this.mousePosition.x, this.mousePosition.y, "#989818");
     
-        this.getGraphContainer().appendChild(this.linkExecutionLine);
+        this.currentLink = {
+            type: "Execution",
+            direction: direction,
+            element: svgLine,
+            fromNode: fromNode
+        };
+        this.getGraphContainer().appendChild(this.currentLink.element);
     }
 
     linkExecution(toNode, fromNode = null) {
-        if(fromNode == null) {
-            if(!this.isLinkingExecution) return;
+        if (this.currentLink?.type != "Execution") return ;
+        if (fromNode != null) {
+            this.currentLink.fromNode = fromNode;
         }
-        if(fromNode != null) this.linkExecutionFromNode = fromNode;
-        if(this.linkExecutionLine != null) this.linkExecutionLine.remove();
-        this.isLinkingExecution = false;
-        if(this.linkExecutionLine != null) this.linkExecutionFromNode.linkExecution(toNode);
-        this.linkExecutionLine = null;
-        this.linkExecutionFromNode = null;
+        this.currentLink.fromNode.linkExecution(toNode);
+        this.currentLink.element.remove();// remove doted line;
+        this.currentLink = undefined;
     }
 
     linkParameterReference(toNode) {
-        if(!this.isLinkingParametersReference) return;
-        this.linkParametersReferenceLine.remove();
-        this.linkParametersReferenceLine = null;
-        this.isLinkingParametersReference = false;
-        this.linkParametersReferenceFromParameter.linkExecution(toNode);
-        this.linkParametersReferenceFromNode = null;
+        if (this.currentLink?.type != "ParametersReference") return;
+        this.currentLink.element.remove();
+        this.currentLink.fromParameter.linkExecution(toNode);
     }
 
     setupEvents() {
@@ -174,25 +177,24 @@ export default class GraphBoard {
                 this.getGraphContainer().style.left = offsetX;
             }
               
-            if(this.isLinkingParameters) {
-                const line =  this.linkParametersLine.querySelector("path");
+            if (this.currentLink?.type == "Parameter") {
+                const line =  this.currentLink.element.querySelector("path");
                 const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
-                let dotPosition = this.linkParametersFromParameter.dot.getBoundingClientRect();
+                let dotPosition = this.currentLink.fromParameter.dot.getBoundingClientRect();
                 line.setAttribute('d', curved(dotPosition.x + dotPosition.width - offset.x, dotPosition.y + 4 - offset.y, this.mousePosition.x - offset.x, this.mousePosition.y - offset.y));
             }
 
-            if(this.isLinkingParametersReference) {
-                const line =  this.linkParametersReferenceLine.querySelector("path");
+            if (this.currentLink?.type == "ParametersReference") {
+                const line =  this.currentLink.element.querySelector("path");
                 const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
-                let dotPosition = this.linkParametersReferenceFromParameter.dot.getBoundingClientRect();
+                let dotPosition = this.currentLink.fromParameter.dot.getBoundingClientRect();
                 line.setAttribute('d', curved(dotPosition.x + dotPosition.width - offset.x, dotPosition.y + 4 - offset.y, this.mousePosition.x - offset.x, this.mousePosition.y - offset.y));
-
             }
 
-            if(this.isLinkingExecution) {
-                const line =  this.linkExecutionLine.querySelector("path");
+            if (this.currentLink?.type == "Execution") {
+                const line =  this.currentLink.element.querySelector("path");
                 const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};    
-                const dotPosition = this.linkExecutionFromNode.element.getBoundingClientRect();
+                const dotPosition = this.currentLink.fromNode.element.getBoundingClientRect();
                 line.setAttribute('d', curved(dotPosition.x + dotPosition.width - offset.x, dotPosition.y + 44 - offset.y, this.mousePosition.x - offset.x, this.mousePosition.y - offset.y));
             }
         });
@@ -236,27 +238,17 @@ export default class GraphBoard {
         document.querySelector("#linker-block .btn-cancel").addEventListener("mouseup", () => {
             this.cancelLinking();
         });
+
+        document.addEventListener('click', (ev) => {
+            this.cancelLinking();
+            return false;
+        }, false);
     }
 
     cancelLinking() {
-        if(this.isLinkingParameters) {
-            this.linkParametersLine.remove();
-            this.linkParametersLine = null;
-            this.isLinkingParameters = false;
-            return;
-        }
-
-        if(this.isLinkingExecution) {
-            this.linkExecutionLine.remove();
-            this.isLinkingExecution = false;
-            this.linkExecutionLine = null;
-        }
-
-        if(this.isLinkingParametersReference) {
-            this.linkParametersReferenceLine.remove();
-            this.isLinkingParametersReference = false;
-            this.linkParametersReferenceLine = null;
-        }
+        if (this.currentLink == undefined) return ;
+        this.currentLink.element.remove();
+        this.currentLink = undefined;
     }
 
     async appendNewNodeWithSchema(schema, options = {}) {

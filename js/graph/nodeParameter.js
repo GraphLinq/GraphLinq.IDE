@@ -1,4 +1,4 @@
-import {isParameterIsEditable} from "./utils";
+import {isParameterIsEditable} from "./utils/utils";
 import { v4 as uuidv4 } from 'uuid';
 
 export default class NodeParameter {
@@ -18,7 +18,8 @@ export default class NodeParameter {
     }
 
     setupEvents() {
-        this.dot.addEventListener("click", () => {
+        this.dot.addEventListener("click", (e) => {
+            e.stopPropagation();
             if(this.isReference()) {
                 this.node.graphboard.beginLinkReference(this.node, this);
             }
@@ -108,7 +109,7 @@ export default class NodeParameter {
 
     setValue(value) {
         this.value = value;
-        if(isParameterIsEditable(this.schema.ValueType) && this.element.querySelector(".parameter-value-input") != null) {
+        if (isParameterIsEditable(this.schema.ValueType) && this.element.querySelector(".parameter-value-input") != null) {
             this.element.querySelector(".parameter-value-input").value = this.value;
         }
     }
@@ -137,7 +138,7 @@ export default class NodeParameter {
     }
 
     updateLine() {
-        if(this.assignment != "" && this.assignmentNode != "" && this.svgLineElement != null) {
+        if (this.assignment != "" && this.assignmentNode != "" && this.svgLineElement != null) {
             const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
             const parameterBound2 = this.node.graphboard.findNodeById(this.assignmentNode).getParameterById(this.assignment).element.querySelector(".dot").getBoundingClientRect();
             const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
@@ -146,7 +147,7 @@ export default class NodeParameter {
             lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x + 5, parameterBound2.y - offset.y + 5))
         }
 
-        if(this.value != "" && this.isReference() && this.svgLineElement != null) {
+        if (this.value != "" && this.isReference() && this.svgLineElement != null) {
             const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
             const parameterBound2 = this.node.graphboard.findNodeById(this.value).element.getBoundingClientRect();
             const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};

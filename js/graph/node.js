@@ -94,7 +94,8 @@ export default class Node {
 
         // Setup execution parameter
         if(this.schema.CanExecute) {
-            this.element.querySelector(".out .execution .dot").addEventListener("click", () => {
+            this.element.querySelector(".out .execution .dot").addEventListener("click", (e) => {
+                e.stopPropagation();
                 this.graphboard.beginLinkExecution(this, "out");
             });
 
@@ -105,7 +106,8 @@ export default class Node {
         }
 
         if(this.schema.CanBeExecuted) {
-            this.element.querySelector(".in .execution .dot").addEventListener("click", () => {
+            this.element.querySelector(".in .execution .dot").addEventListener("click", (e) => {
+                e.stopPropagation();
                 this.graphboard.beginLinkExecution(this, "in");
             });
 
@@ -147,7 +149,7 @@ export default class Node {
     }
 
     async appendNodeToGraph() {
-        const templateUrl = require("../templates/graph.node.hbs");
+        const templateUrl = require("../../templates/graph.node.hbs");
         const template = Handlebars.compile(await (await fetch(templateUrl)).text());
         const content = template({
             id: this.id,

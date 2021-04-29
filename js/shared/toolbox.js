@@ -1,11 +1,10 @@
-import fs from "fs";
 import Handlebars from "handlebars";
 
 export default class Toolbox {
     constructor(app) {
         this.app = app;
         this.container = document.querySelector("#toolbox");
-        this.schema = require("./node_schema.json");
+        this.schema = require("../node_schema.json");
         this.app.terminal.append("debug", this.schema.length + " block loaded in the toolbox");
         this.groups = [];
         this.setup();
@@ -31,7 +30,7 @@ export default class Toolbox {
         this.groups = sections;
 
         // Build html
-        const templateUrl = require("../templates/toolbox.group.hbs");
+        const templateUrl = require("../../templates/toolbox.group.hbs");
         const template = Handlebars.compile(await (await fetch(templateUrl)).text());
         for(const i of this.groups) {
             const content = template({
@@ -44,6 +43,19 @@ export default class Toolbox {
             for(const item of element.querySelectorAll(".group-node-item")) {
                 item.onclick = () => {
                     this.onClickItem(item.getAttribute("data-toolbox-node-type"));
+                };
+
+                item.onmouseenter = () => {
+                    let tooltip = document.createElement("div");
+                    
+                    tooltip.classList.add("tooltip");
+                    tooltip.setAttribute("id", "tooltip-node-description");
+                    tooltip.innerText = item.querySelectorAll(".node-description")[0].innerText.replaceAll("\n", "");
+                    document.body.appendChild(tooltip);
+                };
+
+                item.onmouseleave = () => {
+                    document.getElementById("tooltip-node-description").remove();
                 };
             }
         }

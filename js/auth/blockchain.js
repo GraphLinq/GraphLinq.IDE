@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import * as API from "./api";
+import * as API from "../services/api";
 import toastr from "toastr";
 
 let web3Instance = null;

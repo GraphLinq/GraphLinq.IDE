@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./node_modules/parcel-bundler/bin/cli.js index.html",
+    "build": "node ./node_modules/parcel-bundler/bin/cli.js build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cssnano": "^4.1.11",
+    "parcel-bundler": "^1.12.5",
     "sass": "^1.32.7"
   },
   "dependencies": {

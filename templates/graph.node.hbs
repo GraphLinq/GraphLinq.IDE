@@ -13,6 +13,7 @@
             {{#if schema.CanBeExecuted}}
                 <div class="node-parameter execution">
                     <div class="dot"></div>
+                    in
                 </div>
             {{/if}}
             {{#each schema.InParameters as |parameter|}}
@@ -26,6 +27,7 @@
             {{#if schema.CanExecute}}
                 <div class="node-parameter execution">
                     <div class="dot"></div>
+                    out
                 </div>
             {{/if}}
             {{#each schema.OutParameters as |parameter|}}
