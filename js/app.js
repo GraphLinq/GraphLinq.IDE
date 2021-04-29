@@ -284,6 +284,7 @@ class App {
                 if (nodeParameter == null) continue;
                 if (p.assignment != "" && p.assignment != null) {
                     const otherNode = this.graphboard.findNodeById(p.assignment_node);
+                    if(otherNode == null) continue;
                     const otherParameter = otherNode.parameters.filter(x => x.id == p.assignment)[0];
                     nodeParameter.linkParameter(otherNode, otherParameter);
                 }
