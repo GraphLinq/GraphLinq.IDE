@@ -89,7 +89,7 @@ export default class GraphBoard {
 
         const dotPosition = fromParameter.dot.getBoundingClientRect();
         const svgLine = this.createLine(dotPosition.x + 5, dotPosition.y + 5, this.mousePosition.x, this.mousePosition.y, "#989818");
-        
+        console.log(fromParameter)
         this.currentLink = {
             type: "ParametersReference",
             direction: fromParameter.direction,
@@ -161,6 +161,7 @@ export default class GraphBoard {
         if (this.currentLink?.type != "ParametersReference") return;
         this.currentLink.element.remove();
         this.currentLink.fromParameter.linkExecution(toNode);
+        this.currentLink = undefined;
     }
 
     setupEvents() {

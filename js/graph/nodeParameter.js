@@ -88,7 +88,7 @@ export default class NodeParameter {
                     this.svgLineElement = null;
                 }
 
-                if(p.isReference() && p.value != "") {
+                if(p.isReference() && p.value != "" && p.value == this.id) {
                     if(p.svgLineElement != null) {
                         p.value = "";
                         p.svgLineElement.remove();

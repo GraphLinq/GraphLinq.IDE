@@ -53,4 +53,13 @@
             {{/each}}
         </div>
     </div>
+    <div class="special-actions">
+        {{#each schema.SpecialActionsAttributes as |action|}}
+            {{#ifEquals action.Type "open_url"}}
+                <div class="btn-classic" onclick="javascript: window.open('{{action.Parameter}}')">
+                    {{action.Text}}
+                </div>
+            {{/ifEquals}}
+        {{/each}}
+    </div>
 </div>
