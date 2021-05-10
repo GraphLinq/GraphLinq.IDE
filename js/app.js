@@ -21,6 +21,7 @@ class App {
         this.graphboard = new GraphBoard(this);
         this.toolbox = new Toolbox(this);
         this.projectManager = new ProjectManager(this);
+        this.currentProject = null;
 
         this.lastGraphHashLaunched = "";
 
@@ -29,10 +30,24 @@ class App {
             await initWeb3();
     
             // Load graph in cache
-            const loadGraphResult = (await this.handleUrlParameters());
-            if (localStorage.getItem('graph') != null && localStorage.getItem('graph') != "null" && !loadGraphResult) {
-                this.terminal.append("success", "Graph loaded from the cache");
-                this.loadGraphFromJSON(localStorage.getItem('graph'));
+            if (localStorage.getItem('graph') != null && localStorage.getItem('graph') != "null") {
+                await this.migrateToProject();
+            }
+            else {
+                const loadGraphResult = (await this.handleUrlParameters());
+                if(!loadGraphResult) {
+                    if(this.projectManager.projects.length == 0) {
+                        this.currentProject = await this.projectManager.createNewProject({});
+                        this.saveGraph();
+                        await this.loadProjectById(this.currentProject.id);
+                        this.terminal.append("success", "New project created");
+                    }
+                    else {
+                        // Load from project
+                        this.loadProjectById(localStorage.getItem("current_project"));
+                        this.terminal.append("success", "Loaded the graph project from the cache");
+                    }
+                }
             }
     
             hotkeys('ctrl+s', (event, handler) => {
@@ -51,6 +66,21 @@ class App {
         })();
     }
 
+    async loadProjectById(id) {
+        let project = this.projectManager.projects.find(x => x.id == id);
+        await this.loadGraphFromJSON(localStorage.getItem('graph/' + id));
+        this.currentProject = project;
+    }
+
+    async migrateToProject() {
+        this.currentProject = await this.projectManager.createNewProject({
+            name: this.graphboard.name
+        });
+        this.saveGraph();
+        localStorage.removeItem("graph");
+        this.terminal.append("warning", "Your graph has been migrated to a project graph");
+    }
+
     async handleUrlParameters() {
         var url = new URL(window.location.href);
         var idGraph = url.searchParams.get("loadGraph");
@@ -59,7 +89,10 @@ class App {
         const result = await fetchTemplate(idGraph)
         if (result.success) {
             const decompressed = (await fetchDecompress(result.template.bytes, "")).decompressed
-            this.loadGraphFromJSON(decompressed)
+            await this.loadGraphFromJSON(decompressed);
+            this.currentProject = await this.projectManager.createNewProject({
+                name: this.graphboard.name
+            })
             window.history.pushState('', 'GraphLinq IDE', window.location.protocol + "//" + window.location.host);
         }
 
@@ -110,6 +143,9 @@ class App {
             reader.readAsText(file, "UTF-8");
             reader.onload = async (readEvt) => {
                 await this.loadGraphFromJSON(readEvt.target.result, !readEvt.target.result.startsWith("{"));
+                this.currentProject = await this.projectManager.createNewProject({
+                    name: this.graphboard.name
+                })
                 this.terminal.append("success", "Graph " + this.graphboard.name + " loaded from file");
                 this.saveGraph();
             }
@@ -126,6 +162,7 @@ class App {
 
     exportGraphAsJSON() {
         let graphJson = {
+            project_id: this.currentProject.id,
             name: this.graphboard.name,
             nodes: [],
             comments: []
@@ -198,18 +235,21 @@ class App {
         document.getElementById("file-input").click();
     }
 
-    newGraph() {
+    async newGraph() {
         var response = confirm("Are you sure to init a new empty graph ?");
         if(response) {
             this.terminal.append("success", "Initialize new empty graph");
             this.graphboard.clear();
+            let project = await this.projectManager.createNewProject({});
+            this.currentProject = project;
             this.saveGraph();
         }
     }
 
     saveGraph() {
         const json = this.exportGraphAsJSON();
-        localStorage.setItem('graph', JSON.stringify(json));
+        localStorage.setItem("graph/" + this.currentProject.id, JSON.stringify(json));
+        localStorage.setItem("current_project", this.currentProject.id);
         this.terminal.append("success", "Graph saved");
     }
 
@@ -275,6 +315,7 @@ class App {
 
         for (const node of graph.nodes) {
             const graphnode = this.graphboard.findNodeById(node.id);
+            if(graphnode == null) continue;
             if (node.out_node != null) {
                 const otherNode = this.graphboard.findNodeById(node.out_node);
                 graphnode.linkExecution(otherNode);
@@ -299,8 +340,6 @@ class App {
                 }
             }
         }
-
-        this.saveGraph();
     }
 
     configureToast() {
@@ -325,7 +364,7 @@ class App {
 }
 
 let Application = null;
-let Version = "1.0.8";
+let Version = "1.1.0";
 export { Application, Version };
 
 document.addEventListener('DOMContentLoaded', () => {

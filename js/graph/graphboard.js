@@ -202,6 +202,8 @@ export default class GraphBoard {
 
         document.querySelector(".graph-name input").addEventListener("keyup", (e) => {
             this.name = e.target.value;
+            this.app.currentProject.name = this.name;
+            this.app.currentProject.update();
         });
 
         document.addEventListener('mousedown', (ev) => {

@@ -1,6 +1,6 @@
 #toolbox {
     position: fixed;
-    top: 37px;
+    top: 35px;
     bottom: 0;
     left: 0;
     width: 250px;
@@ -11,6 +11,75 @@
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 999;
+
+    #project-manager {
+        .title {
+            margin-top: 3px;
+            margin-bottom: 3px;
+            padding: 5px;
+            padding-left: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            background-color: darken($color: $accent-color, $amount: 2);
+            svg {
+                margin-right: 3px;
+            }
+        }
+
+        .project-item{
+            padding: 5px 5px;
+            cursor: pointer;
+            transition: 0.2s;
+            position: relative;
+            font-size: 13px;
+            color: $text-color;
+            position: relative;
+
+            svg {
+                margin-right: 3px;
+            }
+
+            .delete-item {
+                opacity: 0;
+                vertical-align: middle;
+                transition: 0.5s;
+                position: absolute;
+                top: 2px;
+                bottom: 2px;
+                right: 0px;
+                width: 27px;
+                color: white;
+                padding-top: 5px;
+                text-align: center;
+                transform: translateX(50px);
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+            &:hover {
+                background-color: $accent3-color;
+                font-weight: bold;
+                padding-left: 10px;
+                color: white;
+
+                .delete-item {
+                    opacity: 1;
+                    background-color: rgb(172, 37, 37);
+                    transform: translateX(0px);
+
+                    &:hover {
+                        background-color: rgb(216, 25, 25);
+                        width: 35px;
+                    }
+                }
+            }
+
+            &:active {
+                background-color: lighten($color: $accent-color, $amount: 8);
+            }
+        }
+    }
 
     .searchbox {
         margin-top: 15px;

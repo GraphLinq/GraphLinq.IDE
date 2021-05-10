@@ -26,7 +26,7 @@
                         <i class="fas fa-file-upload"></i> Load graph
                     </div>
                     <div class="sub-menu-item" data-app-menu="file.save">
-                        <i class="fas fa-file-download"></i> Save graph
+                        <i class="fas fa-file-download"></i> Save graph (CTRL+S)
                     </div>
                     <div class="sub-menu-item" data-app-menu="file.export">
                         <i class="fas fa-file-download"></i> Export as file
@@ -39,18 +39,13 @@
                     <div class="sub-menu-item" data-app-menu="execution.launch">
                         <i class="fas fa-play"></i> Launch
                     </div>
-                    <!--
-                    <div class="sub-menu-item">
-                        <i class="fas fa-terminal"></i> Terminal
-                    </div>
-                    <div class="sub-menu-item">
-                        <i class="fas fa-list"></i> Show graphs
-                    </div>
-                    <div class="sub-menu-item">
-                        <i class="fas fa-bug"></i> Stacktrace
-                    </div>
-                    -->
                 </div>
+            </div>
+            <div class="menu-item" onclick="javascript: window.open('https://app.graphlinq.io')">
+                <i class="fas fa-columns"></i> Dashboard
+            </div>
+            <div class="menu-item" onclick="javascript: window.open('https://analytics.graphlinq.io')">
+                <i class="fas fa-chart-area"></i> Analytics
             </div>
             <div class="menu-item" onclick="javascript: window.open('https://docs.graphlinq.io')">
                 <i class="fas fa-book"></i> Documentation
@@ -73,6 +68,15 @@
 
         <!-- toolbox -->
         <div id="toolbox">
+            <!-- project-manager -->
+            <div id="project-manager">
+                <div class="title">
+                    <i class="fas fa-cube"></i> Projects
+                </div>
+                <div class="projects-container">
+
+                </div>
+            </div>
             <div class="searchbox">
                 <input type="text" id="toolbar-search-input" placeholder="Search a block by name" />
             </div>
