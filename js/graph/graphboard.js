@@ -43,7 +43,7 @@ export default class GraphBoard {
 
     beginLinkParameter(fromNode, fromParameter) {
         if (fromParameter.direction == "out") {
-            fromParameter.deleteAssignment();// if dot have link remove that
+            //fromParameter.deleteAssignment();// if dot have link remove that
         }
         if(this.currentLink?.type == "Parameter") { // ???
             if(fromParameter.schema.Id == this.currentLink.fromParameter.schema.Id && fromNode.id == this.currentLink.fromNode.id) {
