@@ -1,4 +1,5 @@
 import Handlebars from "handlebars";
+import { ReleaseMode } from "../app";
 
 export default class Toolbox {
     constructor(app) {
@@ -33,9 +34,13 @@ export default class Toolbox {
         const templateUrl = require("../../templates/toolbox.group.hbs");
         const template = Handlebars.compile(await (await fetch(templateUrl)).text());
         for(const i of this.groups) {
+            let items = this.schema.filter(x => x.NodeGroupName == i);
+            let itemsWithoutIDEParameters = items.filter(x => x.IDEParameters == null);
+            let itemsVisibleIDEParameters = items.filter(x => x.IDEParameters != null && !x.IDEParameters.Hidden);
+            
             const content = template({
                 groupName: i,
-                items: this.schema.filter(x => x.NodeGroupName == i)
+                items: ReleaseMode == "dev" ? items : [...itemsWithoutIDEParameters, ...itemsVisibleIDEParameters]
             });
             const element = document.createElement("div");
             element.innerHTML = content;

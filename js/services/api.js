@@ -2,7 +2,6 @@ const engineBaseUrl = "http://localhost:1337";
 const apiBaseUrl = "https://api.graphlinq.io";
 
 const engineBasedAPI = false;
-const env = "prod";
 
 export const fetchCompressed = (data, token) => {
     if(engineBasedAPI) return fetchCompressedEngine(data);

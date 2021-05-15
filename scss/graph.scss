@@ -95,16 +95,19 @@
             opacity: 0.95;
             animation-name: appearIn;
             animation-duration: 0.3s;
-            border-radius: 7px;
+            border-radius: 10px;
+            transition: transform 0.25s, box-shadow 0.25s;
 
-            .special-actions {
+            &:hover {
+                //transform: scale(1.03);
+                box-shadow: 0px 0px 24px 0px rgba(0,0,0,1);
             }
 
             .none-toolbar {
                 display: flex;
                 background-color: $accent-color;
-                border-top-left-radius: 7px;
-                border-top-right-radius: 7px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
 
                 .node-title {
                     font-size: 14px;
@@ -121,8 +124,8 @@
                     padding-right: 12px;
                     padding-left: 12px;
                     white-space: nowrap;
-                    border-top-left-radius: 7px;
-                    border-top-right-radius: 7px;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
 
                     &.connector {
                         background: linear-gradient(90deg, $node-type-connector-color 0%, rgba(243,50,255,0) 80%);
@@ -190,7 +193,7 @@
                         position: relative;
                         margin-top: 3px;
                         margin-bottom: 3px;
-                        transition: color 0.2s;
+                        transition: color 0.2s, min-height 0.2s;
                         text-transform: capitalize;
                         white-space: nowrap;
 
