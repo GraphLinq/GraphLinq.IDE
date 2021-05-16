@@ -42,15 +42,13 @@ export default class GraphBoard {
     }
 
     beginLinkParameter(fromNode, fromParameter) {
-        if (fromParameter.direction == "out") {
-            fromParameter.deleteAssignment();// if dot have link remove that
-        }
         if(this.currentLink?.type == "Parameter") { // ???
             if(fromParameter.schema.Id == this.currentLink.fromParameter.schema.Id && fromNode.id == this.currentLink.fromNode.id) {
                 this.currentLink.element.remove();
                 this.currentLink = undefined;
                 return;
             }
+            console.log("JJJJ3", this.currentLink, fromParameter);
             this.linkParameter(fromParameter);
             return;
         }
@@ -70,6 +68,8 @@ export default class GraphBoard {
             fromNode: fromNode,
             fromParameter: fromParameter
         };
+
+        console.log("JJJJ", this.currentLink);
 
         this.getGraphContainer().appendChild(this.currentLink.element);
     }
@@ -118,6 +118,7 @@ export default class GraphBoard {
                 this.app.terminal.append("error", "You need to select a IN execution point");
                 return;
             }
+            console.log("JJJJ2", this.currentLink);
             this.linkParameterReference(fromNode);
             return;
         }
