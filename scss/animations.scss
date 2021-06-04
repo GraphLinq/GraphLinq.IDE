@@ -19,3 +19,51 @@
         transform: translateY(0);
     }
 }
+
+@keyframes appearInToolbox {
+    from {
+        transform: translateX(-300px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes appearInConsole {
+    from {
+        transform: translateY(300px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes appearInGraph {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appearInMenu {
+    from {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 1000;
+    }
+  }

@@ -54,6 +54,18 @@ class App {
                 event.preventDefault()
                 this.saveGraph();
             });
+            hotkeys('ctrl+e', (event, handler) => {
+                event.preventDefault()
+                this.launchGraph();
+            });
+            hotkeys('ctrl+o', (event, handler) => {
+                event.preventDefault();
+                this.requestLoadGraphFromFile();
+            });
+            hotkeys('ctrl+,', (event, handler) => {
+                event.preventDefault();
+                this.newGraph();
+            });
     
             this.setupLogsWatcher();
 
@@ -70,13 +82,14 @@ class App {
         let project = this.projectManager.projects.find(x => x.id == id);
         await this.loadGraphFromJSON(localStorage.getItem('graph/' + id));
         this.currentProject = project;
+        document.title = this.currentProject.name + " - GraphLinq IDE";
     }
 
     async migrateToProject() {
+        await this.loadGraphFromJSON(localStorage.getItem('graph'))
         this.currentProject = await this.projectManager.createNewProject({
             name: this.graphboard.name
         });
-        this.saveGraph();
         localStorage.removeItem("graph");
         this.terminal.append("warning", "Your graph has been migrated to a project graph");
     }
@@ -294,6 +307,9 @@ class App {
 
         for (const node of graph.nodes) {
             const schema = this.toolbox.schema.filter(x => x.NodeType == node.type)[0];
+            if(!schema) {
+                continue;
+            }
             const graphnode = await this.graphboard.appendNewNodeWithSchema(schema, {
                 id: node.id,
                 x: node._x,
@@ -318,7 +334,9 @@ class App {
             if(graphnode == null) continue;
             if (node.out_node != null) {
                 const otherNode = this.graphboard.findNodeById(node.out_node);
-                graphnode.linkExecution(otherNode);
+                if(otherNode != null) {
+                    graphnode.linkExecution(otherNode);
+                }
             }
             for (const p of node.in_parameters) {
                 const nodeParameter = graphnode.parameters.filter(x => x.schema.Name == p.name)[0];
@@ -364,7 +382,7 @@ class App {
 }
 
 let Application = null;
-let Version = "1.1.0";
+let Version = "1.2.0";
 let ReleaseMode = "prod";
 export { Application, Version, ReleaseMode };
 

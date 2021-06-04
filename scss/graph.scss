@@ -8,6 +8,8 @@
     box-shadow: inset 0px 0px 66px -15px rgba(0,0,0,0.75);    
     background-image: linear-gradient(darken($primary-color, 1) .1em, transparent .1em), linear-gradient(90deg,darken($primary-color, 1) .1em, transparent .1em);
     background-size: 1em 1em;
+    animation-name: appearInGraph;
+    animation-duration: 3s;
 
     .inner-container {
         width: 10000%;
@@ -110,7 +112,7 @@
                 border-top-right-radius: 10px;
 
                 .node-title {
-                    font-size: 14px;
+                    font-size: 13px;
                     color: white;
                     text-shadow: 1px 1px 2px rgb(0, 0, 0);
                     text-align: center;
@@ -189,7 +191,7 @@
 
                     .node-parameter {
                         min-height: 20px;
-                        font-size: 14px;
+                        font-size: 13px;
                         position: relative;
                         margin-top: 3px;
                         margin-bottom: 3px;
@@ -310,8 +312,8 @@
                                 height: 40px;
                                 text-align: left;
                                 resize: none;
-                                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
                                 padding: 3px;
+                                font-family: Consolas, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
                             }
                         }
                     }
@@ -349,6 +351,8 @@
             position: absolute;
             background: transparent;
             fill: transparent;
+            animation: dash 80s linear;
+            animation-iteration-count:infinite;
         }
     }
 

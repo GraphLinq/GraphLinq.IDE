@@ -11,6 +11,8 @@
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 999;
+    animation-name: appearInToolbox;
+    animation-duration: 1s;
 
     #project-manager {
         .title {
@@ -35,6 +37,9 @@
             font-size: 13px;
             color: $text-color;
             position: relative;
+            
+            animation-name: appearInToolbox;
+            animation-duration: 1s;
 
             svg {
                 margin-right: 3px;

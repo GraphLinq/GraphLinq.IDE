@@ -41,7 +41,7 @@ export const requestLogin = async () => {
     const accounts = await web3Instance.eth.getAccounts();
     if(accounts.length == 0) return;
     const chainId = await web3Instance.eth.getChainId();
-    if(chainId != 1 && chainId != 137) {
+    if(chainId != 1 && chainId != 137 && chainId != 3) {
         alert("You are on the wrong network please change your network on metamask to ETH Mainnet and reload");
         return;
     }

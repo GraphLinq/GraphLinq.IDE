@@ -42,7 +42,6 @@ export const addHandlebarsHelpers = () => {
     });
 
     Handlebars.registerHelper('ifEqualsNormalize', function (arg1, arg2, options) {
-        console.log(arg1, arg2)
         return (arg1.replaceAll(".", "-").toLowerCase().split(",")[0].replaceAll(" ", "").replaceAll("[", "b").replaceAll("]", "b") == arg2.replaceAll(".", "-").toLowerCase().split(",")[0].replaceAll(" ", "").replaceAll("[", "b").replaceAll("]", "b")) ? options.fn(this) : options.inverse(this);
     });
 
@@ -52,6 +51,11 @@ export const addHandlebarsHelpers = () => {
 
     Handlebars.registerHelper('normalize', function (arg1, options) {
         return arg1.replaceAll(".", "-").toLowerCase().split(",")[0].replaceAll(" ", "").replaceAll("[", "b").replaceAll("]", "b");
+    });
+
+    Handlebars.registerHelper('isSecretInput', function (arg1, options) {
+        if(arg1 == null) return options.inverse(this);
+        return arg1.IsSecretInput ? options.fn(this) : options.inverse(this);
     });
 }
 

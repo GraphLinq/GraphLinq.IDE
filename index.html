@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>GraphLinq IDE</title>
+        <title>GraphLinq | IDE</title>
         <script defer src="./node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
         <script defer src="./node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
         <script defer src="./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="./scss/index.scss">
         <link rel="stylesheet" href="./node_modules/toastr/toastr.scss">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.png" />
     </head>
     <body>
         <!-- menu -->
@@ -19,11 +20,11 @@
                 <i class="fas fa-file"></i> File
                 <div class="sub-menu">
                     <div class="sub-menu-item" data-app-menu="file.new">
-                        <i class="fas fa-file"></i> New graph
+                        <i class="fas fa-file"></i> New graph (CTRL+,)
                     </div>
                     <div class="sub-menu-item" data-app-menu="file.load">
                         <input type="file" id="file-input" style="display: none;" />
-                        <i class="fas fa-file-upload"></i> Load graph
+                        <i class="fas fa-file-upload"></i> Load graph (CTRL+O)
                     </div>
                     <div class="sub-menu-item" data-app-menu="file.save">
                         <i class="fas fa-file-download"></i> Save graph (CTRL+S)
@@ -37,7 +38,7 @@
                 <i class="fas fa-terminal"></i> Execution
                 <div class="sub-menu">
                     <div class="sub-menu-item" data-app-menu="execution.launch">
-                        <i class="fas fa-play"></i> Launch
+                        <i class="fas fa-play"></i> Launch (CTRL+E)
                     </div>
                 </div>
             </div>
@@ -78,7 +79,7 @@
                 </div>
             </div>
             <div class="searchbox">
-                <input type="text" id="toolbar-search-input" placeholder="Search a block by name" />
+                <input type="text" id="toolbar-search-input" placeholder="Search a block by name"  autocomplete="off" />
             </div>
             <div class="group-container">
                

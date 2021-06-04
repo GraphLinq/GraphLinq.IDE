@@ -3,6 +3,7 @@ import Handlebars from "handlebars";
 import { v4 as uuidv4 } from 'uuid';
 import NodeParameter from "./nodeParameter";
 import Comment from "./comment";
+import { fetchHandlebarTemplate } from "../shared/handlebars_helper";
 
 export default class Node {
     constructor(graphboard, schema, options = {}) {
@@ -150,7 +151,7 @@ export default class Node {
 
     async appendNodeToGraph() {
         const templateUrl = require("../../templates/graph.node.hbs");
-        const template = Handlebars.compile(await (await fetch(templateUrl)).text());
+        const template = await fetchHandlebarTemplate(templateUrl);
         const content = template({
             id: this.id,
             schema: this.schema

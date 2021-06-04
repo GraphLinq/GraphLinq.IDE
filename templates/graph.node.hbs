@@ -42,7 +42,11 @@
                         {{#ifEquals ../schema.NodeBlockType "variable"}}
                             <div>
                                 {{#ifEqualsNormalize parameter.ValueType "system-string"}}
-                                    <textarea spellcheck="false"  placeholder="..." class="parameter-value-input textarea" rows="5"></textarea>
+                                    {{#isSecretInput ../schema.IDEParameters}}
+                                        <input type="password" class="parameter-value-input" placeholder="..." spellcheck="false" />
+                                    {{else}}
+                                        <textarea spellcheck="false"  placeholder="..." class="parameter-value-input textarea" rows="5"></textarea>
+                                    {{/isSecretInput}}
                                 {{else}}
                                     <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" />
                                 {{/ifEqualsNormalize}}
