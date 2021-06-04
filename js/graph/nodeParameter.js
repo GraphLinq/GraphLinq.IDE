@@ -60,7 +60,7 @@ export default class NodeParameter {
             outNode = this.node;
             outParameter = this;
         }
-
+        inParameter.deleteAssignment();
         inParameter.assignment = otherParameter.id;
         inParameter.assignmentNode = otherNode.id;
         inParameter.createLine();
