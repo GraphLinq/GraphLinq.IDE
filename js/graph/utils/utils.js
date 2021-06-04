@@ -57,6 +57,11 @@ export const addHandlebarsHelpers = () => {
         if(arg1 == null) return options.inverse(this);
         return arg1.IsSecretInput ? options.fn(this) : options.inverse(this);
     });
+
+    Handlebars.registerHelper('isScriptInput', function (arg1, options) {
+        if(arg1 == null) return options.inverse(this);
+        return arg1.IsScriptInput ? options.fn(this) : options.inverse(this);
+    });
 }
 
 export const isParameterIsEditable = (type) => {

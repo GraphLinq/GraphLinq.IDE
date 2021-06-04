@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
+    "ace-builds": "^1.4.12",
+    "brace": "^0.11.1",
     "file-saver": "^2.0.5",
     "handlebars": "^4.7.7",
     "hotkeys-js": "^3.8.2",

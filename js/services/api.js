@@ -1,7 +1,7 @@
 const engineBaseUrl = "http://localhost:1337";
 const apiBaseUrl = "https://api.graphlinq.io";
 
-const engineBasedAPI = false;
+const engineBasedAPI = true;
 
 export const fetchCompressed = (data, token) => {
     if(engineBasedAPI) return fetchCompressedEngine(data);
@@ -95,9 +95,21 @@ export const fetchToken = (address, signature) => {
 }
 
 export const fetchLogs = (hash, token) => {
+    if(engineBasedAPI) return fetchLogsEngine(hash);
     return new Promise((resolve) => {
         fetch(apiBaseUrl + '/graphs/logs', 
         { method: 'POST', body: JSON.stringify({hash: hash}), headers: { "Authorization": "Bearer " + token, 'Content-Type': 'application/json' } })
+        .then(res => res.json())
+        .then(json => {
+            resolve(json);
+        });
+    })
+}
+
+export const fetchLogsEngine = (hash) => {
+    return new Promise((resolve) => {
+        fetch(engineBaseUrl + '/graphs/logs', 
+        { method: 'POST', body: JSON.stringify({UniqueHash: hash}), headers: { 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
             resolve(json);

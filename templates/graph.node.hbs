@@ -43,12 +43,16 @@
                             <div>
                                 {{#ifEqualsNormalize parameter.ValueType "system-string"}}
                                     {{#isSecretInput ../schema.IDEParameters}}
-                                        <input type="password" class="parameter-value-input" placeholder="..." spellcheck="false" />
+                                        <input type="password" class="parameter-value-input" placeholder="..." spellcheck="false" no-drag="true" />
                                     {{else}}
-                                        <textarea spellcheck="false"  placeholder="..." class="parameter-value-input textarea" rows="5"></textarea>
+                                        {{#isScriptInput ../schema.IDEParameters}}
+                                            <div class="script-editor" no-drag="true"></div>
+                                        {{else}}
+                                            <textarea spellcheck="false"  placeholder="..." class="parameter-value-input textarea" rows="5" no-drag="true"></textarea>
+                                        {{/isScriptInput}}
                                     {{/isSecretInput}}
                                 {{else}}
-                                    <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" />
+                                    <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" no-drag="true" />
                                 {{/ifEqualsNormalize}}
                             </div>
                         {{/ifEquals}}

@@ -1,5 +1,9 @@
 import {isParameterIsEditable} from "./utils/utils";
 import { v4 as uuidv4 } from 'uuid';
+import ace from 'brace';
+import 'brace/mode/lua';
+import 'brace/mode/json';
+import 'brace/theme/monokai';
 
 export default class NodeParameter {
     constructor(node, schema, direction) {
@@ -15,6 +19,26 @@ export default class NodeParameter {
         this.dot = this.element.querySelector(".dot");
         this.svgLineElement = null;
         this.setupEvents();
+
+        if(this.isScriptingValue()) {
+            let scriptEditorElement = this.element.querySelector(".script-editor");
+            this.editor = ace.edit(scriptEditorElement)
+            this.editor.setOptions({
+                mode: "ace/mode/" + this.node.schema.IDEParameters.ScriptType,
+                selectionStyle: "text",
+                theme: 'ace/theme/monokai',
+                fontSize: "14px"
+                
+            });
+            this.editor.renderer.setScrollMargin(10, 10);
+            this.editor.session.on('change', (delta) => {
+                this.value = this.editor.getValue();
+            });
+        }
+    }
+
+    isScriptingValue() {
+        return this.node.schema.IDEParameters != null && this.node.schema.IDEParameters.IsScriptInput;
     }
 
     setupEvents() {
@@ -108,8 +132,13 @@ export default class NodeParameter {
 
     setValue(value) {
         this.value = value;
-        if (isParameterIsEditable(this.schema.ValueType) && this.element.querySelector(".parameter-value-input") != null) {
-            this.element.querySelector(".parameter-value-input").value = this.value;
+        if(this.isScriptingValue()) {
+            this.editor.setValue(this.value == null ? "" : this.value);
+        }
+        else {
+            if (isParameterIsEditable(this.schema.ValueType) && this.element.querySelector(".parameter-value-input") != null) {
+                this.element.querySelector(".parameter-value-input").value = this.value;
+            }
         }
     }
 
