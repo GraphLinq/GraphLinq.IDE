@@ -48,7 +48,6 @@ export default class GraphBoard {
                 this.currentLink = undefined;
                 return;
             }
-            console.log("JJJJ3", this.currentLink, fromParameter);
             this.linkParameter(fromParameter);
             return;
         }
@@ -69,8 +68,6 @@ export default class GraphBoard {
             fromParameter: fromParameter
         };
 
-        console.log("JJJJ", this.currentLink);
-
         this.getGraphContainer().appendChild(this.currentLink.element);
     }
 
@@ -89,7 +86,6 @@ export default class GraphBoard {
 
         const dotPosition = fromParameter.dot.getBoundingClientRect();
         const svgLine = this.createLine(dotPosition.x + 5, dotPosition.y + 5, this.mousePosition.x, this.mousePosition.y, "#989818");
-        console.log(fromParameter)
         this.currentLink = {
             type: "ParametersReference",
             direction: fromParameter.direction,
