@@ -28,9 +28,9 @@ export default class NodeParameter {
                 selectionStyle: "text",
                 theme: 'ace/theme/monokai',
                 fontSize: "14px"
-                
             });
             this.editor.renderer.setScrollMargin(10, 10);
+            this.editor.setBehavioursEnabled(false);
             this.editor.session.on('change', (delta) => {
                 this.value = this.editor.getValue();
             });
