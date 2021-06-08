@@ -10,6 +10,7 @@ import { saveAs } from 'file-saver';
 import { getToken, initWeb3, isLogged, requestLogin } from "./auth/blockchain";
 import { fetchTemplatesFromGithub } from "./shared/github_template_fetcher";
 import ProjectManager from './shared/project_manager';
+import Minimap from "./graph/minimap";
 
 class App {
     constructor() {
@@ -21,6 +22,7 @@ class App {
         this.graphboard = new GraphBoard(this);
         this.toolbox = new Toolbox(this);
         this.projectManager = new ProjectManager(this);
+        this.minimap = new Minimap(this);
         this.currentProject = null;
 
         this.lastGraphHashLaunched = "";
