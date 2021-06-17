@@ -5,7 +5,7 @@ export default class Minimap {
         this.ctx = this.canvas.getContext("2d");
         setInterval(() => {
             this.render();
-        }, 1000 / 15);
+        }, 1000 / 30);
     }
 
     pixelToMapPixel(px, orientation) {
