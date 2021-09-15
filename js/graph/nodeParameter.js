@@ -84,9 +84,11 @@ export default class NodeParameter {
             outNode = this.node;
             outParameter = this;
         }
-        inParameter.assignment = otherParameter.id;
-        inParameter.assignmentNode = otherNode.id;
-        inParameter.createLine();
+        if(otherParameter != null) {
+            inParameter.assignment = otherParameter.id;
+            inParameter.assignmentNode = otherNode.id;
+            inParameter.createLine();
+        }
     }
 
     linkExecution(otherNode) {
