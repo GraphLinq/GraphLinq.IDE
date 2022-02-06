@@ -38,7 +38,7 @@ export default class Toolbox {
             let items = this.schema.filter(x => x.NodeGroupName == i);
             let itemsWithoutIDEParameters = items.filter(x => x.IDEParameters == null);
             let itemsVisibleIDEParameters = items.filter(x => x.IDEParameters != null && !x.IDEParameters.Hidden);
-            
+
             const content = template({
                 groupName: i,
                 items: ReleaseMode == "dev" ? items : [...itemsWithoutIDEParameters, ...itemsVisibleIDEParameters]
@@ -53,7 +53,7 @@ export default class Toolbox {
 
                 item.onmouseenter = () => {
                     let tooltip = document.createElement("div");
-                    
+
                     tooltip.classList.add("tooltip");
                     tooltip.setAttribute("id", "tooltip-node-description");
                     tooltip.innerText = item.querySelectorAll(".node-description")[0].innerText.replaceAll("\n", "");

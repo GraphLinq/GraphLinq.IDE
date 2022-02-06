@@ -42,7 +42,7 @@ export default class Node {
         for(const p of this.parameters) {
             p.deleteAssignment()
         }
-        
+
         for(const p of this.parameters) {
             if(p.assignment != "") {
                 p.assignment = "";
@@ -139,10 +139,10 @@ export default class Node {
         const lineElement = this.outNodeLineElement.querySelector("path");
         const offset = {x: this.graphboard.container.offsetLeft + this.graphboard.offset.x, y: this.graphboard.container.offsetTop + this.graphboard.offset.y};
         lineElement.setAttribute('d', curved(fromDotPosition.x + fromDotPosition.width - offset.x,
-            fromDotPosition.y + 44 - offset.y, 
-            toDotPosition.x - offset.x, 
+            fromDotPosition.y + 44 - offset.y,
+            toDotPosition.x - offset.x,
             toDotPosition.y + 44 - offset.y))
-        
+
         lineElement.setAttribute("x1", fromDotPosition.x + fromDotPosition.width - offset.x);
         lineElement.setAttribute("y1", fromDotPosition.y + 44 - offset.y);
         lineElement.setAttribute("x2", toDotPosition.x - offset.x);

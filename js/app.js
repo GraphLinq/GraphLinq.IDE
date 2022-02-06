@@ -30,7 +30,7 @@ class App {
         this.setupMenu();
         (async() => {
             await initWeb3();
-    
+
             // Load graph in cache
             if (localStorage.getItem('graph') != null && localStorage.getItem('graph') != "null") {
                 await this.migrateToProject();
@@ -51,7 +51,7 @@ class App {
                     }
                 }
             }
-    
+
             hotkeys('ctrl+s', (event, handler) => {
                 event.preventDefault()
                 this.saveGraph();
@@ -68,7 +68,7 @@ class App {
                 event.preventDefault();
                 this.newGraph();
             });
-    
+
             this.setupLogsWatcher();
 
             setInterval(() => {
@@ -384,7 +384,7 @@ class App {
 }
 
 let Application = null;
-let Version = "1.3.0";
+let Version = "1.3.1";
 let ReleaseMode = "prod";
 export { Application, Version, ReleaseMode };
 

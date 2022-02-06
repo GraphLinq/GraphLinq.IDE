@@ -59,7 +59,7 @@ export default class GraphBoard {
 
         const dotPosition = fromParameter.dot.getBoundingClientRect();
         const svgLine = this.createLine(dotPosition.x + 5, dotPosition.y + 5, this.mousePosition.x, this.mousePosition.y, "gray");
-        
+
         this.currentLink = {
             type: "Parameter",
             direction: fromParameter.direction,
@@ -134,7 +134,7 @@ export default class GraphBoard {
         }
         const dotPosition = fromNode.element.getBoundingClientRect();
         const svgLine = this.createLine(dotPosition.x + dotPosition.width, dotPosition.y + 44, this.mousePosition.x, this.mousePosition.y, "#989818");
-    
+
         this.currentLink = {
             type: "Execution",
             direction: direction,
@@ -174,7 +174,7 @@ export default class GraphBoard {
                 this.getGraphContainer().style.top = offsetY;
                 this.getGraphContainer().style.left = offsetX;
             }
-              
+
             if (this.currentLink?.type == "Parameter") {
                 const line =  this.currentLink.element.querySelector("path");
                 const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
@@ -191,7 +191,7 @@ export default class GraphBoard {
 
             if (this.currentLink?.type == "Execution") {
                 const line =  this.currentLink.element.querySelector("path");
-                const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};    
+                const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
                 const dotPosition = this.currentLink.fromNode.element.getBoundingClientRect();
                 line.setAttribute('d', curved(dotPosition.x + dotPosition.width - offset.x, dotPosition.y + 44 - offset.y, this.mousePosition.x - offset.x, this.mousePosition.y - offset.y));
             }
@@ -286,7 +286,7 @@ export default class GraphBoard {
         const offset = {x: this.container.offsetLeft + this.offset.x, y: this.container.offsetTop + this.offset.y};
         lineElement.setAttribute('d', curved(x1 - offset.x, y1 - offset.y, x2 - offset.x, y2 - offset.y));
         lineElement.setAttribute("stroke", color);
-        
+
         if(dashed) {
             lineElement.setAttribute("stroke-width", "3px");
             lineElement.setAttribute("stroke-dasharray", "5px");
@@ -297,7 +297,7 @@ export default class GraphBoard {
         svgElement.appendChild(lineElement);
         return svgElement;
     }
-    
+
     async appendCommentToGraph(options) {
         const comment = new Comment(this, options);
         await comment.appendToGraph();
