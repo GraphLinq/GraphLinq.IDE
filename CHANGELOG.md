@@ -1,5 +1,11 @@
 # GraphLinq IDE Changelog
 
+## 1.3.1
+- Edges of canvas are easier to see why a line between blocks becomes invisible
+- QuickSwap integration
+- Code refactoring
+- Bug fixes and optimisation
+
 ## 1.3.0
 - Introducing the GraphLinq Lua Scripting Engine, allow you to read any smart contract data from the ethereum blockchain (Solidity compatible chain in future update)
 - New blocks for the lua scripting is available on the IDE (Lua Block, JSON ABI Block, Smart Contract Reader Block)
