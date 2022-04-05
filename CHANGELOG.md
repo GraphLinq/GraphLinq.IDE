@@ -1,5 +1,11 @@
 # GraphLinq IDE Changelog
 
+## 1.3.2
+- KuCoin Blocks to fully execute and manage trading
+- Avalanche Blockchain Integration
+- SnowTrace Integration (Avalanche)
+- Avascan Integration (Avalanche)
+
 ## 1.3.1
 - Edges of canvas are easier to see why a line between blocks becomes invisible
 - QuickSwap integration
