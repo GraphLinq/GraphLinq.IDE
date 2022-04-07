@@ -384,7 +384,7 @@ class App {
 }
 
 let Application = null;
-let Version = "1.3.2";
+let Version = "1.3.3";
 let ReleaseMode = "prod";
 export { Application, Version, ReleaseMode };
 

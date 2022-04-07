@@ -1,5 +1,13 @@
 # GraphLinq IDE Changelog
 
+## 1.3.3
+- LCW Block for Single Coin History
+- Telegram blocks for sending photos
+- Engine get timestamp with milliseconds
+- Engine get offset timestamps
+- Engine Millisecond to Date block
+- Create Charts from Data
+
 ## 1.3.2
 - KuCoin Blocks to fully execute and manage trading
 - Avalanche Blockchain Integration
