@@ -9,6 +9,7 @@
 - String Contains Multi
 - String Matches Regex
 - String Split
+- Added link to output of Twitter On Tweet
 
 ## 1.3.3
 - LCW Block for Single Coin History
