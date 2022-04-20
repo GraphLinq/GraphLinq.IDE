@@ -29,7 +29,7 @@ export default class Project {
                 toastr.error("Can't delete the active project, create a new one and delete the old one");
                 return;
             }
-            var response = confirm("Are you sure to delete the project " + this.name + " ?");
+            var response = confirm("Are you sure you want to delete the project: " + this.name + " ?");
             if(response) {
                 this.delete();
             }

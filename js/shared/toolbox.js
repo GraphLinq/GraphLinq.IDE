@@ -7,7 +7,7 @@ export default class Toolbox {
         this.app = app;
         this.container = document.querySelector("#toolbox");
         this.schema = require("../node_schema.json");
-        this.app.terminal.append("debug", this.schema.length + " block loaded in the toolbox");
+        this.app.terminal.append("debug", this.schema.length + " blocks loaded in the toolbox");
         this.groups = [];
         this.setup();
     }

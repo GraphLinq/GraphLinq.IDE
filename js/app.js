@@ -251,7 +251,7 @@ class App {
     }
 
     async newGraph() {
-        var response = confirm("Are you sure to init a new empty graph ?");
+        var response = confirm("Are you sure to initialize a new empty graph ?");
         if(response) {
             this.terminal.append("success", "Initialize new empty graph");
             this.graphboard.clear();
@@ -384,7 +384,7 @@ class App {
 }
 
 let Application = null;
-let Version = "1.3.3";
+let Version = "1.3.4";
 let ReleaseMode = "prod";
 export { Application, Version, ReleaseMode };
 

@@ -1,5 +1,15 @@
 # GraphLinq IDE Changelog
 
+## 1.3.4
+- Update IDE messages and prompt wording
+- Engine offset timestamp now supports weeks
+- String Get All Matches Using Regex
+- String Replace Using Regex
+- String Get Match Using Regex
+- String Contains Multi
+- String Matches Regex
+- String Split
+
 ## 1.3.3
 - LCW Block for Single Coin History
 - Telegram blocks for sending photos
