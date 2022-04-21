@@ -1,0 +1,79 @@
+.hide {
+	display: none;
+}
+.btn {
+	padding: .5em .75em;
+	font-family: Helvetica, Arial, sans-serif;
+	line-height: 1;
+	text-align: center;
+	background-color: #191630;
+	border: 1px solid #2f175a;
+	cursor: pointer;
+	outline: 0;
+	&:hover {
+		background-color: #f0f0f0;
+	}
+	&:active {
+		box-shadow: inset 0 2px 2px #ddd;
+	}
+}
+.btn-mid {
+	font-size: 1.25em;
+}
+.wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+.content {
+	margin-top: 30px;
+}
+.demo {
+	.btn-group {
+		text-align: center;
+	}
+}
+.popup-wrapper {
+	background-color: #2a2549;
+	border: 1px solid #2f175a;
+	border-radius: 5px;
+	box-shadow: inset 0px 0px 66px -15px rgb(0 0 0 / 75%);
+	overflow: hidden;
+}
+.popup-title {
+	padding: 10px 15px;
+	background-color: linear-gradient(90deg, #00f351 0%, rgba(243, 50, 255, 0) 80%);
+	border-bottom: 1px solid #191630;
+	h3 {
+		margin: 0;
+		line-height: 1.5em;
+		color: #adadc2
+	}
+}
+.popup-body {
+	padding: 10px 15px;
+	color: #adadc2;
+}
+.popup-close {
+	float: right;
+	margin-top: 2px;
+	padding: 0;
+	font-size: 24px;
+	line-height: 1;
+	border: 0;
+	background: transparent;
+	color: #adadc2;
+	cursor: pointer;
+	&:hover {
+		color: #ddd;
+	}
+}
+.intro {
+	margin-top: 100px;
+	text-align: center;
+	h1 {
+		color: #aaa;
+	}
+	p {
+		color: #444;
+	}
+}

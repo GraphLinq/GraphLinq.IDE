@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import NodeParameter from "./nodeParameter";
 import Comment from "./comment";
 import { fetchHandlebarTemplate } from "../shared/handlebars_helper";
+import Popup from "../shared/node_help";
 
 export default class Node {
     constructor(graphboard, schema, options = {}) {
@@ -79,9 +80,26 @@ export default class Node {
         return this.parameters.filter(x => x.id == id)[0];
     }
 
+    help() {
+        var popupEl = document.getElementById('popup');
+        var popup = new Popup(popupEl, {
+            width: 400,
+            height: 300,
+            friendlyName: this.schema.FriendlyName,
+            nodeDescription: this.schema.NodeDescription,
+            nodeBlockType: this.schema.NodeBlockType,
+            nodeGroupName: this.schema.NodeGroupName,
+            nodeType: this.schema.NodeType,
+        });
+        popup.open();
+    }
+
     setupEvents() {
         this.element.querySelector(".delete-node").addEventListener("click", () => {
             this.delete();
+        });
+        this.element.querySelector(".help-node").addEventListener("click", () => {
+            this.help();
         });
     }
 
@@ -168,6 +186,7 @@ export default class Node {
             if (e.which != 1) return;
             if(e.target != null) {
                 if(e.target.getAttribute("no-drag") == "true") return;
+                if(e.target.getAttribute("class") == null) return;
                 if(e.target.getAttribute("class").indexOf("ace_") != -1) return;
             }
             let x = e.pageX - this.element.offsetLeft;
