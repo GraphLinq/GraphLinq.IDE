@@ -4,13 +4,18 @@ import Toolbox from "./shared/toolbox";
 import GraphBoard from "./graph/graphboard";
 import toastr from "toastr";
 import { addHandlebarsHelpers } from "./graph/utils/utils";
-import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate } from "./services/api";
+import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate, fetchHelp } from "./services/api";
 import hotkeys from 'hotkeys-js';
 import { saveAs } from 'file-saver';
 import { getToken, initWeb3, isLogged, requestLogin } from "./auth/blockchain";
 import { fetchTemplatesFromGithub } from "./shared/github_template_fetcher";
 import ProjectManager from './shared/project_manager';
 import Minimap from "./graph/minimap";
+import Popup from "./shared/node_help";
+
+let Application = null;
+let Version = "1.3.4";
+let ReleaseMode = "prod";
 
 class App {
     constructor() {
@@ -28,6 +33,7 @@ class App {
         this.lastGraphHashLaunched = "";
 
         this.setupMenu();
+        this.fetchHelp();
         (async() => {
             await initWeb3();
 
@@ -362,6 +368,35 @@ class App {
         }
     }
 
+    async fetchHelp() {
+        //var url = new URL(window.location.href);
+        this.terminal.append("debug", "Load help dialog")
+        var id = 1;
+        //if(idGraph == null) return false;
+        //this.terminal.append("debug", "Loading help")
+        const result = await fetchHelp(id)
+        if (result.success) {
+            var popupEl = document.getElementById('popup');
+            var popup = new Popup(popupEl, {
+                width: 650,
+                height: 500,
+                header: "GraphLinq IDE v" + Version + " - " + result.help.title,
+                body:  result.help.html,
+                footer: "<ul><li>nononononononono</li><li>nonononono</li><li>nono</li></ul>",
+            });
+            popup.open();
+            //const decompressed = (await fetchDecompress(result.template.bytes, "")).decompressed
+            //await this.loadGraphFromJSON(decompressed);
+            //this.currentProject = await this.projectManager.createNewProject({
+            //    name: this.graphboard.name
+            //})
+            //window.history.pushState('', 'GraphLinq IDE', window.location.protocol + "//" + window.location.host);
+            console.log(result);
+        }
+
+        return result.success;
+    }
+
     configureToast() {
         toastr.options = {
             "closeButton": false,
@@ -383,9 +418,6 @@ class App {
     }
 }
 
-let Application = null;
-let Version = "1.3.4";
-let ReleaseMode = "prod";
 export { Application, Version, ReleaseMode };
 
 document.addEventListener('DOMContentLoaded', () => {

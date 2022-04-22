@@ -1,5 +1,5 @@
-const engineBaseUrl = "http://localhost:1337";
-const apiBaseUrl = "https://api.graphlinq.io";
+const engineBaseUrl = "http://localhost:4743";
+const apiBaseUrl = "http://localhost:4743";
 
 const engineBasedAPI = false;
 
@@ -113,6 +113,17 @@ export const fetchLogsEngine = (hash) => {
         .then(res => res.json())
         .then(json => {
             resolve(json);
+        });
+    })
+}
+
+export const fetchHelp = (id) => {
+    return new Promise((result) => {
+        fetch(apiBaseUrl + '/help/' + id,
+        { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+        .then(res => res.json())
+        .then(json => {
+            result(json)
         });
     })
 }

@@ -81,15 +81,16 @@ export default class Node {
     }
 
     help() {
+        console.log(this.schema);
         var popupEl = document.getElementById('popup');
         var popup = new Popup(popupEl, {
             width: 400,
             height: 300,
-            friendlyName: this.schema.FriendlyName,
-            nodeDescription: this.schema.NodeDescription,
-            nodeBlockType: this.schema.NodeBlockType,
-            nodeGroupName: this.schema.NodeGroupName,
-            nodeType: this.schema.NodeType,
+            header: this.schema.FriendlyName,
+            body: this.schema.NodeDescription,
+            footer: "<ul><li>nononononononono</li><li>nonononono</li><li>nono</li></ul>",
+            //nodeGroupName: this.schema.NodeGroupName,
+            //nodeType: this.schema.NodeType,
         });
         popup.open();
     }
