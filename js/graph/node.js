@@ -88,7 +88,7 @@ export default class Node {
             width: 650,
             height: 500,
             header: this.schema.FriendlyName,
-            body: this.schema.NodeDescription + "<br><br>" + helper.helper.nodehelp + "<br><br>" + "GraphLinq Documentation: " + "<a href='" + helper.helper.nodelink + "' target='_blank'>" + this.schema.FriendlyName + "</a>",
+            body: "<b>Description:</b> " + this.schema.NodeDescription + "<br><br>" + helper.helper.nodehelp + "<br><br>" + "GraphLinq Documentation: " + "<a class='popup-link' href='" + helper.helper.nodelink + "' target='_blank'>" + this.schema.FriendlyName + "</a>",
         });
         popup.open();
     }

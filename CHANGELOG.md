@@ -1,5 +1,12 @@
 # GraphLinq IDE Changelog
 
+## 1.3.5
+- Node block groups can be collapsed/expanded individually
+- All node block groups can be collapsed/expanded at once
+- Individual block help button with popup
+- Main popup with getting started help on first load
+- Updated block group icons
+
 ## 1.3.4
 - Update IDE messages and prompt wording
 - Engine offset timestamp now supports weeks
