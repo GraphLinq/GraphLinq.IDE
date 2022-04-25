@@ -96,8 +96,9 @@
                 height: opts.height + 'px',
                 zIndex: opts.zIndex
             });
-        document.getElementById("popup-header").innerText = opts.friendlyName;
-        document.getElementById("popup-body").innerHTML = opts.nodeDescription;
+        document.getElementById("popup-header").innerText = opts.header;
+        document.getElementById("popup-body").innerHTML = opts.body;
+        //document.getElementById("popup-footer").innerHTML = opts.footer;
 
         this.bindEvent();
         },

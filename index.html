@@ -82,6 +82,9 @@
             <div class="searchbox">
                 <input type="text" id="toolbar-search-input" placeholder="Search a block by name"  autocomplete="off" />
             </div>
+            <div class="col-exp-all expanded" id="collapse-expand-all" data-collapse-expand="expand">
+                Collapse All <i class='fas fa-chevron-down'></i>
+            </div>
             <div class="group-container">
 
             </div>
@@ -145,16 +148,14 @@
             </div>
         </div>
 
-        <!-- Node Help -->
+        <!-- Node Help & Intro -->
         <div id="popup" class="popup-wrapper hide">
-            <div class="popup-content">
+            <div id="popup-content" class="popup-content">
                 <div id="popup-title" class="popup-title">
                     <button type="button" class="popup-close">&times;</button>
                     <h3 id="popup-header"></h3>
                 </div>
-                <div id="popup-body" class="popup-body">
-                    <p></p>
-                </div>
+                <div id="popup-body" class="popup-body"></div>
             </div>
         </div>
 

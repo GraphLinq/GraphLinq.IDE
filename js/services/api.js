@@ -116,3 +116,25 @@ export const fetchLogsEngine = (hash) => {
         });
     })
 }
+
+export const fetchHelp = (id) => {
+    return new Promise((result) => {
+        fetch(apiBaseUrl + '/help/' + id,
+        { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+        .then(res => res.json())
+        .then(json => {
+            result(json)
+        });
+    })
+}
+
+export const fetchNodeHelp = (nodetype) => {
+    return new Promise((resolve) => {
+        fetch(apiBaseUrl + '/help/node',
+        { method: 'POST', body: JSON.stringify({nodetype: nodetype}), headers: { 'Content-Type': 'application/json' } })
+        .then(res => res.json())
+        .then(json => {
+            resolve(json);
+        });
+    })
+}
