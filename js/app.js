@@ -369,11 +369,8 @@ class App {
     }
 
     async fetchHelp() {
-        //var url = new URL(window.location.href);
         this.terminal.append("debug", "Load help dialog")
         var id = 1;
-        //if(idGraph == null) return false;
-        //this.terminal.append("debug", "Loading help")
         const result = await fetchHelp(id)
         if (result.success) {
             var popupEl = document.getElementById('popup');
@@ -382,15 +379,8 @@ class App {
                 height: 500,
                 header: "GraphLinq IDE v" + Version + " - " + result.help.title,
                 body:  result.help.html,
-                footer: "<ul><li>nononononononono</li><li>nonononono</li><li>nono</li></ul>",
             });
             popup.open();
-            //const decompressed = (await fetchDecompress(result.template.bytes, "")).decompressed
-            //await this.loadGraphFromJSON(decompressed);
-            //this.currentProject = await this.projectManager.createNewProject({
-            //    name: this.graphboard.name
-            //})
-            //window.history.pushState('', 'GraphLinq IDE', window.location.protocol + "//" + window.location.host);
         }
 
         return result.success;
