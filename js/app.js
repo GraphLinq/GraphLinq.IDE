@@ -391,7 +391,6 @@ class App {
             //    name: this.graphboard.name
             //})
             //window.history.pushState('', 'GraphLinq IDE', window.location.protocol + "//" + window.location.host);
-            console.log(result);
         }
 
         return result.success;

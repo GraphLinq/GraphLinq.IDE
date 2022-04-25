@@ -5,6 +5,7 @@ import NodeParameter from "./nodeParameter";
 import Comment from "./comment";
 import { fetchHandlebarTemplate } from "../shared/handlebars_helper";
 import Popup from "../shared/node_help";
+import { fetchNodeHelp } from "../services/api";
 
 export default class Node {
     constructor(graphboard, schema, options = {}) {
@@ -80,17 +81,14 @@ export default class Node {
         return this.parameters.filter(x => x.id == id)[0];
     }
 
-    help() {
-        console.log(this.schema);
+    async help() {
+        const helper = await fetchNodeHelp(this.schema.NodeType);
         var popupEl = document.getElementById('popup');
         var popup = new Popup(popupEl, {
-            width: 400,
-            height: 300,
+            width: 650,
+            height: 500,
             header: this.schema.FriendlyName,
-            body: this.schema.NodeDescription,
-            footer: "<ul><li>nononononononono</li><li>nonononono</li><li>nono</li></ul>",
-            //nodeGroupName: this.schema.NodeGroupName,
-            //nodeType: this.schema.NodeType,
+            body: this.schema.NodeDescription + "<br><br>" + helper.helper.nodehelp + "<br><br>" + "GraphLinq Documentation: " + "<a href='" + helper.helper.nodelink + "' target='_blank'>" + this.schema.FriendlyName + "</a>",
         });
         popup.open();
     }

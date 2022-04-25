@@ -1,5 +1,5 @@
 <div class="group-item">
-    <div class="group-title">
+    <div class="group-title" data-toolbox-group="{{groupName}}">
         {{#ifEquals groupName "Blockchain.Ethereum"}}
         <i class="fab fa-ethereum"></i>
         {{/ifEquals}}
@@ -70,11 +70,11 @@
         <i class="fas fa-database"></i>
         {{/ifEquals}}
          {{groupName}}
-        <div class="expand">
+        <div class="expand" id="expand-{{groupName}}">
             <i class="fas fa-chevron-down"></i>
         </div>
     </div>
-    <div class="group-node-container">
+    <div class="group-node-container" id="group-node-{{groupName}}">
         {{#each items as |item|}}
             <div class="group-node-item" data-toolbox-node-type="{{item.NodeType}}" data-name="{{item.FriendlyName}}">
                 {{item.FriendlyName}}
