@@ -4,13 +4,18 @@ import Toolbox from "./shared/toolbox";
 import GraphBoard from "./graph/graphboard";
 import toastr from "toastr";
 import { addHandlebarsHelpers } from "./graph/utils/utils";
-import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate } from "./services/api";
+import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate, fetchHelp } from "./services/api";
 import hotkeys from 'hotkeys-js';
 import { saveAs } from 'file-saver';
 import { getToken, initWeb3, isLogged, requestLogin } from "./auth/blockchain";
 import { fetchTemplatesFromGithub } from "./shared/github_template_fetcher";
 import ProjectManager from './shared/project_manager';
 import Minimap from "./graph/minimap";
+import Popup from "./shared/node_help";
+
+let Application = null;
+let Version = "1.3.5";
+let ReleaseMode = "prod";
 
 class App {
     constructor() {
@@ -28,9 +33,10 @@ class App {
         this.lastGraphHashLaunched = "";
 
         this.setupMenu();
+        this.fetchHelp();
         (async() => {
             await initWeb3();
-    
+
             // Load graph in cache
             if (localStorage.getItem('graph') != null && localStorage.getItem('graph') != "null") {
                 await this.migrateToProject();
@@ -51,7 +57,7 @@ class App {
                     }
                 }
             }
-    
+
             hotkeys('ctrl+s', (event, handler) => {
                 event.preventDefault()
                 this.saveGraph();
@@ -68,7 +74,7 @@ class App {
                 event.preventDefault();
                 this.newGraph();
             });
-    
+
             this.setupLogsWatcher();
 
             setInterval(() => {
@@ -251,7 +257,7 @@ class App {
     }
 
     async newGraph() {
-        var response = confirm("Are you sure to init a new empty graph ?");
+        var response = confirm("Are you sure to initialize a new empty graph ?");
         if(response) {
             this.terminal.append("success", "Initialize new empty graph");
             this.graphboard.clear();
@@ -362,6 +368,24 @@ class App {
         }
     }
 
+    async fetchHelp() {
+        this.terminal.append("debug", "Load help dialog")
+        var id = 1;
+        const result = await fetchHelp(id)
+        if (result.success) {
+            var popupEl = document.getElementById('popup');
+            var popup = new Popup(popupEl, {
+                width: 650,
+                height: 500,
+                header: "GraphLinq IDE v" + Version + " - " + result.help.title,
+                body:  result.help.html,
+            });
+            popup.open();
+        }
+
+        return result.success;
+    }
+
     configureToast() {
         toastr.options = {
             "closeButton": false,
@@ -383,9 +407,6 @@ class App {
     }
 }
 
-let Application = null;
-let Version = "1.3.1";
-let ReleaseMode = "dev";
 export { Application, Version, ReleaseMode };
 
 document.addEventListener('DOMContentLoaded', () => {

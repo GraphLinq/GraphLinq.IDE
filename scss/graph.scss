@@ -5,7 +5,7 @@
     right: 0px;
     top: 37px;
     transition: box-shadow 0.3s;
-    box-shadow: inset 0px 0px 66px -15px rgba(0,0,0,0.75);    
+    box-shadow: inset 0px 0px 66px -15px rgba(0,0,0,0.75);
     background-image: linear-gradient(darken($primary-color, 1) .1em, transparent .1em), linear-gradient(90deg,darken($primary-color, 1) .1em, transparent .1em);
     background-size: 1em 1em;
     animation-name: appearInGraph;
@@ -17,6 +17,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        outline: rgb(0 0 0 / 15%) solid 1000px;
 
         .node-comment {
             display: inline;
@@ -52,11 +53,11 @@
                     width: auto;
                     text-align: center;
                     width: 250px;
-                    
+
                     &:focus {
                         outline-width: 0;
                     }
-        
+
                     &::placeholder {
                         color: $text-color;
                     }
@@ -168,6 +169,7 @@
                     cursor: pointer;
                     transition: 0.2s;
                     display: none;
+                    margin-left: 5px;
 
                     &:hover {
                         background-color: lighten($color: $accent-color, $amount: 3);
@@ -298,11 +300,11 @@
                             border-radius: 5px;
                             color: white;
                             text-align: center;
-                
+
                             &:focus {
                                 outline-width: 0;
                             }
-                
+
                             &::placeholder {
                                 color: $text-color;
                             }

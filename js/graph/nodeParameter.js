@@ -122,7 +122,7 @@ export default class NodeParameter {
                 }
             }
         }
-        
+
         if(this.isReference() && this.value != "") {
             if(this.svgLineElement != null) {
                 this.value = "";

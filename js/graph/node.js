@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import NodeParameter from "./nodeParameter";
 import Comment from "./comment";
 import { fetchHandlebarTemplate } from "../shared/handlebars_helper";
+import Popup from "../shared/node_help";
+import { fetchNodeHelp } from "../services/api";
 
 export default class Node {
     constructor(graphboard, schema, options = {}) {
@@ -42,7 +44,7 @@ export default class Node {
         for(const p of this.parameters) {
             p.deleteAssignment()
         }
-        
+
         for(const p of this.parameters) {
             if(p.assignment != "") {
                 p.assignment = "";
@@ -79,9 +81,24 @@ export default class Node {
         return this.parameters.filter(x => x.id == id)[0];
     }
 
+    async help() {
+        const helper = await fetchNodeHelp(this.schema.NodeType);
+        var popupEl = document.getElementById('popup');
+        var popup = new Popup(popupEl, {
+            width: 650,
+            height: 500,
+            header: this.schema.FriendlyName,
+            body: "<b>Description:</b> " + this.schema.NodeDescription + "<br><br>" + helper.helper.nodehelp + "<br><br>" + "GraphLinq Documentation: " + "<a class='popup-link' href='" + helper.helper.nodelink + "' target='_blank'>" + this.schema.FriendlyName + "</a>",
+        });
+        popup.open();
+    }
+
     setupEvents() {
         this.element.querySelector(".delete-node").addEventListener("click", () => {
             this.delete();
+        });
+        this.element.querySelector(".help-node").addEventListener("click", () => {
+            this.help();
         });
     }
 
@@ -139,10 +156,10 @@ export default class Node {
         const lineElement = this.outNodeLineElement.querySelector("path");
         const offset = {x: this.graphboard.container.offsetLeft + this.graphboard.offset.x, y: this.graphboard.container.offsetTop + this.graphboard.offset.y};
         lineElement.setAttribute('d', curved(fromDotPosition.x + fromDotPosition.width - offset.x,
-            fromDotPosition.y + 44 - offset.y, 
-            toDotPosition.x - offset.x, 
+            fromDotPosition.y + 44 - offset.y,
+            toDotPosition.x - offset.x,
             toDotPosition.y + 44 - offset.y))
-        
+
         lineElement.setAttribute("x1", fromDotPosition.x + fromDotPosition.width - offset.x);
         lineElement.setAttribute("y1", fromDotPosition.y + 44 - offset.y);
         lineElement.setAttribute("x2", toDotPosition.x - offset.x);

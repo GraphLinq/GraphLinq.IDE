@@ -6,7 +6,7 @@ const engineBasedAPI = true;
 export const fetchCompressed = (data, token) => {
     if(engineBasedAPI) return fetchCompressedEngine(data);
     return new Promise((result) => {
-        fetch(apiBaseUrl + '/graphs/compress', 
+        fetch(apiBaseUrl + '/graphs/compress',
         { method: 'POST', body: JSON.stringify({data: data}), headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -17,7 +17,7 @@ export const fetchCompressed = (data, token) => {
 
 export const fetchTemplate = (id) => {
     return new Promise((result) => {
-        fetch(apiBaseUrl + '/graphs/template/' + id, 
+        fetch(apiBaseUrl + '/graphs/template/' + id,
         { method: 'GET', headers: { 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -29,7 +29,7 @@ export const fetchTemplate = (id) => {
 export const fetchDecompress = (data, token) => {
     if(engineBasedAPI) return fetchDecompressEngine(data);
     return new Promise((result) => {
-        fetch(apiBaseUrl + '/graphs/decompress', 
+        fetch(apiBaseUrl + '/graphs/decompress',
         { method: 'POST', body: JSON.stringify({data: data}), headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -40,7 +40,7 @@ export const fetchDecompress = (data, token) => {
 
 export const fetchDecompressEngine = (data) => {
     return new Promise((result) => {
-        fetch(engineBaseUrl + '/graphs/decompress', 
+        fetch(engineBaseUrl + '/graphs/decompress',
         { method: 'POST', body: JSON.stringify({JsonData: data}), headers: { 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -51,7 +51,7 @@ export const fetchDecompressEngine = (data) => {
 
 export const fetchCompressedEngine = (data) => {
     return new Promise((result) => {
-        fetch(engineBaseUrl + '/graphs/compress', 
+        fetch(engineBaseUrl + '/graphs/compress',
         { method: 'POST', body: JSON.stringify({JsonData: data, WalletIdentifier: -1}), headers: { 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -63,7 +63,7 @@ export const fetchCompressedEngine = (data) => {
 export const deployGraph = (bytes, token, name, state = 1) => {
     if(engineBasedAPI) return deployGraphEngine(bytes);
     return new Promise((resolve) => {
-        fetch(apiBaseUrl + '/graphs/deploy', 
+        fetch(apiBaseUrl + '/graphs/deploy',
         { method: 'POST', body: JSON.stringify({bytes: bytes, alias: name, state: state, debug: true}), headers: { "Authorization": "Bearer " + token, 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -74,7 +74,7 @@ export const deployGraph = (bytes, token, name, state = 1) => {
 
 export const deployGraphEngine = (bytes, walletIdentifier = -1, state = 1) => {
     return new Promise((resolve) => {
-        fetch(engineBaseUrl + '/graphs/deploy', 
+        fetch(engineBaseUrl + '/graphs/deploy',
         { method: 'POST', body: JSON.stringify({RawBytes: bytes, WalletIdentifier: walletIdentifier, DeployedState: state}), headers: { 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -85,7 +85,7 @@ export const deployGraphEngine = (bytes, walletIdentifier = -1, state = 1) => {
 
 export const fetchToken = (address, signature) => {
     return new Promise((resolve) => {
-        fetch(apiBaseUrl + '/wallets/auth', 
+        fetch(apiBaseUrl + '/wallets/auth',
         { method: 'POST', body: JSON.stringify({address: address, signature: signature}), headers: { 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -97,7 +97,7 @@ export const fetchToken = (address, signature) => {
 export const fetchLogs = (hash, token) => {
     if(engineBasedAPI) return fetchLogsEngine(hash);
     return new Promise((resolve) => {
-        fetch(apiBaseUrl + '/graphs/logs', 
+        fetch(apiBaseUrl + '/graphs/logs',
         { method: 'POST', body: JSON.stringify({hash: hash}), headers: { "Authorization": "Bearer " + token, 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
@@ -108,8 +108,30 @@ export const fetchLogs = (hash, token) => {
 
 export const fetchLogsEngine = (hash) => {
     return new Promise((resolve) => {
-        fetch(engineBaseUrl + '/graphs/logs', 
+        fetch(engineBaseUrl + '/graphs/logs',
         { method: 'POST', body: JSON.stringify({UniqueHash: hash}), headers: { 'Secret-Key': 'c3VwZXJwcml2YXRla2V5', 'Content-Type': 'application/json' } })
+        .then(res => res.json())
+        .then(json => {
+            resolve(json);
+        });
+    })
+}
+
+export const fetchHelp = (id) => {
+    return new Promise((result) => {
+        fetch(apiBaseUrl + '/help/' + id,
+        { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+        .then(res => res.json())
+        .then(json => {
+            result(json)
+        });
+    })
+}
+
+export const fetchNodeHelp = (nodetype) => {
+    return new Promise((resolve) => {
+        fetch(apiBaseUrl + '/help/node',
+        { method: 'POST', body: JSON.stringify({nodetype: nodetype}), headers: { 'Content-Type': 'application/json' } })
         .then(res => res.json())
         .then(json => {
             resolve(json);

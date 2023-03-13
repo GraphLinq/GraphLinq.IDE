@@ -7,7 +7,7 @@ export default class Toolbox {
         this.app = app;
         this.container = document.querySelector("#toolbox");
         this.schema = require("../node_schema.json");
-        this.app.terminal.append("debug", this.schema.length + " block loaded in the toolbox");
+        this.app.terminal.append("debug", this.schema.length + " blocks loaded in the toolbox");
         this.groups = [];
         this.setup();
     }
@@ -19,6 +19,30 @@ export default class Toolbox {
     onClickItem(item) {
         const model = this.schema.filter(x => x.NodeType == item)[0];
         this.app.graphboard.appendNewNodeWithSchema(model);
+    }
+
+    onClickGroup(grp) {
+        var groupItems = document.getElementById("group-node-" + grp);
+        var groupIcon = document.getElementById("expand-" + grp);
+        if (groupItems.style.display === "none") {
+            groupItems.style.display = "block";
+            groupIcon.innerHTML = "<i class='fas fa-chevron-down'></i>";
+        } else {
+            groupItems.style.display = "none";
+            groupIcon.innerHTML = "<i class='fas fa-chevron-up'></i>";
+        }
+    }
+
+    onColExpAll(grp, action) {
+        var groupItems = document.getElementById("group-node-" + grp);
+        var groupIcon = document.getElementById("expand-" + grp);
+        if (action == "collapse") {
+            groupItems.style.display = "none";
+            groupIcon.innerHTML = "<i class='fas fa-chevron-up'></i>";
+        } else {
+            groupItems.style.display = "block";
+            groupIcon.innerHTML = "<i class='fas fa-chevron-down'></i>";
+        }
     }
 
     async setup() {
@@ -38,7 +62,7 @@ export default class Toolbox {
             let items = this.schema.filter(x => x.NodeGroupName == i);
             let itemsWithoutIDEParameters = items.filter(x => x.IDEParameters == null);
             let itemsVisibleIDEParameters = items.filter(x => x.IDEParameters != null && !x.IDEParameters.Hidden);
-            
+
             const content = template({
                 groupName: i,
                 items: ReleaseMode == "dev" ? items : [...itemsWithoutIDEParameters, ...itemsVisibleIDEParameters]
@@ -46,6 +70,11 @@ export default class Toolbox {
             const element = document.createElement("div");
             element.innerHTML = content;
             this.container.querySelector(".group-container").appendChild(element);
+            for(const grp of element.querySelectorAll(".group-title")) {
+                grp.onclick = () => {
+                    this.onClickGroup(grp.getAttribute("data-toolbox-group"));
+                };
+            };
             for(const item of element.querySelectorAll(".group-node-item")) {
                 item.onclick = () => {
                     this.onClickItem(item.getAttribute("data-toolbox-node-type"));
@@ -53,7 +82,7 @@ export default class Toolbox {
 
                 item.onmouseenter = () => {
                     let tooltip = document.createElement("div");
-                    
+
                     tooltip.classList.add("tooltip");
                     tooltip.setAttribute("id", "tooltip-node-description");
                     tooltip.innerText = item.querySelectorAll(".node-description")[0].innerText.replaceAll("\n", "");
@@ -69,6 +98,14 @@ export default class Toolbox {
         document.querySelector("#toolbar-search-input").addEventListener("input", (e) => {
             this.refreshSearch(e.target.value);
         })
+
+        document.querySelector("#collapse-expand-all").onclick = () => {
+            document.querySelector("#collapse-expand-all").setAttribute("data-collapse-expand", document.querySelector("#collapse-expand-all").getAttribute("data-collapse-expand") == "collapse" ? "expand" : "collapse");
+            document.querySelector("#collapse-expand-all").innerHTML = (document.querySelector("#collapse-expand-all").getAttribute("data-collapse-expand") == "collapse" ? "Expand All <i class='fas fa-chevron-up'></i>" : "Collapse All <i class='fas fa-chevron-down'></i>");
+            for(const grp of document.querySelectorAll(".group-title")) {
+                this.onColExpAll(grp.getAttribute("data-toolbox-group"), document.querySelector("#collapse-expand-all").getAttribute("data-collapse-expand"));
+            }
+        }
     }
 
     refreshSearch(searchFor) {

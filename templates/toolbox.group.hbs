@@ -1,5 +1,5 @@
 <div class="group-item">
-    <div class="group-title">
+    <div class="group-title" data-toolbox-group="{{groupName}}">
         {{#ifEquals groupName "Blockchain.Ethereum"}}
         <i class="fab fa-ethereum"></i>
         {{/ifEquals}}
@@ -46,7 +46,7 @@
         <i class="fas fa-exchange-alt"></i>
         {{/ifEquals}}
         {{#ifEquals groupName "Blockchain.BSC"}}
-        <i class="fas fa-exchange-alt"></i>
+        <i class="fas fa-share-alt-square"></i>
         {{/ifEquals}}
         {{#ifEquals groupName "PancakeSwap"}}
         <i class="fas fa-exchange-alt"></i>
@@ -69,12 +69,105 @@
         {{#ifEquals groupName "Data"}}
         <i class="fas fa-database"></i>
         {{/ifEquals}}
+        {{#ifEquals groupName "Charting"}}
+        <i class="fas fa-chart-line"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.Bitcoin"}}
+        <i class="fab fa-bitcoin"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "PushOver"}}
+        <i class="fa fa-comment"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "PushBullet"}}
+        <i class="fa fa-comment-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Function"}}
+        <i class="fas fa-running"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Ethereum Managed Wallet"}}
+        <i class="fab fa-ethereum"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Transformers"}}
+        <i class="fas fa-running"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "LiveCoinWatch"}}
+        <i class="fas fa-coins"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Bitfinex"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Bittrex"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Kraken"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "KuCoin"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "MXC"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "CoinEx"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Huobi"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.Polygon"}}
+        <i class="fas fa-share-alt-square"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.Elrond"}}
+        <i class="fas fa-share-alt-square"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.Ethereum.ERC20"}}
+        <i class="fab fa-ethereum"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.Ethereum.NFT"}}
+        <i class="fab fa-ethereum"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.BSC.BEP20"}}
+        <i class="fas fa-share-alt-square"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Blockchain.Avalanche"}}
+        <i class="fas fa-share-alt-square"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Lua Scripting"}}
+        <i class="fas fa-file-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Unicrypt"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Santiment"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Rarible"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Quickswap"}}
+        <i class="fas fa-exchange-alt"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Array"}}
+        <i class="fas fa-layer-group"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Hosted API"}}
+        <i class="fas fa-laptop-code"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Avalanche.SnowTrace"}}
+        <i class="fas fa-snowflake"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Avalanche.Avascan"}}
+        <i class="fas fa-snowflake"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "GraphLinq.Analytics"}}
+        <i class="fas fa-chart-area"></i>
+        {{/ifEquals}}
          {{groupName}}
-        <div class="expand">
+        <div class="expand" id="expand-{{groupName}}">
             <i class="fas fa-chevron-down"></i>
         </div>
     </div>
-    <div class="group-node-container">
+    <div class="group-node-container" id="group-node-{{groupName}}">
         {{#each items as |item|}}
             <div class="group-node-item" data-toolbox-node-type="{{item.NodeType}}" data-name="{{item.FriendlyName}}">
                 {{item.FriendlyName}}

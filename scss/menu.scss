@@ -8,7 +8,7 @@
     border-bottom: 1px solid $accent2-color;
     z-index: 1000;
     user-select: none;
-    
+
     animation-name: appearInMenu;
     animation-duration: 1s;
 
@@ -20,7 +20,7 @@
         width: 120px;
         display: inline-block;
         vertical-align: middle;
-        
+
         animation-name: appearInToolbox;
         animation-duration: 2.5s;
     }
