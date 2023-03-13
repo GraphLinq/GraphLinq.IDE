@@ -168,7 +168,9 @@ export default class Node {
             if (e.which != 1) return;
             if(e.target != null) {
                 if(e.target.getAttribute("no-drag") == "true") return;
-                if(e.target.getAttribute("class").indexOf("ace_") != -1) return;
+                if(e.target.getAttribute("class") != null) {
+                    if(e.target.getAttribute("class").indexOf("ace_") != -1) return;
+                }
             }
             let x = e.pageX - this.element.offsetLeft;
             let y = e.pageY - this.element.offsetTop;

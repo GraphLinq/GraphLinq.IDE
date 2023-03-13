@@ -49,6 +49,10 @@ export const addHandlebarsHelpers = () => {
         return (isParameterIsEditable(arg1)) ? options.fn(this) : options.inverse(this);
     });
 
+    Handlebars.registerHelper('log', function (arg1, options) {
+        return console.log(arg1);
+    });
+
     Handlebars.registerHelper('normalize', function (arg1, options) {
         return arg1.replaceAll(".", "-").toLowerCase().split(",")[0].replaceAll(" ", "").replaceAll("[", "b").replaceAll("]", "b");
     });
@@ -61,6 +65,15 @@ export const addHandlebarsHelpers = () => {
     Handlebars.registerHelper('isScriptInput', function (arg1, options) {
         if(arg1 == null) return options.inverse(this);
         return arg1.IsScriptInput ? options.fn(this) : options.inverse(this);
+    });
+
+    Handlebars.registerHelper('eachProperty', function(context, options) {
+        var ret = "";
+        for(var prop in context)
+        {
+            ret = ret + options.fn({property:prop,value:context[prop]});
+        }
+        return ret;
     });
 }
 

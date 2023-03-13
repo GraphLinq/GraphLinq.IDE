@@ -385,7 +385,7 @@ class App {
 
 let Application = null;
 let Version = "1.3.1";
-let ReleaseMode = "prod";
+let ReleaseMode = "dev";
 export { Application, Version, ReleaseMode };
 
 document.addEventListener('DOMContentLoaded', () => {

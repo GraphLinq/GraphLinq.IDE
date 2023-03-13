@@ -16,32 +16,32 @@
                     in
                 </div>
             {{/if}}
-            {{#each schema.InParameters as |parameter|}}
-                <div class="node-parameter {{normalize parameter.ValueType}}" data-parameter-name="{{parameter.Name}}">
+            {{#eachProperty schema.InParameters}}
+                <div class="node-parameter {{normalize value.ValueType}}" data-parameter-name="{{value.Name}}">
                     <div class="dot"></div>
-                    {{parameter.Name}}
+                    {{value.Name}}
                 </div>
-            {{/each}}
+            {{/eachProperty}}
         </div>
         <div class="node-parameter-container out">
-            {{#if schema.CanExecute}}
+             {{#if schema.CanExecute}}
                 <div class="node-parameter execution">
                     <div class="dot"></div>
                     out
                 </div>
             {{/if}}
-            {{#each schema.OutParameters as |parameter|}}
-                <div class="node-parameter {{normalize parameter.ValueType}}" data-parameter-name="{{parameter.Name}}">
-                    {{#if parameter.IsReference}}
+            {{#eachProperty schema.OutParameters}}
+                <div class="node-parameter {{normalize value.ValueType}}" data-parameter-name="{{value.Name}}">
+                    {{#if value.IsReference}}
                         <div class="dot reference"></div>
                     {{else}}
                         <div class="dot"></div>
                     {{/if}}
-                    {{parameter.Name}}
-                    {{#isParameterIsEditable parameter.ValueType}}
+                    {{value.Name}}
+                    {{#isParameterIsEditable value.ValueType}}
                         {{#ifEquals ../schema.NodeBlockType "variable"}}
                             <div>
-                                {{#ifEqualsNormalize parameter.ValueType "system-string"}}
+                                {{#ifEqualsNormalize value.ValueType "system-string"}}
                                     {{#isSecretInput ../schema.IDEParameters}}
                                         <input type="password" class="parameter-value-input" placeholder="..." spellcheck="false" no-drag="true" />
                                     {{else}}
@@ -58,7 +58,7 @@
                         {{/ifEquals}}
                     {{/isParameterIsEditable}}
                 </div>
-            {{/each}}
+            {{/eachProperty}}
         </div>
     </div>
     <div class="special-actions">
