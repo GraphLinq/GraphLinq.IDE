@@ -14,7 +14,7 @@ import Minimap from "./graph/minimap";
 import Popup from "./shared/node_help";
 
 let Application = null;
-let Version = "1.3.5";
+let Version = "1.3.6";
 let ReleaseMode = "prod";
 
 class App {
