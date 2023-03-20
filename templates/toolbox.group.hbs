@@ -162,7 +162,22 @@
         {{#ifEquals groupName "GraphLinq.Analytics"}}
         <i class="fas fa-chart-area"></i>
         {{/ifEquals}}
-         {{groupName}}
+        {{#ifEquals groupName "Dictionary"}}
+        <i class="fas fa-book"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Twitch"}}
+        <i class="fab fa-twitch"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "OpenAI"}}
+        <i class="fas fa-robot"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Machine Learning"}}
+        <i class="fas fa-atom"></i>
+        {{/ifEquals}}
+        {{#ifEquals groupName "Steam"}}
+        <i class="fab fa-steam"></i>
+        {{/ifEquals}}
+        {{groupName}}
         <div class="expand" id="expand-{{groupName}}">
             <i class="fas fa-chevron-down"></i>
         </div>
