@@ -1,5 +1,11 @@
 # GraphLinq IDE Changelog
 
+## 1.3.6
+- OpenAI blocks are now available
+- Twitch blocks are now available
+- You can now create dictionary to store data with keys
+- Add some blocks like "Generate random number"
+
 ## 1.3.5
 - Node block groups can be collapsed/expanded individually
 - All node block groups can be collapsed/expanded at once

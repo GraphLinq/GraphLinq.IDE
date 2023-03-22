@@ -41,7 +41,7 @@ export const requestLogin = async () => {
     const accounts = await web3Instance.eth.getAccounts();
     if(accounts.length == 0) return;
     const chainId = await web3Instance.eth.getChainId();
-    if(chainId != 1 && chainId != 137 && chainId != 3) {
+    if(chainId != 1 && chainId != 137 && chainId != 3 && chainId != 614) {
         alert("You are on the wrong network please change your network on metamask to ETH Mainnet and reload");
         return;
     }
@@ -50,6 +50,10 @@ export const requestLogin = async () => {
     var networkName = "ETH";
     if(chainId == 137) {
         networkName = "POLYGON";
+    }
+    if(chainId == 614) {
+        var glqIcon = require("../../favicon.png");
+        networkName = 'GLQ Chain <img style="width: 15px; height: 15px; vertical-align: middle;" src=' + glqIcon + ' />';
     }
     document.querySelector("[data-app-menu='login']").style.display = "none";
     document.querySelector("[data-app-menu='logged.as']").style.display = "block";
