@@ -6,6 +6,8 @@ export default class GraphBoard {
     constructor(app) {
         this.app = app;
         this.name = "NEW_GRAPH";
+        this.currentSubGraph = "Main Graph";
+        this.subGraphList = [];
         this.container = document.querySelector("#graph-container");
         this.nodes = [];
         this.comments = [];
@@ -24,6 +26,25 @@ export default class GraphBoard {
         }, 100);
     }
 
+    initSubgraph() {
+        if(this.subGraphList.length == 0) {
+            // This is a legacy graph without subgraph support we need to upgrade it
+            this.app.terminal.append("warning", "This is a legacy graph without subgraph support, the graph will be upgraded to support them");
+            this.subGraphList.push(this.currentSubGraph);
+            for(const n of this.nodes) {
+                n.subgraphId = this.currentSubGraph;
+            }
+        }
+    }
+
+    selectSubGraph(subGraph) {
+        if(!this.subGraphList[subGraph]) {
+            this.app.terminal.append("error", "No subgraph " + subGraph + " found in the graph to load");
+            return;
+        }
+        this.currentSubGraph = subGraph;
+    }
+
     onUITicker() {
         if (this.currentLink?.type == "Execution" || this.currentLink?.type == "Parameter" || this.currentLink?.type == "ParametersReference") {
             document.getElementById("linker-block").classList.remove("disable");
@@ -36,6 +57,7 @@ export default class GraphBoard {
     clear() {
         this.nodes = [];
         this.comments = [];
+        this.subGraphList = [];
         this.name = "NEW_GRAPH";
         document.querySelector(".graph-name input").value = this.name;
         this.container.querySelector(".inner-container").innerHTML = "";
@@ -255,6 +277,11 @@ export default class GraphBoard {
         const node = new Node(this, schema, options);
         await node.initialize();
         this.nodes.push(node);
+        if(node.subgraphId != "") {
+            if(!this.subGraphList.includes(node.subgraphId)) {
+                this.subGraphList.push(node.subgraphId);
+            }
+        }
         return node;
     }
 

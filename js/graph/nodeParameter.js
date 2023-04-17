@@ -2,6 +2,7 @@ import {isParameterIsEditable} from "./utils/utils";
 import { v4 as uuidv4 } from 'uuid';
 import ace from 'brace';
 import 'brace/mode/lua';
+import 'brace/mode/html';
 import 'brace/mode/json';
 import 'brace/theme/monokai';
 
@@ -23,6 +24,7 @@ export default class NodeParameter {
         if(this.isScriptingValue()) {
             let scriptEditorElement = this.element.querySelector(".script-editor");
             this.editor = ace.edit(scriptEditorElement)
+            console.log(this.node.schema.IDEParameters.ScriptType);
             this.editor.setOptions({
                 mode: "ace/mode/" + this.node.schema.IDEParameters.ScriptType,
                 selectionStyle: "text",

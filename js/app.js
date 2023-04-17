@@ -33,7 +33,7 @@ class App {
         this.lastGraphHashLaunched = "";
 
         this.setupMenu();
-        this.fetchHelp();
+        //this.fetchHelp();
         (async() => {
             await initWeb3();
 
@@ -198,6 +198,7 @@ class App {
                 "can_execute": node.schema.CanExecute,
                 "friendly_name": node.schema.FriendlyName,
                 "block_type": node.schema.NodeBlockType,
+                "sub_graph_id": node.subgraphId,
                 "_x": node.x,
                 "_y": node.y,
                 "in_parameters": node.parameters.filter(x => x.direction == "in").map(e => {
@@ -320,6 +321,7 @@ class App {
             }
             const graphnode = await this.graphboard.appendNewNodeWithSchema(schema, {
                 id: node.id,
+                subgraphId: node.sub_graph_id,
                 x: node._x,
                 y: node._y
             });
@@ -366,6 +368,8 @@ class App {
                 }
             }
         }
+        this.terminal.append("debug", "Found " + this.graphboard.subGraphList.length + " sub graphs in the graph");
+        this.graphboard.initSubgraph();
     }
 
     async fetchHelp() {

@@ -14,6 +14,7 @@ export default class Node {
         this.parameters = [];
         this.element = null;
         this.id = options.id ? options.id : uuidv4();
+        this.subgraphId = options.subgraphId ? options.subgraphId : "";
         this.outNode = null;
         this.outNodeLineElement = null;
 
