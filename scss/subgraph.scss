@@ -1,0 +1,38 @@
+#sub-graph-tab-container {
+    position: fixed;
+    height: 40px;
+    left: 250px;
+    right: 0px;
+    bottom: 20%;
+    
+    animation-name: appearInConsole;
+    animation-duration: 1s;
+    background-color: $accent-color;
+    border-top: 1px solid $accent2-color;
+
+    .sub-graph-tab {
+        cursor: pointer;
+        transition: 0.3s;
+        display: inline-block;
+        vertical-align: middle;
+        height: 40px;
+        line-height: 35px;
+        padding-right: 10px;
+        padding-left: 10px;
+        border-right: 2px solid $accent2-color;
+
+        svg {
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        &:hover {
+            background-color: lighten($color: $accent-color, $amount: 3);
+        }
+
+        &:active {
+            color: white;
+            background-color: $accent3-color;
+        }
+    }
+}
