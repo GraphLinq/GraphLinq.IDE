@@ -1,5 +1,9 @@
 # GraphLinq IDE Changelog
 
+## 1.3.7
+- URL Shortener Blocks - https://glq.link
+- WebSocket Blocks
+
 ## 1.3.6
 - OpenAI blocks are now available
 - Twitch blocks are now available

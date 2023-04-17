@@ -13,6 +13,7 @@
 
     .inner-container {
         width: 10000%;
+        
         height: 10000%;
         position: absolute;
         top: 0;
@@ -168,7 +169,7 @@
                     justify-content: center;
                     cursor: pointer;
                     transition: 0.2s;
-                    display: none;
+                    opacity: 0;
                     margin-left: 5px;
 
                     &:hover {
@@ -179,6 +180,7 @@
                 &:hover {
                     .node-toolbar-icon {
                         display: flex;
+                        opacity: 1;
                     }
                 }
             }
