@@ -32,9 +32,11 @@ export default class Comment {
         this.element.style.top = this.y;
         this.element.querySelector(".text-comment input").value = this.text;
         this.graphboard.getGraphContainer().appendChild(this.element);
+        this.resize();
 
         this.element.querySelector(".text-comment input").addEventListener("keyup", (e) => {
             this.text = e.target.value;
+            this.resize();
         })
 
         this.element.querySelector(".comment-toolbar .delete-btn").addEventListener("click", () => {
@@ -69,5 +71,10 @@ export default class Comment {
             this.element.style.top = this.y;
             this.element.style.left = this.x;
         });
+    }
+
+    resize() {
+        const textLength = this.element.querySelector(".text-comment input").value.length;
+        this.element.querySelector(".text-comment input").style.width = 250 * (Math.ceil(textLength / 20));
     }
 }

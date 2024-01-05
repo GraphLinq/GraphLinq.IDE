@@ -12,6 +12,9 @@ import { fetchTemplatesFromGithub } from "./shared/github_template_fetcher";
 import ProjectManager from './shared/project_manager';
 import Minimap from "./graph/minimap";
 import Popup from "./shared/node_help";
+import { registerInteropGlobalFunctions } from './graph/ide_interop';
+import AIPrompt from './shared/ai_prompt';
+import AISchema from './graph/ai/ai_schema';
 
 let Application = null;
 let Version = "1.3.7";
@@ -28,6 +31,8 @@ class App {
         this.toolbox = new Toolbox(this);
         this.projectManager = new ProjectManager(this);
         this.minimap = new Minimap(this);
+        this.aiPrompt = new AIPrompt(this);
+        this.aiSchema = new AISchema(this);
         this.currentProject = null;
 
         this.lastGraphHashLaunched = "";
@@ -83,6 +88,8 @@ class App {
             }, 60000 * 1);
 
             await fetchTemplatesFromGithub();
+
+            registerInteropGlobalFunctions();
         })();
     }
 
@@ -150,6 +157,14 @@ class App {
 
         document.querySelector("[data-app-menu='file.load']").addEventListener("click", () => {
             this.requestLoadGraphFromFile();
+        });
+
+        document.querySelector("[data-app-menu='file.export_human_schema']").addEventListener("click", () => {
+            this.aiSchema.buildHumanSchema();
+        });
+
+        document.querySelector("[data-app-menu='file.export_js']").addEventListener("click", () => {
+            this.aiSchema.buildJavascriptGraph();
         });
 
         document.querySelector("[data-app-menu='login']").addEventListener("click", () => {
@@ -282,10 +297,19 @@ class App {
     }
 
     async exportGraphCompressed() {
-        const json = this.exportGraphAsJSON();
-        const compressedData = await fetchCompressed(JSON.stringify(json), getToken());
-        saveAs(new File([compressedData.compressed], this.graphboard.name + ".glq", { type: "text/plain;charset=utf-8" }))
-        this.terminal.append("success", "Graph downloaded");
+        const uncompressed = true;
+        if(uncompressed) {
+            const json = this.exportGraphAsJSON();
+            saveAs(new File([JSON.stringify(json)], this.graphboard.name + ".glq", { type: "text/plain;charset=utf-8" }))
+            this.terminal.append("debug", "The graph exported will not be compressed for the engine");
+            this.terminal.append("success", "Graph downloaded");
+        }
+        else {
+            const json = this.exportGraphAsJSON();
+            const compressedData = await fetchCompressed(JSON.stringify(json), getToken());
+            saveAs(new File([compressedData.compressed], this.graphboard.name + ".glq", { type: "text/plain;charset=utf-8" }))
+            this.terminal.append("success", "Graph downloaded");
+        }
     }
 
     async loadGraphFromJSON(json, isBinary = false) {
@@ -317,6 +341,7 @@ class App {
         for (const node of graph.nodes) {
             const schema = this.toolbox.schema.filter(x => x.NodeType == node.type)[0];
             if(!schema) {
+                this.terminal.append("error", "Missing block schema in the graph " + node.type);
                 continue;
             }
             const graphnode = await this.graphboard.appendNewNodeWithSchema(schema, {

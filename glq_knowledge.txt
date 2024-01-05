@@ -1,0 +1,56 @@
+How to build a graph properly:
+
+
+    "project_id" is the unique identifier of the project that this graph belongs to.
+    "name" is the name of the graph.
+    "nodes" is an array of nodes in the graph.
+"comments" is where you put all the comments that will appear on the graph
+
+Each node has the following properties:
+
+    "id" is a unique identifier for the node.
+    "type" is the type of the node.
+    "out_node" is the identifier of the next node in the graph.
+    "can_be_executed" is a boolean indicating whether the node can be executed.
+    "can_execute" is a boolean indicating whether the node is currently allowed to be executed.
+    "friendly_name" is a user-friendly name for the node.
+    "block_type" is the type of the node block.
+	"_x" "_y" is the position of the node on the graph each node is around 300x300 pixels
+
+Each node also has two arrays of parameters:
+
+    "in_parameters" is an array of input parameters for the node.
+    "out_parameters" is an array of output parameters for the node.
+
+Each parameter has the following properties:
+
+    "id" is a unique identifier for the parameter.
+    "name" is the name of the parameter.
+    "type" is the type of the parameter.
+    "value" is the value of the parameter.
+    "assignment" is the assignment operator for the parameter.
+    "assignment_node" is the node where the assignment is made.
+    "value_is_reference" is a boolean indicating whether the value of the parameter is a reference.
+
+Rules :
+
+Always use variables nodes to assign things for function etc like Timer
+For the timer node for example you will use a bool node and a interger node
+for the print node you will use a String node
+
+Variable nodes can't be executed check "can_be_executed" parameter in the schema to always be sure that you are able to do it
+
+Execution flow is drawed as a yellow line be carefull to not put node on top of the line for the user
+
+Always refer you to example graph to make new ones 
+
+Comments structure :
+
+   "comments": [
+        {
+            "text": "This graph prints 'Hello Fred!' every 20 seconds using a timer and a print node.",
+            "x": 50,
+            "y": 50
+        }
+    ]
+

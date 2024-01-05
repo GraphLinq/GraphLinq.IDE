@@ -33,6 +33,12 @@
                     <div class="sub-menu-item" data-app-menu="file.export">
                         <i class="fas fa-file-download"></i> Export as file
                     </div>
+                    <div class="sub-menu-item" data-app-menu="file.export_human_schema">
+                        <i class="fas fa-file-download"></i> Export H.Schema
+                    </div>
+                    <div class="sub-menu-item" data-app-menu="file.export_js">
+                        <i class="fas fa-scroll"></i> Export javascript
+                    </div>
                 </div>
             </div>
             <div class="menu-item">
@@ -114,6 +120,17 @@
 
             <div id="minimap">
                 <canvas width="250" height="140"></canvas>
+            </div>
+
+            <div id="ai-prompt">
+                <div id="ai-thinking-loading" class="bouncing-dots">
+                    <div class="dot" id="dot1"></div>
+                    <div class="dot" id="dot2"></div>
+                    <div class="dot" id="dot3"></div>
+                </div>
+                <div class="load"></div>
+                <i class="fas fa-robot"></i>
+                <input type="text" placeholder="<Ask to the Graphlinq AI to create a graph for you>" />
             </div>
         </div>
 

@@ -1,0 +1,4114 @@
+List of all nodes available to create graph in Graphlinq : 
+
+Node type identifier = BoolNode
+Friendly Name (Not for use, just display purpose) = Boolean
+Node description = In computer science, the Boolean data type is a data type that has one of two possible values (usually denoted true and false) which is intended to represent the two truth values of logic and Boolean algebra
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = DecimalNode
+Friendly Name (Not for use, just display purpose) = Decimal
+Node description = The decimal data type is an exact numeric data type defined by its precision (total number of digits) and scale (number of digits to the right of the decimal point). ... Scale can be 0 (no digits to the right of the decimal point).
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = EntryPointNode
+Friendly Name (Not for use, just display purpose) = Entry Point
+Node description = Basic Graph entry point, start the execution of a graph
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+
+===================
+Node type identifier = GetTimestampMsNode
+Friendly Name (Not for use, just display purpose) = Get Milliseconds Timestamp
+Node description = Return the current milliseconds timestamp of the engine localtime
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = timestamp 
+
+===================
+Node type identifier = GetTimestampMsOffsetNode
+Friendly Name (Not for use, just display purpose) = Get Milliseconds Timestamp Offset
+Node description = Return offset timestamp with milliseconds of the engine localtime
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = offset
+Output parameters list : 
+1 = timestamp 
+
+===================
+Node type identifier = GetTimestampNode
+Friendly Name (Not for use, just display purpose) = Get Timestamp
+Node description = Return the current timestamp of the engine localtime
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = timestamp 
+
+===================
+Node type identifier = GetTimestampOffsetNode
+Friendly Name (Not for use, just display purpose) = Get Timestamp Offset
+Node description = Return offset timestamp of the engine localtime
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = offset
+Output parameters list : 
+1 = timestamp 
+
+===================
+Node type identifier = IntNode
+Friendly Name (Not for use, just display purpose) = Integer
+Node description = An integer format is a data type in computer programming. ... Integers represent whole units. Integers occupy less space in memory, but this space-saving feature limits the magnitude of the integer that can be stored.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = JsonSelectorNode
+Friendly Name (Not for use, just display purpose) = JSON Selector
+Node description = Select a specific value in a json object and return it as string parameter
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = json
+2 = selector
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = KeyValueNode
+Friendly Name (Not for use, just display purpose) = KeyValue
+Node description = A keyValue is a data structure to associate key with a value.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = key
+2 = value
+Output parameters list : 
+1 = output 
+
+===================
+Node type identifier = LongNode
+Friendly Name (Not for use, just display purpose) = Long
+Node description = The long data type is a 64-bit two's complement integer. The signed long has a minimum value of -263 and a maximum value of 263-1.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = OnGraphStartNode
+Friendly Name (Not for use, just display purpose) = On Graph Start
+Node description = This event is called when the graph start, usefull for initialize variables
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+Output parameters list : 
+
+===================
+Node type identifier = PrintNode
+Friendly Name (Not for use, just display purpose) = Print
+Node description = Display a message in the console logs
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = message
+Output parameters list : 
+
+===================
+Node type identifier = SecretStringNode
+Friendly Name (Not for use, just display purpose) = Secret String
+Node description = A string that value are hidden in the IDE
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = StopGraphNode
+Friendly Name (Not for use, just display purpose) = Stop Graph
+Node description = Stop the execution of the current graph
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+
+===================
+Node type identifier = StringNode
+Friendly Name (Not for use, just display purpose) = String
+Node description = A string is a data type used in programming, such as an integer and floating point unit, but is used to represent text rather than numbers. It is comprised of a set of characters that can also contain spaces and numbers.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = TimerNode
+Friendly Name (Not for use, just display purpose) = Timer
+Node description = Start a timer that will init a new execution cycle, from in parameter specified time.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = intervalInSeconds
+2 = triggerAtStart
+Output parameters list : 
+
+===================
+Node type identifier = WebSocketClientCloseNode
+Friendly Name (Not for use, just display purpose) = WebSocket Client Close
+Node description = Close a WebSocket client connection
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = webSocketClient
+Output parameters list : 
+
+===================
+Node type identifier = WebSocketClientConnectorNode
+Friendly Name (Not for use, just display purpose) = WebSocket Client Connector
+Node description = Create a WebSocket client that connects to a WebSocket server
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = uri
+Output parameters list : 
+1 = webSocketClient (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = onError (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = WebSocketClientOnDisconnectNode
+Friendly Name (Not for use, just display purpose) = On WebSocket Client Disconnect
+Node description = Triggered when the WebSocket client is disconnected from the server
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = webSocketClient
+Output parameters list : 
+
+===================
+Node type identifier = WebSocketReceiveDataEventNode
+Friendly Name (Not for use, just display purpose) = WebSocket Receive Data Event
+Node description = Trigger events when data is received from the WebSocket server
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = webSocketClient
+Output parameters list : 
+1 = data 
+
+===================
+Node type identifier = WebSocketSendDataNode
+Friendly Name (Not for use, just display purpose) = WebSocket Send Data
+Node description = Send data to a connected WebSocket server
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = webSocketClient
+2 = data
+Output parameters list : 
+
+===================
+Node type identifier = GetVariable
+Friendly Name (Not for use, just display purpose) = Get variable
+Node description = Return the value of the variable pre computed from a Set variable block
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = variableName
+Output parameters list : 
+1 = value 
+2 = directName 
+
+===================
+Node type identifier = IsVariableExist
+Friendly Name (Not for use, just display purpose) = Is Variable Exist
+Node description = Check if a variable exist in the graph memory context
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = variableName
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = SetVariable
+Friendly Name (Not for use, just display purpose) = Set variable
+Node description = Set a variable value (can be any type) in the graph memory context
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = variableName
+2 = value
+Output parameters list : 
+
+===================
+Node type identifier = VariablePortalNode
+Friendly Name (Not for use, just display purpose) = Variable Portal
+Node description = Pass a variable from in to the out, it's used or organize your graph
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = in
+Output parameters list : 
+1 = out 
+
+===================
+Node type identifier = StartWithNode
+Friendly Name (Not for use, just display purpose) = String Start With
+Node description = Trigger different node path on a condition based on characters at the start of a string
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = text
+2 = startText
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = StringConcat
+Friendly Name (Not for use, just display purpose) = Concat String
+Node description = Split two string by a specific delimiter and return it as out parameter.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = stringA
+2 = stringB
+3 = delimiter
+Output parameters list : 
+1 = string 
+
+===================
+Node type identifier = StringContainsMultiNode
+Friendly Name (Not for use, just display purpose) = String Contains Multiple
+Node description = Check if a string contains any item in array
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = string
+2 = searchItems
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = StringContainsNode
+Friendly Name (Not for use, just display purpose) = String Contains
+Node description = Check if a string contains a other string
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = string
+2 = toSearch
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = StringGetAllMatchUsingRegexNode
+Friendly Name (Not for use, just display purpose) = String Get All Match Using Regex
+Node description = Get All Matches in a string using regular expression
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = string
+2 = regex
+Output parameters list : 
+1 = each (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = item 
+
+===================
+Node type identifier = StringGetMatchUsingRegexNode
+Friendly Name (Not for use, just display purpose) = String Get Match Using Regex
+Node description = Extract match in string using regular expression
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = string
+2 = regex
+Output parameters list : 
+1 = returnText 
+
+===================
+Node type identifier = StringMatchesRegexNode
+Friendly Name (Not for use, just display purpose) = String Matches Regex
+Node description = Check if a string matches a regular expression
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = string
+2 = regex
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = StringReplaceNode
+Friendly Name (Not for use, just display purpose) = Replace String in String
+Node description = Replace some part of the original string by a new strings
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = original
+2 = toReplace
+3 = replaceText
+Output parameters list : 
+1 = string 
+
+===================
+Node type identifier = StringReplaceUsingRegexNode
+Friendly Name (Not for use, just display purpose) = String Replace Using Regex
+Node description = Replace match in string using regular expression
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = string
+2 = regex
+3 = replace
+Output parameters list : 
+1 = returnText 
+
+===================
+Node type identifier = StringSplitNode
+Friendly Name (Not for use, just display purpose) = String Split
+Node description = Split String By Character
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = original
+2 = splitUsing
+Output parameters list : 
+1 = each (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = item 
+
+===================
+Node type identifier = SubstringNode
+Friendly Name (Not for use, just display purpose) = Substring
+Node description = Substring a text
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = input
+2 = startIndex
+Output parameters list : 
+1 = string 
+
+===================
+Node type identifier = GetKeyItemNode
+Friendly Name (Not for use, just display purpose) = Get Key Item
+Node description = Return a specific key from the Redis storage allocated for the graph execution
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = key
+2 = fromJson
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = GetWalletKeyItemNode
+Friendly Name (Not for use, just display purpose) = Get Wallet Key Item
+Node description = Return a specific key from the Redis storage allocated for the wallet context
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = key
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = KeyItemExistNode
+Friendly Name (Not for use, just display purpose) = Is Key Item Exist
+Node description = Check if a specific key from the Redis storage exist
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = key
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = KeyWalletItemExistNode
+Friendly Name (Not for use, just display purpose) = Is Key Wallet Item Exist
+Node description = Check if a specific key from the Redis storage exist in the wallet context storage
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = key
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = SaveKeyItemNode
+Friendly Name (Not for use, just display purpose) = Save Key Item
+Node description = Save a specific key in the Redis storage allocated for the graph execution
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = key
+2 = value
+3 = toJson
+Output parameters list : 
+
+===================
+Node type identifier = SaveWalletKeyItemNode
+Friendly Name (Not for use, just display purpose) = Save Wallet Key Item
+Node description = Save a specific key in the Redis storage allocated for the wallet context
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = key
+2 = value
+Output parameters list : 
+
+===================
+Node type identifier = AddNode
+Friendly Name (Not for use, just display purpose) = Add A + B
+Node description = Calculate the value of A + B (both sent in params) and return it as out parameter
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = a
+2 = b
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = BounceRateIntervalNode
+Friendly Name (Not for use, just display purpose) = Bounce Rate Interval
+Node description = Calculate the bounce rate in the given interval, you can use the Percentage value only when the OnIntervalTick trigger
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = value
+2 = interval
+Output parameters list : 
+1 = percentage 
+2 = onIntervalTick (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = CeilNode
+Friendly Name (Not for use, just display purpose) = Ceiling
+Node description = Ceiling the value
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = number
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = DivideNode
+Friendly Name (Not for use, just display purpose) = Divide A / B
+Node description = Calculate the division of value of A / B (both sent in params) and return it as out parameter, zero division are forbidden.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = a
+2 = b
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = FloorNode
+Friendly Name (Not for use, just display purpose) = Floor
+Node description = Floor the value
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = number
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = ModuloNode
+Friendly Name (Not for use, just display purpose) = Modulo A % B
+Node description = Calculate the Modulo of value of A % B (both sent in params) and return it as out parameter.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = a
+2 = b
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = MultiplyNode
+Friendly Name (Not for use, just display purpose) = Multiply A * B
+Node description = Calculate the multiplication of value of A * B (both sent in params) and return it as out parameter.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = a
+2 = b
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = PercentageDiffNode
+Friendly Name (Not for use, just display purpose) = Percentage Difference
+Node description = Calculate the percentage difference of value of A from B (both sent in params) and return difference as out parameter.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = a
+2 = b
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = RandNode
+Friendly Name (Not for use, just display purpose) = Random Number
+Node description = Get a random number
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = min
+2 = max
+Output parameters list : 
+1 = number 
+
+===================
+Node type identifier = RoundNode
+Friendly Name (Not for use, just display purpose) = Round
+Node description = Round the value
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = number
+2 = decimal
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = SubtractNode
+Friendly Name (Not for use, just display purpose) = Substract A - B
+Node description = Calculate the substraction of value of A - B (both sent in params) and return it as out parameter.
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = a
+2 = b
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = DeleteHTTPNode
+Friendly Name (Not for use, just display purpose) = Delete HTTP Request
+Node description = Make an HTTP Delete request to any requested server
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = headers
+Output parameters list : 
+1 = result 
+2 = exception (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = GetHTTPNode
+Friendly Name (Not for use, just display purpose) = Get HTTP Request
+Node description = Make an HTTP GET request to any requested server
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = headers
+Output parameters list : 
+1 = result 
+2 = exception (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = PostHTTPNode
+Friendly Name (Not for use, just display purpose) = Post HTTP Request
+Node description = Make an HTTP Post request to any requested server
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = httpContent
+3 = headers
+Output parameters list : 
+1 = result 
+2 = exception (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = PutHTTPNode
+Friendly Name (Not for use, just display purpose) = Put HTTP Request
+Node description = Make an HTTP Put request to any requested server
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = httpContent
+3 = headers
+Output parameters list : 
+1 = result 
+2 = exception (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = JsonHeaderNode
+Friendly Name (Not for use, just display purpose) = Array To JSON Body
+Node description = Convert the json data into a json for a http request.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = json
+Output parameters list : 
+1 = httpContent 
+
+===================
+Node type identifier = UrlEncodeHeaderNode
+Friendly Name (Not for use, just display purpose) = Array To Body Values
+Node description = Convert the array key-value data into a body values for a http request.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = array
+Output parameters list : 
+1 = httpContent 
+
+===================
+Node type identifier = AddFunctionParameterNode
+Friendly Name (Not for use, just display purpose) = Add Function Parameter
+Node description = Add a new parameter to a function parameters array
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = parameters
+2 = name
+3 = value
+Output parameters list : 
+1 = outParameters 
+
+===================
+Node type identifier = AddFunctionResultNode
+Friendly Name (Not for use, just display purpose) = Set Function Result
+Node description = Set a value returned by the function
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = name
+2 = value
+Output parameters list : 
+
+===================
+Node type identifier = CallFunctionNode
+Friendly Name (Not for use, just display purpose) = Call Function
+Node description = Call a function in the graph
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = name
+2 = parameters
+Output parameters list : 
+1 = results 
+
+===================
+Node type identifier = CreateFunctionParametersNode
+Friendly Name (Not for use, just display purpose) = Create Function Parameters
+Node description = Create a empty array for function parameters
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = parameters 
+
+===================
+Node type identifier = FunctionNode
+Friendly Name (Not for use, just display purpose) = Function
+Node description = Create a new function
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = name
+Output parameters list : 
+
+===================
+Node type identifier = GetFunctionParameterNode
+Friendly Name (Not for use, just display purpose) = Get Function Parameter
+Node description = Get a call parameter from the current function context
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = name
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = GetFunctionResultParameterNode
+Friendly Name (Not for use, just display purpose) = Get Function Result Parameter
+Node description = Get a result parameter from a function result
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = results
+2 = name
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = ConvertLastBlockOutputToJsonNode
+Friendly Name (Not for use, just display purpose) = Last Node To JSON
+Node description = Serialize the last node executed in the graph to JSON data
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = json 
+
+===================
+Node type identifier = ConvertToJsonNode
+Friendly Name (Not for use, just display purpose) = Convert To JSON
+Node description = Convert the received any type parameter into a JSON object readable
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = object
+Output parameters list : 
+1 = json 
+
+===================
+Node type identifier = StringToBase64Node
+Friendly Name (Not for use, just display purpose) = String to Base64
+Node description = Transform a clear string into a base64 string as output
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = string
+Output parameters list : 
+1 = base64 
+
+===================
+Node type identifier = AddJsonValueNode
+Friendly Name (Not for use, just display purpose) = Add JSON Property
+Node description = Add a property into a JSON Object
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = jsonObject
+2 = key
+3 = value
+Output parameters list : 
+1 = jsonObjectOut 
+
+===================
+Node type identifier = CreateJsonObjectNode
+Friendly Name (Not for use, just display purpose) = Create JSON Object
+Node description = Create a new empty JSON object
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = jsonObject 
+
+===================
+Node type identifier = JsonDeserializeToArrayNode
+Friendly Name (Not for use, just display purpose) = JSON Deserialize To Array
+Node description = Convert a plain json string to a array
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = json
+Output parameters list : 
+1 = array 
+
+===================
+Node type identifier = JsonToJsonObjectNode
+Friendly Name (Not for use, just display purpose) = JSON to JSON Object
+Node description = Convert a plain json string to a json object
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = json
+Output parameters list : 
+1 = jsonObject 
+
+===================
+Node type identifier = MergeJSONNode
+Friendly Name (Not for use, just display purpose) = Merge JSON
+Node description = Merge two JSON into one
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = json1
+2 = json2
+Output parameters list : 
+1 = mergedJson 
+
+===================
+Node type identifier = SerializeJsonObjectNode
+Friendly Name (Not for use, just display purpose) = Serialize JSON Object
+Node description = Serialize a JSON object to a string
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = jsonObject
+Output parameters list : 
+1 = json 
+
+===================
+Node type identifier = SerializeToJsonNode
+Friendly Name (Not for use, just display purpose) = Serialize To JSON
+Node description = Serialize a value to JSON format
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = value
+Output parameters list : 
+1 = json 
+
+===================
+Node type identifier = FormatDateNode
+Friendly Name (Not for use, just display purpose) = Format Date
+Node description = Format a date with a given pattern
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = date
+2 = format
+Output parameters list : 
+1 = dateString 
+
+===================
+Node type identifier = TimeStampMsToDateNode
+Friendly Name (Not for use, just display purpose) = Millisecond Timestamp to Date
+Node description = Convert a Timestamp with Milliseconds to Date
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = timestamp
+Output parameters list : 
+1 = date 
+
+===================
+Node type identifier = TimeStampToDateNode
+Friendly Name (Not for use, just display purpose) = Timestamp to Date
+Node description = Convert a Timestamp to Date
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = timestamp
+Output parameters list : 
+1 = date 
+
+===================
+Node type identifier = CombineDataNode
+Friendly Name (Not for use, just display purpose) = Combine Data
+Node description = Combine two data in single one
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = data1
+2 = data2
+Output parameters list : 
+1 = combinedData 
+
+===================
+Node type identifier = ConvertNodeToDataNode
+Friendly Name (Not for use, just display purpose) = Convert To Data
+Node description = Convert output parameters to data parameters
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = data 
+
+===================
+Node type identifier = SendDataToWebhookNode
+Friendly Name (Not for use, just display purpose) = Send Data to Webhook
+Node description = Send data parameters as JSON to the url specified
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = data
+Output parameters list : 
+
+===================
+Node type identifier = AddCSVColumnNode
+Friendly Name (Not for use, just display purpose) = Add Column to CSV
+Node description = Add a new column to a csv
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = csv
+2 = column
+Output parameters list : 
+1 = csvOut (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = AddCSVRowNode
+Friendly Name (Not for use, just display purpose) = Add CSV Row
+Node description = Add a row to a csv
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = csv
+2 = row
+Output parameters list : 
+
+===================
+Node type identifier = AddCSVRowValue
+Friendly Name (Not for use, just display purpose) = Add CSV Row Value
+Node description = Add a value to a csv row
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = row
+2 = name
+3 = value
+Output parameters list : 
+1 = rowOut (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = ClearCSVNode
+Friendly Name (Not for use, just display purpose) = Clear CSV Rows
+Node description = Clear CSV Rows
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = csv
+Output parameters list : 
+
+===================
+Node type identifier = ConvertCSVToDataNode
+Friendly Name (Not for use, just display purpose) = Convert CSV To Data
+Node description = Convert CSV to data parameters
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = csv
+Output parameters list : 
+1 = data 
+
+===================
+Node type identifier = ConvertCSVToFileNode
+Friendly Name (Not for use, just display purpose) = Convert CSV To File
+Node description = Convert CSV to file
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = csv
+Output parameters list : 
+1 = file 
+
+===================
+Node type identifier = ConvertLastNodeParametersToCSVRowNode
+Friendly Name (Not for use, just display purpose) = Convert Last Node Parameters To CSV Row
+Node description = Convert last node out parameters to CSV row
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = row (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = CreateCSVNode
+Friendly Name (Not for use, just display purpose) = Create CSV
+Node description = Create a new CSV instance
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = name
+Output parameters list : 
+1 = csv (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = CreateCSVRowNode
+Friendly Name (Not for use, just display purpose) = Create CSV Row
+Node description = Create new csv row
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = row (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = GetCSVRowsCountNode
+Friendly Name (Not for use, just display purpose) = Get CSV Rows Count
+Node description = Get CSV Rows Count
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = csv
+Output parameters list : 
+1 = count 
+
+===================
+Node type identifier = GetGraphRunningSinceNode
+Friendly Name (Not for use, just display purpose) = Get Graph Running Since Time
+Node description = Get the time since the graph has been started
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = time 
+
+===================
+Node type identifier = BoolBranchNode
+Friendly Name (Not for use, just display purpose) = Boolean Branch
+Node description = Trigger different node path on a condition based on a bool variable value state (true/false).
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = condition
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = DecimalBranch
+Friendly Name (Not for use, just display purpose) = Decimal Branch
+Node description = Trigger different node path on a condition based on a decimal variable value state (equals to, greater or equals, lower then, lower or equals..).
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = valueA
+2 = valueB
+Output parameters list : 
+1 = > (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = >= (This parameter is a execution flow out parameter, you can use it to execute other node)
+3 = == (This parameter is a execution flow out parameter, you can use it to execute other node)
+4 = <= (This parameter is a execution flow out parameter, you can use it to execute other node)
+5 = < (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = DecimalRangeBranch
+Friendly Name (Not for use, just display purpose) = Decimal Range Branch
+Node description = Trigger a condition of a node execution based over a range of values (included in a min or max number)
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = value
+2 = rangeMax
+3 = rangeMin
+Output parameters list : 
+1 = >= RangeMax (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = <= RangeMin (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = ExecutionTimeIntervalNode
+Friendly Name (Not for use, just display purpose) = Execution Time Interval
+Node description = Allow execution in a interval rate
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = intervalInSeconds
+Output parameters list : 
+
+===================
+Node type identifier = IntBranchNode
+Friendly Name (Not for use, just display purpose) = Integer Branch
+Node description = Trigger different node path on a condition based on an integer variable value state (equals to, greater or equals, lower then, lower or equals..).
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = valueA
+2 = valueB
+Output parameters list : 
+1 = > (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = >= (This parameter is a execution flow out parameter, you can use it to execute other node)
+3 = == (This parameter is a execution flow out parameter, you can use it to execute other node)
+4 = <= (This parameter is a execution flow out parameter, you can use it to execute other node)
+5 = < (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = StringBranchNode
+Friendly Name (Not for use, just display purpose) = String Branch
+Node description = Trigger a condition over two string value to compare if their are equals to each other
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = valueA
+2 = valueB
+Output parameters list : 
+1 = == (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = != (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = AddArrayElementNode
+Friendly Name (Not for use, just display purpose) = Add Array Element
+Node description = Add a element to the array
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = array
+2 = element
+3 = sizeLimit
+Output parameters list : 
+
+===================
+Node type identifier = AddDictionaryEntry
+Friendly Name (Not for use, just display purpose) = Add Dictionary Entry
+Node description = Add a entry with a key
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = dictionary
+2 = key
+3 = element
+Output parameters list : 
+
+===================
+Node type identifier = ClearArrayNode
+Friendly Name (Not for use, just display purpose) = Clear Array
+Node description = Clear all elements in an array
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = array
+Output parameters list : 
+
+===================
+Node type identifier = CreateArrayNode
+Friendly Name (Not for use, just display purpose) = Create Array
+Node description = An array can store multiple variable in it
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = array 
+
+===================
+Node type identifier = CreateDictionaryNode
+Friendly Name (Not for use, just display purpose) = Create Dictionary
+Node description = An Dictionary can store multiple variable in it with a key
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = dictionary 
+
+===================
+Node type identifier = EachElementArrayNode
+Friendly Name (Not for use, just display purpose) = Each Element In Array
+Node description = Loop on all element in a array
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = array
+Output parameters list : 
+1 = each (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = item 
+
+===================
+Node type identifier = GetArrayElementAtIndexNode
+Friendly Name (Not for use, just display purpose) = Get Array Element At Index
+Node description = Get a element from a array at a specific index
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = array
+2 = index
+Output parameters list : 
+1 = element 
+
+===================
+Node type identifier = GetArraySizeNode
+Friendly Name (Not for use, just display purpose) = Get Array Size
+Node description = Get the size of an array
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = array
+Output parameters list : 
+1 = size 
+
+===================
+Node type identifier = GetDictionaryEntryNode
+Friendly Name (Not for use, just display purpose) = Get Dictionary Entry
+Node description = Get a entry with a key
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = dictionary
+2 = key
+Output parameters list : 
+1 = entry 
+
+===================
+Node type identifier = HasKeyInDictionaryNode
+Friendly Name (Not for use, just display purpose) = Has Key In Dictionary
+Node description = Check if a key exist in the dictionary
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = dictionary
+2 = key
+Output parameters list : 
+1 = true (This parameter is a execution flow out parameter, you can use it to execute other node)
+2 = false (This parameter is a execution flow out parameter, you can use it to execute other node)
+
+===================
+Node type identifier = KeepArrayLastElementsNode
+Friendly Name (Not for use, just display purpose) = Keep last X elements Array
+Node description = keep last X elements in a array
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = array
+2 = amountToKeep
+Output parameters list : 
+
+===================
+Node type identifier = AddAPIEndpointNode
+Friendly Name (Not for use, just display purpose) = Add API Endpoint
+Node description = Add new endpoint to a Hosted API
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = hostedAPI
+2 = path
+3 = file
+Output parameters list : 
+1 = endpoint 
+
+===================
+Node type identifier = CompleteRequestContextNode
+Friendly Name (Not for use, just display purpose) = Complete Request Context
+Node description = Send the response for the request context of a endpoint call
+Can be executed in execution flow = true
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = requestContext
+Output parameters list : 
+
+===================
+Node type identifier = EndpointCacheResponseNode
+Friendly Name (Not for use, just display purpose) = Add Endpoint Cache
+Node description = Add a cache for the response of the endpoint
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = endpoint
+2 = ttl
+Output parameters list : 
+
+===================
+Node type identifier = ExposeAPIBlockNode
+Friendly Name (Not for use, just display purpose) = Expose API
+Node description = Expose a HTTP API for the graph, this will generate a random port and a random id in output
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = hostedAPI 
+2 = url 
+
+===================
+Node type identifier = GetBodyParameterNode
+Friendly Name (Not for use, just display purpose) = Get Body Parameter
+Node description = Get a value from body parameters
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = requestContext
+2 = key
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = GetQueryParameterNode
+Friendly Name (Not for use, just display purpose) = Get Query Parameter
+Node description = Get the value of a query parameter from a endpoint request
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = requestContext
+2 = key
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = OnEndpointRequestNode
+Friendly Name (Not for use, just display purpose) = On Endpoint Request
+Node description = This event is called when there is a request on the given endpoint
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = endpoint
+Output parameters list : 
+1 = requestContext 
+
+===================
+Node type identifier = SetCustomResponseTimeoutNode
+Friendly Name (Not for use, just display purpose) = Set Custom Response Timeout
+Node description = Set a custom timeout for a endpoint response
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = endpoint
+2 = timeInMs
+Output parameters list : 
+
+===================
+Node type identifier = SetRequestResponseBodyNode
+Friendly Name (Not for use, just display purpose) = Set Request Response Body
+Node description = Set the body for a request from a endpoint call
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = requestContext
+2 = body
+Output parameters list : 
+
+===================
+Node type identifier = CSSFileNode
+Friendly Name (Not for use, just display purpose) = CSS File
+Node description = A string that contain a CSS file
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = css 
+
+===================
+Node type identifier = HTMLPageNode
+Friendly Name (Not for use, just display purpose) = HTML Page
+Node description = A string that contain a HTML Page
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = html 
+
+===================
+Node type identifier = JavascriptFileNode
+Friendly Name (Not for use, just display purpose) = Javascript File
+Node description = A string that contain a Javascript file
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = javascript 
+
+===================
+Node type identifier = ProcessTemplateNode
+Friendly Name (Not for use, just display purpose) = Process Template
+Node description = Retrive all the vars from the running graph and replace by them in the web page template
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = html
+Output parameters list : 
+1 = htmlProcessed 
+
+===================
+Node type identifier = SolanaConnectorNode
+Friendly Name (Not for use, just display purpose) = Solana Connector
+Node description = Solana RPC Connector
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = solana 
+2 = solanaWebsocket 
+
+===================
+Node type identifier = WatchSolanaBlockNode
+Friendly Name (Not for use, just display purpose) = On Solana Block
+Node description = Event that occurs everytime a new solana block is minted
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = solanaWebsocket
+Output parameters list : 
+1 = slot 
+2 = blockHash 
+3 = time 
+4 = height 
+
+===================
+Node type identifier = AddMeasurementNode
+Friendly Name (Not for use, just display purpose) = Add Measurement Point
+Node description = Add a new point for the GraphLinq Analytics platform
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = bucket
+2 = value
+Output parameters list : 
+
+===================
+Node type identifier = GetLuaExportedParameterNode
+Friendly Name (Not for use, just display purpose) = Get Lua Exported Parameter
+Node description = Extract a output parameter from a lua execution context
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = exportedParameters
+2 = name
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = JsonAbiNode
+Friendly Name (Not for use, just display purpose) = JSON ABI
+Node description = A string that contain a JSON ABI
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = abi 
+
+===================
+Node type identifier = LuaCustomSmartContractNode
+Friendly Name (Not for use, just display purpose) = Ethereum Smart Contract Lua Function
+Node description = Create a lua script to call smart contract fields or methods
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = ethConnection
+2 = inputParameters
+3 = contractAddress
+4 = lua
+5 = abi
+Output parameters list : 
+1 = exportedParameters 
+
+===================
+Node type identifier = LuaScriptNode
+Friendly Name (Not for use, just display purpose) = Lua Script
+Node description = A string that contain a Lua Script
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = lua 
+
+===================
+Node type identifier = GetAvaxBlockTransactionParametersNode
+Friendly Name (Not for use, just display purpose) = Get Block Parameters
+Node description = Parse the last Avalanche block object received into string out parameters readable
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = block
+Output parameters list : 
+1 = gasUsed 
+2 = gasLimit 
+3 = blockHash 
+
+===================
+Node type identifier = GetAvaxTransactionParametersNode
+Friendly Name (Not for use, just display purpose) = Get Transaction Parameters
+Node description = Parse the last Avalanche transaction object received into string out parameters readable
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = transaction
+Output parameters list : 
+1 = etherValue 
+2 = from 
+3 = to 
+4 = gasPrice 
+5 = gas 
+6 = hash 
+7 = blockHash 
+8 = blockNumber 
+9 = nonce 
+
+===================
+Node type identifier = AvaxConnection
+Friendly Name (Not for use, just display purpose) = Avalanche Connector
+Node description = Connection to the Avalanche network, can be used as Managed connection (without in parameters) or with your own node
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = socketUrl
+Output parameters list : 
+1 = connection 
+
+===================
+Node type identifier = OnNewAvaxBlockEventNode
+Friendly Name (Not for use, just display purpose) = On Avalanche Block
+Node description = Event that occurs everytime a new avalanche block is minted
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = block 
+
+===================
+Node type identifier = OnNewAvaxTransactionEventNode
+Friendly Name (Not for use, just display purpose) = On Avalanche Transaction
+Node description = Event that occurs everytime a new avalanche transaction appears in the last network block
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = transactionHash 
+
+===================
+Node type identifier = SnowTraceConnectorNode
+Friendly Name (Not for use, just display purpose) = SnowTrace Connector
+Node description = Connection to the SnowTrace API
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+Output parameters list : 
+1 = snowtraceConnection 
+
+===================
+Node type identifier = GetTokenBalanceForContractNode
+Friendly Name (Not for use, just display purpose) = Get ERC-20 Balance For Contract
+Node description = Get Token Balance For Contract
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = snowtraceConnection
+2 = contractAddress
+3 = tokenAddress
+Output parameters list : 
+1 = accountBalance 
+
+===================
+Node type identifier = GetTokenSupplyByContractNode
+Friendly Name (Not for use, just display purpose) = Get ERC-20 Token Supply
+Node description = Get ERC-20 Token Supply From Contract
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = snowtraceConnection
+2 = contractAddress
+Output parameters list : 
+1 = totalSupply 
+
+===================
+Node type identifier = GetTotalAvaxOnCchainNode
+Friendly Name (Not for use, just display purpose) = Get Total AVAX on C-Chain
+Node description = Get Total Supply of AVAX on the Avalanche C-Chain
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = snowtraceConnection
+Output parameters list : 
+1 = totalSupply 
+
+===================
+Node type identifier = GetAvaxBalanceByAddressNode
+Friendly Name (Not for use, just display purpose) = Get AVAX Balance Single Address
+Node description = Get AVAX Balance for a single Address
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = snowtraceConnection
+2 = walletAddress
+Output parameters list : 
+1 = walletBalance 
+
+===================
+Node type identifier = GetAvascanSupplyNode
+Friendly Name (Not for use, just display purpose) = Get Avascan Supply
+Node description = Get Supply From Avascan
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = genesisUnlock 
+2 = stakingRewards 
+3 = lastUpdate 
+4 = circulatingSupply 
+5 = totalSupply 
+
+===================
+Node type identifier = GetAvascanGlobalStatsNode
+Friendly Name (Not for use, just display purpose) = Get Avascan Global Stats
+Node description = Get Global Stats From Avascan
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = blockchains 
+2 = validators 
+3 = stakingRatio 
+4 = stakingRewards 
+5 = price 
+6 = marketcapByCirculatingSupply 
+7 = marketcapByTotalSupply 
+8 = circulatingSupply 
+9 = lastTransactions24h 
+10 = lastAvgTps24h 
+11 = assetsAndTokens 
+12 = burnedSinceLaunch 
+
+===================
+Node type identifier = GetAvascanStakingStatsNode
+Friendly Name (Not for use, just display purpose) = Get Avascan Staking Stats
+Node description = Get Staking Stats From Avascan
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = totalValidator 
+2 = totalDelegation 
+3 = totalStake 
+4 = totalValidationStake 
+5 = totalDelegatedStake 
+6 = stakingReward 
+7 = stakingRatio 
+
+===================
+Node type identifier = GetAvascanBurnedFeesNode
+Friendly Name (Not for use, just display purpose) = Get Avascan Burned Fees
+Node description = Get Avascan Burned Fees
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = x 
+2 = c 
+3 = xc 
+
+===================
+Node type identifier = GetBestBlockHashNode
+Friendly Name (Not for use, just display purpose) = Get Best Block Hash Node
+Node description = returns the header hash of the most recent block on the best block chain.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = hash 
+
+===================
+Node type identifier = GetBitcoinWalletInformationsNode
+Friendly Name (Not for use, just display purpose) = Get Wallet Informations
+Node description = retrieve information from a wallet. transactionHash is list of hash
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = address
+Output parameters list : 
+1 = totalReceived 
+2 = totalSent 
+3 = transactionCount 
+4 = transactionsHash 
+
+===================
+Node type identifier = GetBlockchainInfoNode
+Friendly Name (Not for use, just display purpose) = Get Blockchain Info Node
+Node description = Provides information about the current state of the block chain.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = difficulty 
+2 = blocks 
+3 = medianTime 
+4 = bestBlockHash 
+
+===================
+Node type identifier = GetLastBlockNode
+Friendly Name (Not for use, just display purpose) = Get The Last Block Hash Node
+Node description = returns the last block on bitcoin.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = height 
+2 = hash 
+3 = mainChain 
+
+===================
+Node type identifier = GetRawTransactionNode
+Friendly Name (Not for use, just display purpose) = Get Raw Transaction Node
+Node description = gets the information of a transaction from its address.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = address
+Output parameters list : 
+1 = totalOut 
+2 = outputs 
+
+===================
+Node type identifier = GetStatsNode
+Friendly Name (Not for use, just display purpose) = Get Stats Node
+Node description = Provides information about the current stats of the block chain.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = minersRevenueBtc 
+2 = tradeVolumeBtc 
+3 = tradeVolumeUsd 
+4 = totalBtcSent 
+5 = minersRevenueUsd 
+6 = difficulty 
+7 = marketPriceUsd 
+8 = timestamp 
+
+===================
+Node type identifier = GetTickersRateNode
+Friendly Name (Not for use, just display purpose) = Get Tickers Rate Node
+Node description = Provides information about the current stats of the block chain.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = USD 
+2 = AUD 
+3 = BRL 
+4 = CAD 
+5 = CHF 
+6 = CLP 
+7 = EUR 
+8 = GBP 
+9 = JPY 
+
+===================
+Node type identifier = GetUnConfirmedTransactionNode
+Friendly Name (Not for use, just display purpose) = Get UnConfirmed Transaction Node
+Node description = retrieve the list of transactions not confirmed against an address. values and hashTransactions is list of object
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = address
+Output parameters list : 
+1 = values 
+2 = hashTransaction 
+
+===================
+Node type identifier = OnBitcoinNewBlockEventNode
+Friendly Name (Not for use, just display purpose) = On Bitcoin Block
+Node description = Event that occurs everytime a new bitcoin block is minted
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+Output parameters list : 
+1 = nTx 
+2 = totalBTCSent 
+3 = estimatedBTCSent 
+4 = reward 
+5 = size 
+6 = blockIndex 
+7 = prevBlockIndex 
+8 = height 
+9 = hash 
+10 = time 
+11 = bits 
+
+===================
+Node type identifier = OnBitcoinNewTransactionEventNode
+Friendly Name (Not for use, just display purpose) = On Bitcoin Transaction
+Node description = Event that occurs everytime a new bitcoin transaction appears in the last network block. refer to https://www.blockchain.com/api/api_websocket for more information !
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = address
+Output parameters list : 
+1 = inputs 
+2 = time 
+3 = txIndex 
+4 = hash 
+5 = results 
+
+===================
+Node type identifier = TimeSeriesOneLineChartNode
+Friendly Name (Not for use, just display purpose) = Generate Time Series One Line Chart
+Node description = Generate image from time series data with one line
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = xDataSeries
+2 = yDataSeries
+3 = chartLabel
+4 = dataLabel
+Output parameters list : 
+1 = chartUrl 
+
+===================
+Node type identifier = TimeSeriesTwoLineChartNode
+Friendly Name (Not for use, just display purpose) = Generate Time Series Two Line Chart
+Node description = Generate image from time series data with two lines
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = xDataSeries
+2 = y1DataSeries
+3 = y2DataSeries
+4 = y1Label
+5 = y2Label
+Output parameters list : 
+1 = chartUrl 
+
+===================
+Node type identifier = AvalancheConnection
+Friendly Name (Not for use, just display purpose) = Avalanche Connector
+Node description = Connection to the Avalanche network, can be used as Managed connection (without in parameters) or with your own node
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = socketUrl
+Output parameters list : 
+1 = connection 
+
+===================
+Node type identifier = EthConnection
+Friendly Name (Not for use, just display purpose) = Ethereum Connector
+Node description = Connection to the Ethereum network, can be used as Managed connection (without in parameters) or with your own node
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = socketUrl
+Output parameters list : 
+1 = connection 
+
+===================
+Node type identifier = OnNewBlockEventNode
+Friendly Name (Not for use, just display purpose) = On Ethereum Block
+Node description = Event that occurs everytime a new ethereum block is minted
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = block 
+
+===================
+Node type identifier = OnNewTransactionEventNode
+Friendly Name (Not for use, just display purpose) = On Ethereum Transaction
+Node description = Event that occurs everytime a new ethereum transaction appears in the last network block
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = transactionHash 
+
+===================
+Node type identifier = CreateManagedWalletNode
+Friendly Name (Not for use, just display purpose) = Create Managed Wallet
+Node description = Create a GraphLinq Ethereum Managed Wallet for on-chain operation
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = walletName
+2 = password
+Output parameters list : 
+1 = managedWallet 
+2 = address 
+
+===================
+Node type identifier = GetManagedWalletAddressNode
+Friendly Name (Not for use, just display purpose) = Get Managed Wallet Address
+Node description = Get the public address of the managed wallet
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = managedWallet
+Output parameters list : 
+1 = address 
+
+===================
+Node type identifier = GetManagedWallet
+Friendly Name (Not for use, just display purpose) = Get Personal Managed Wallet
+Node description = Get an Ethereum Managed Wallet for on-chain operation from your created accounts on the Dapp
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = walletName
+Output parameters list : 
+1 = managedWallet 
+2 = address 
+
+===================
+Node type identifier = OnWalletTransaction
+Friendly Name (Not for use, just display purpose) = On Ethereum Wallet Transaction
+Node description = Event that watch a specific wallet addr and return the details of any new transaction
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+2 = walletAddress
+Output parameters list : 
+1 = transaction 
+
+===================
+Node type identifier = SetGasForWalletNode
+Friendly Name (Not for use, just display purpose) = Set Gas For Managed Wallet
+Node description = Set gas cost for a managed wallet
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = gwei
+2 = managedWallet
+Output parameters list : 
+
+===================
+Node type identifier = GetLiquidityProviderTokenNode
+Friendly Name (Not for use, just display purpose) = Get Uniswap LP Token
+Node description = Return all informations about a liquidity provider token
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = ethConnection
+2 = address
+Output parameters list : 
+1 = name 
+2 = token0 
+3 = token1 
+
+===================
+Node type identifier = GetLiquidityProviderTokenPriceNode
+Friendly Name (Not for use, just display purpose) = Get Uniswap LP Token Price
+Node description = Return the price of the LP token
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = ethConnection
+2 = lpTokenAddress
+Output parameters list : 
+1 = price 
+
+===================
+Node type identifier = GetUniswapPairPriceNode
+Friendly Name (Not for use, just display purpose) = Uniswap Get Pair Price
+Node description = Return the pair price of an Uniswap pool as out parameters
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = pairAddress
+Output parameters list : 
+1 = token0Price 
+2 = token1Price 
+
+===================
+Node type identifier = GetUniswapTokenPriceNode
+Friendly Name (Not for use, just display purpose) = Get Uniswap Token Price
+Node description = Get the price in dollar for a token on uniswap
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = token
+2 = amount
+Output parameters list : 
+1 = price 
+
+===================
+Node type identifier = OnUniswapSwapNode
+Friendly Name (Not for use, just display purpose) = On Uniswap Swap
+Node description = Event that trigger on each new swap request on Uniswap from a specific token smart-contract address
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+2 = contractAddress
+Output parameters list : 
+1 = transactionHash 
+2 = sender 
+3 = to 
+4 = amount0In 
+5 = amount1In 
+6 = amount0Out 
+7 = amount1Out 
+
+===================
+Node type identifier = OnUniswapSyncNode
+Friendly Name (Not for use, just display purpose) = On Uniswap Sync
+Node description = Event that occurs on liquidity providers update on a specific contract address, returning the reserve of both token left in the pool
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+2 = contractAddress
+Output parameters list : 
+1 = reserve0 
+2 = reserve1 
+
+===================
+Node type identifier = RequestUniswapSwapNode
+Friendly Name (Not for use, just display purpose) = Swap ETH For Exact Tokens
+Node description = Request a swap on Uniswap for a pair
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = ethConnection
+2 = managedWallet
+3 = tokenAddress
+4 = amountOut
+5 = slippage
+Output parameters list : 
+
+===================
+Node type identifier = GetLockedTokenParametersNode
+Friendly Name (Not for use, just display purpose) = Get Unicrypt Locked Token Parameters
+Node description = Get parameters for locked token
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = lockedTokenObject
+Output parameters list : 
+1 = lockDate 
+2 = amount 
+3 = initialAmount 
+4 = unlockDate 
+5 = lockID 
+6 = owner 
+
+===================
+Node type identifier = GetLockedTokensUnicryptNode
+Friendly Name (Not for use, just display purpose) = Get Unicrypt Locked Tokens
+Node description = Get all tokens locked in a unicrypt locker
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = address
+3 = lpTokenAddress
+Output parameters list : 
+1 = lockedTokenArray 
+
+===================
+Node type identifier = GetTotalLiquidityLockedUnicryptNode
+Friendly Name (Not for use, just display purpose) = Get Unicrypt Total Locked Liquidity
+Node description = Get the total liquidity locked on Unicrypt
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = address
+Output parameters list : 
+1 = totalLockedLiquidityUSD 
+2 = pairCount 
+
+===================
+Node type identifier = GetUnicryptLockedAllTokenAddress
+Friendly Name (Not for use, just display purpose) = Get Unicrypt All LP Locked Tokens Address
+Node description = Get all lp address for locked tokens
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = address
+Output parameters list : 
+1 = allAddress 
+
+===================
+Node type identifier = OnUnicryptDepositNode
+Friendly Name (Not for use, just display purpose) = On Unicrypt Deposit
+Node description = Event that trigger when someone deposit lp in Unicrypt
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = ethereumConnection
+2 = bscConnection
+Output parameters list : 
+1 = lpToken 
+2 = user 
+3 = amount 
+4 = lockDate 
+5 = unlockDate 
+
+===================
+Node type identifier = GetSantimentActiveWalletByCurrencyNode
+Friendly Name (Not for use, just display purpose) = Get Santiment Active Wallets
+Node description = Get number of active wallets by currency from Santiment API
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = santiment
+2 = currency
+Output parameters list : 
+1 = count 
+
+===================
+Node type identifier = GetSantimentDailyTransactionNode
+Friendly Name (Not for use, just display purpose) = Get Santiment Daily Transactions
+Node description = Get number of trasaction for the past day by currency from Santiment API
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = santiment
+2 = currency
+Output parameters list : 
+1 = count 
+
+===================
+Node type identifier = GetSantimentDailyVolumeNode
+Friendly Name (Not for use, just display purpose) = Get Santiment Daily Volume
+Node description = Get daily volume by currency from Santiment API
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = santiment
+2 = currency
+Output parameters list : 
+1 = volume 
+
+===================
+Node type identifier = SantimentConnector
+Friendly Name (Not for use, just display purpose) = Santiment Connector
+Node description = Setup a connector for Santiment API
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+Output parameters list : 
+1 = santiment 
+
+===================
+Node type identifier = GetAuctionsNode
+Friendly Name (Not for use, just display purpose) = Get Rarible Auctions
+Node description = Get auctions on Rarible
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = rarible
+Output parameters list : 
+1 = auctions 
+
+===================
+Node type identifier = GetHotBidsNode
+Friendly Name (Not for use, just display purpose) = Get Rarible Hot Bids
+Node description = Get hot bids on Rarible
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = rarible
+2 = size
+Output parameters list : 
+1 = bids 
+
+===================
+Node type identifier = GetHotCollectionsNode
+Friendly Name (Not for use, just display purpose) = Get Rarible Hot Collections
+Node description = Get hot collections on Rarible
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = rarible
+Output parameters list : 
+1 = collections 
+
+===================
+Node type identifier = ItemAsRaribleAuctionNode
+Friendly Name (Not for use, just display purpose) = Item as Rarible Auction
+Node description = Convert a object to a Rarible Auction
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = item
+Output parameters list : 
+1 = id 
+2 = minPrice 
+3 = currency 
+4 = startDate 
+5 = initEndDate 
+6 = endDate 
+7 = updateDate 
+8 = status 
+9 = inProgress 
+10 = extended 
+
+===================
+Node type identifier = ItemAsRaribleBidNode
+Friendly Name (Not for use, just display purpose) = Item as Rarible Bid
+Node description = Convert a object to a Rarible Bid
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = item
+Output parameters list : 
+1 = orderId 
+2 = buyToken 
+3 = buyTokenId 
+4 = buyPriceEth 
+5 = createDate 
+6 = id 
+
+===================
+Node type identifier = ItemAsRaribleCollectionNode
+Friendly Name (Not for use, just display purpose) = Item as Rarible Collection
+Node description = Convert a object to a Rarible Collection
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = item
+Output parameters list : 
+1 = id 
+2 = name 
+3 = symbol 
+4 = count 
+5 = cover 
+6 = pic 
+7 = shortUrl 
+
+===================
+Node type identifier = RaribleConnector
+Friendly Name (Not for use, just display purpose) = Rarible Connector
+Node description = Connection to the Rarible network
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = rarible 
+
+===================
+Node type identifier = EtherscanConnectorNode
+Friendly Name (Not for use, just display purpose) = Etherscan Connector
+Node description = Connection to the Etherscan API
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+Output parameters list : 
+1 = etherscanConnection 
+
+===================
+Node type identifier = GetERC20TokenHoldersNode
+Friendly Name (Not for use, just display purpose) = Get ERC20 Holders
+Node description = Get the number of holders for a ERC20
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = tokenContract
+Output parameters list : 
+1 = holders 
+
+===================
+Node type identifier = GetGasPriceNode
+Friendly Name (Not for use, just display purpose) = Etherscan Get Gas Price
+Node description = Return the current GAS Price on the Ethereum blockchain as out parameter
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = etherscanConnection
+Output parameters list : 
+1 = lastBlock 
+2 = safeGasPrice 
+3 = proposeGasPrice 
+4 = fastGasPrice 
+
+===================
+Node type identifier = ElrondConnectorNode
+Friendly Name (Not for use, just display purpose) = Elrond Connector
+Node description = Connection to the Elrond network
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = elrond 
+
+===================
+Node type identifier = GetElrondHyperBlockNode
+Friendly Name (Not for use, just display purpose) = Get Elrond HyperBlock By Hash
+Node description = Get hyperblock on Elrond network
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = elrond
+2 = hash
+Output parameters list : 
+1 = accumulatedFees 
+2 = accumulatedFeesInEpoch 
+3 = developerFees 
+4 = developerFeesInEpoch 
+5 = epoch 
+6 = hash 
+7 = nonce 
+8 = numTxs 
+9 = prevBlockHash 
+10 = round 
+11 = status 
+
+===================
+Node type identifier = GetElrondTransactionNode
+Friendly Name (Not for use, just display purpose) = Get Elrond Transaction
+Node description = Get a transaction on the Elrond network
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = elrond
+2 = hash
+Output parameters list : 
+1 = blockHash 
+2 = blockNonce 
+3 = destinationShard 
+4 = epoch 
+5 = gasLimit 
+6 = gasPrice 
+7 = miniblockHash 
+8 = miniblockType 
+9 = nonce 
+10 = receiver 
+11 = round 
+12 = sender 
+13 = signature 
+14 = sourceShard 
+15 = status 
+16 = type 
+17 = value 
+
+===================
+Node type identifier = GetElrondWalletBalanceNode
+Friendly Name (Not for use, just display purpose) = Get Elrond Wallet Balance
+Node description = Get the balance of an Elrond address
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = elrond
+2 = address
+Output parameters list : 
+1 = balance 
+2 = nonce 
+
+===================
+Node type identifier = BSCConnectorNode
+Friendly Name (Not for use, just display purpose) = Binance Smart Chain Connector
+Node description = Connection to the Binance Smart Chain network, can be used as Managed connection (without in parameters) or with your own node
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = url
+2 = socketUrl
+Output parameters list : 
+1 = connection 
+
+===================
+Node type identifier = OnNewBSCBlockNode
+Friendly Name (Not for use, just display purpose) = On Binance Smart Chain Block
+Node description = Event that occurs everytime a new bsc block is minted
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = block 
+
+===================
+Node type identifier = OnNewBscTxNode
+Friendly Name (Not for use, just display purpose) = On Binance Smart Chain Transaction
+Node description = Event that occurs everytime a new bsc transaction appears in the last network block
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = transactionHash 
+
+===================
+Node type identifier = OnBSCWalletTransaction
+Friendly Name (Not for use, just display purpose) = On Binance Smart Chain Wallet Transaction
+Node description = Event that watch a specific wallet addr and return the details of any new transaction
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+2 = walletAddress
+Output parameters list : 
+1 = transaction 
+
+===================
+Node type identifier = OnPankakeSwapNewPairNode
+Friendly Name (Not for use, just display purpose) = On PancakeSwap New Pair
+Node description = Event that occur when there is a new pair created over Pancake swap
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = token0 
+2 = token1 
+3 = pair 
+
+===================
+Node type identifier = OnPankakeSwapSwapNode
+Friendly Name (Not for use, just display purpose) = On PancakeSwap Swap
+Node description = Event that occur when there is a new swap on a specific pair over Pancake swap
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+2 = contractAddress
+Output parameters list : 
+1 = sender 
+2 = to 
+3 = amount0In 
+4 = amount1In 
+5 = amount0Out 
+6 = amount1Out 
+
+===================
+Node type identifier = CreateBEP20TokenNode
+Friendly Name (Not for use, just display purpose) = Create BEP20 Token
+Node description = Create a new BEP20 token instance
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = name
+2 = symbol
+3 = owner
+4 = totalSupply
+Output parameters list : 
+1 = bep20 
+
+===================
+Node type identifier = DeployBEP20Node
+Friendly Name (Not for use, just display purpose) = Deploy BEP20 Token
+Node description = Deploy the BEP20 token
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = wallet
+2 = bep20
+Output parameters list : 
+1 = contractAddress 
+
+===================
+Node type identifier = EstimateGasPriceNode
+Friendly Name (Not for use, just display purpose) = Estimate Gas Price
+Node description = Estimate the gas price from average of gas price from the previous block
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = ethConnection
+Output parameters list : 
+1 = gasPrice 
+
+===================
+Node type identifier = GetERC20BalanceNode
+Friendly Name (Not for use, just display purpose) = Get ERC20 Balance
+Node description = Get the balance of an address for a ERC20
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = address
+3 = tokenContract
+Output parameters list : 
+1 = balance 
+
+===================
+Node type identifier = GetERC20TokenInformationsNode
+Friendly Name (Not for use, just display purpose) = Get ERC20 Informations
+Node description = Get informations about a ERC20 token
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = tokenContract
+Output parameters list : 
+1 = totalSupply 
+2 = name 
+3 = symbol 
+
+===================
+Node type identifier = GetEtherBalanceNode
+Friendly Name (Not for use, just display purpose) = Get Ether Balance
+Node description = Get the balance of address in ether
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = address
+Output parameters list : 
+1 = balance 
+
+===================
+Node type identifier = CreateNFTContractNode
+Friendly Name (Not for use, just display purpose) = Create NFT Contract
+Node description = Create a NFT contract ready for deployment for the Ethereum Network
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = ownerAddress
+2 = name
+3 = symbol
+Output parameters list : 
+1 = nftModel 
+
+===================
+Node type identifier = DeployNFTContractNode
+Friendly Name (Not for use, just display purpose) = Deploy NFT Contract
+Node description = Deploy a NFT contract (ERC-721) on the Ethereum network
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = wallet
+2 = nftModel
+Output parameters list : 
+1 = contractAddress 
+
+===================
+Node type identifier = CreateNFTPropertyNode
+Friendly Name (Not for use, just display purpose) = Create New Mintable NFT Token
+Node description = Create a new NFT token from a deployed ERC-721 contract
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = contractAddress
+2 = tokenOwner
+3 = name
+4 = description
+5 = image
+Output parameters list : 
+1 = nftToken 
+
+===================
+Node type identifier = DeployNFTNewMintableNode
+Friendly Name (Not for use, just display purpose) = Deploy New Mintable NFT Token
+Node description = Deploy on the Ethereum network a new NFT on a specific NFT contract owned by the graph issuer
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = wallet
+2 = nftToken
+Output parameters list : 
+
+===================
+Node type identifier = CreateERC20TokenNode
+Friendly Name (Not for use, just display purpose) = Create ERC20 Token
+Node description = Create a new ERC20 token instance
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = name
+2 = symbol
+3 = owner
+4 = totalSupply
+Output parameters list : 
+1 = erc20 
+
+===================
+Node type identifier = DeployERC20Node
+Friendly Name (Not for use, just display purpose) = Deploy ERC20 Token
+Node description = Deploy the ERC20 token
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = wallet
+2 = erc20
+Output parameters list : 
+1 = contractAddress 
+
+===================
+Node type identifier = GetBlockTransactionParametersNode
+Friendly Name (Not for use, just display purpose) = Get Block Parameters
+Node description = Parse the last Ethereum block object received into string out parameters readable
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = block
+Output parameters list : 
+1 = gasUsed 
+2 = gasLimit 
+3 = blockHash 
+
+===================
+Node type identifier = GetTransactionParametersNode
+Friendly Name (Not for use, just display purpose) = Get Transaction Parameters
+Node description = Parse the last Ethereum transaction object received into string out parameters readable
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = transaction
+Output parameters list : 
+1 = etherValue 
+2 = from 
+3 = to 
+4 = gasPrice 
+5 = gas 
+6 = hash 
+7 = blockHash 
+8 = blockNumber 
+9 = nonce 
+
+===================
+Node type identifier = GetAvalancheTransactionParametersNode
+Friendly Name (Not for use, just display purpose) = Get Transaction Parameters
+Node description = Parse the last Avalanche transaction object received into string out parameters readable
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = transaction
+Output parameters list : 
+1 = etherValue 
+2 = from 
+3 = to 
+4 = gasPrice 
+5 = gas 
+6 = hash 
+7 = blockHash 
+8 = blockNumber 
+9 = nonce 
+
+===================
+Node type identifier = OnNewAvalancheBlockEventNode
+Friendly Name (Not for use, just display purpose) = On Avalanche Block
+Node description = Event that occurs everytime a new Avalanche block is minted
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = block 
+
+===================
+Node type identifier = OnNewAvalancheTransactionEventNode
+Friendly Name (Not for use, just display purpose) = On Avalanche Transaction
+Node description = Event that occurs everytime a new Avalanche transaction appears in the last network block
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+Output parameters list : 
+1 = transactionHash 
+
+===================
+Node type identifier = GetAvalancheBlockTransactionParametersNode
+Friendly Name (Not for use, just display purpose) = Get Block Parameters
+Node description = Parse the last Avalanche block object received into string out parameters readable
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = block
+Output parameters list : 
+1 = gasUsed 
+2 = gasLimit 
+3 = blockHash 
+
+===================
+Node type identifier = GetMxcPriceNode
+Friendly Name (Not for use, just display purpose) = Get MXC Price
+Node description = Get the current price on MXC for a symbol. Symbol example : ETH_USDT
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = mxc
+2 = symbol
+Output parameters list : 
+1 = bid_price 
+2 = bid_quantity 
+3 = ask_price 
+4 = ask_quantity 
+
+===================
+Node type identifier = MxcConnectorNode
+Friendly Name (Not for use, just display purpose) = MXC Connector
+Node description = MXC connector, for retrieve your ApiKey and ApiSecret go to your Binance account and create them
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+Output parameters list : 
+1 = connection 
+
+===================
+Node type identifier = MxcGetBalanceNode
+Friendly Name (Not for use, just display purpose) = Get MXC Balance
+Node description = Get the current account balance on MXC. data is json result.
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = mxc
+Output parameters list : 
+1 = data 
+
+===================
+Node type identifier = MxcPlaceLimitBuyOrderNode
+Friendly Name (Not for use, just display purpose) = Place Limit Buy Order
+Node description = Allows you to place a limit buy order on mxc. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+4 = price
+Output parameters list : 
+1 = orderId 
+2 = result 
+
+===================
+Node type identifier = MxcPlaceLimitSellOrderNode
+Friendly Name (Not for use, just display purpose) = Place Limit Sell Order
+Node description = Allows you to place a limit sell order on mxc. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+4 = price
+Output parameters list : 
+1 = orderId 
+2 = result 
+
+===================
+Node type identifier = MxcPlaceMarketBuyOrderNode
+Friendly Name (Not for use, just display purpose) = Place Market Buy Order
+Node description = Allows you to place a market buy order on mxc. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+Output parameters list : 
+1 = orderId 
+2 = result 
+
+===================
+Node type identifier = MxcPlaceMarketSellOrderNode
+Friendly Name (Not for use, just display purpose) = Place Market Sell Order
+Node description = Allows you to place a market sell order on mxc. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+Output parameters list : 
+1 = orderId 
+2 = result 
+
+===================
+Node type identifier = FetchSingleCoinNode
+Friendly Name (Not for use, just display purpose) = Fetch Single Coin
+Node description = Fetch coin informations on LiveCoinWatch
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = liveCoinWatch
+2 = symbol
+Output parameters list : 
+1 = allTimeHighUSD 
+2 = circulatingSupply 
+3 = totalSupply 
+4 = maxSupply 
+5 = rate 
+6 = volume 
+7 = cap 
+
+===================
+Node type identifier = LiveCoinWatchConnectorNode
+Friendly Name (Not for use, just display purpose) = LiveCoinWatch Connector
+Node description = LiveCoinWatch Connector
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+Output parameters list : 
+1 = liveCoinWatch 
+
+===================
+Node type identifier = KuCoinConnectorNode
+Friendly Name (Not for use, just display purpose) = KuCoin Connector
+Node description = Kucoin connector
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+3 = apiPassphrase
+Output parameters list : 
+1 = kucoin 
+
+===================
+Node type identifier = OnKuCoinTickerUpdateNode
+Friendly Name (Not for use, just display purpose) = On KuCoin Pair Ticker Update
+Node description = Get a event when the book ticker is updated on KuCoin for a symbol
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = kucoin
+2 = symbol
+Output parameters list : 
+1 = bestAskPrice 
+2 = bestAskQuantity 
+3 = bestBidPrice 
+4 = bestBidQuantity 
+
+===================
+Node type identifier = GetKuCoinAssetBalance
+Friendly Name (Not for use, just display purpose) = Get KuCoin Asset Balance
+Node description = Get your balance of a specific asset on KuCoin
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = kucoin
+2 = symbol
+3 = tradeAccount
+Output parameters list : 
+1 = balance 
+
+===================
+Node type identifier = KrakenConnectorNode
+Friendly Name (Not for use, just display purpose) = Kraken Connector
+Node description = Kraken connector
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+Output parameters list : 
+1 = kraken 
+
+===================
+Node type identifier = OnKrakenTickerUpdateNode
+Friendly Name (Not for use, just display purpose) = On Kraken Pair Ticker Update
+Node description = Get a event when the book ticker is updated on Kraken for a symbol. Symbol example : BTC/USD
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = kraken
+2 = symbol
+Output parameters list : 
+1 = bestAskPrice 
+2 = bestAskQuantity 
+3 = bestBidPrice 
+4 = bestBidQuantity 
+
+===================
+Node type identifier = GetKrakenAssetBalanceNode
+Friendly Name (Not for use, just display purpose) = Get Kraken Asset Balance
+Node description = Get your balance of a specific asset on Kraken
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = kraken
+2 = symbol
+Output parameters list : 
+1 = balance 
+
+===================
+Node type identifier = HuobiConnectorNode
+Friendly Name (Not for use, just display purpose) = Huobi Connector
+Node description = Huobi connector
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+Output parameters list : 
+1 = huobi 
+
+===================
+Node type identifier = OnHuobiTickerUpdateNode
+Friendly Name (Not for use, just display purpose) = On Huobi Pair Kline Update
+Node description = Get a event when the kline is updated on Huobi for a symbol. Symbol example : ethusdt
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = huobi
+2 = symbol
+Output parameters list : 
+1 = amount 
+2 = open 
+3 = close 
+4 = low 
+5 = high 
+6 = tradeCount 
+7 = volume 
+
+===================
+Node type identifier = GetCoinGeckoSimplePriceNode
+Friendly Name (Not for use, just display purpose) = Get CoinGecko Coin
+Node description = Get CoinGecko Coin Data
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = symbol
+Output parameters list : 
+1 = price 
+2 = ath 
+3 = marketCapChange24H 
+4 = marketCap 
+5 = volume24H 
+
+===================
+Node type identifier = CoinExConnectorNode
+Friendly Name (Not for use, just display purpose) = CoinEx Connector
+Node description = CoinEx Connector, for retrieve your ApiKey and ApiSecret go to your CoinEx account and create them
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+Output parameters list : 
+1 = coinEx 
+
+===================
+Node type identifier = OnCoinExTickerUpdateNode
+Friendly Name (Not for use, just display purpose) = On CoinEx Pair Ticker Update
+Node description = Get a event when the kline is updated on coinEx for a symbol. Symbol example : ETHBTC
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = coinEx
+2 = symbol
+Output parameters list : 
+1 = amount 
+2 = open 
+3 = close 
+4 = low 
+5 = high 
+6 = volume 
+
+===================
+Node type identifier = BittrexConnectorNode
+Friendly Name (Not for use, just display purpose) = Bittrex Connector
+Node description = Bittrex Connector, for retrieve your ApiKey and ApiSecret go to your Bittrex account and create them
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+Output parameters list : 
+1 = bittrex 
+
+===================
+Node type identifier = GetBittrexBalanceNode
+Friendly Name (Not for use, just display purpose) = Get Bittrex Balance
+Node description = Get the balance on your account. Symbol example : BTC
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = bittrex
+2 = symbol
+Output parameters list : 
+1 = available 
+2 = total 
+
+===================
+Node type identifier = GetBittrexPriceNode
+Friendly Name (Not for use, just display purpose) = Get Bittrex Price
+Node description = Get the current price on bittrex for a symbol. Symbol example : BTC-USDT
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = bittrex
+2 = symbol
+Output parameters list : 
+1 = askRate 
+2 = bidRate 
+
+===================
+Node type identifier = OnCoinExTickerUpdateNode
+Friendly Name (Not for use, just display purpose) = On Bittrex Pair Ticker Update
+Node description = Get a event when the book ticker is updated on Bittrex for a symbol
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = bittrex
+2 = symbol
+Output parameters list : 
+1 = bestAskPrice 
+2 = bestBidPrice 
+3 = lastTradeRate 
+
+===================
+Node type identifier = BitfinexAvgPriceNode
+Friendly Name (Not for use, just display purpose) = Get Bitfinex Average Price
+Node description = Get the current average price on bitfinex for a symbol. Symbol example : tETHUSD or tBTCUSD
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = bitfinex
+2 = symbol
+Output parameters list : 
+1 = averagePrice 
+
+===================
+Node type identifier = BitfinexConnectorNode
+Friendly Name (Not for use, just display purpose) = Bitfinex Connector
+Node description = Bitfinex Connector, for retrieve your ApiKey and ApiSecret go to your Bitfinex account and create them
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+Output parameters list : 
+1 = bitfinex 
+
+===================
+Node type identifier = OnBitfinexTickerUpdateNode
+Friendly Name (Not for use, just display purpose) = On Bitfinex Pair Ticker Update
+Node description = Get a event when the book ticker is updated on Bitfinex for a symbol
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = bitfinex
+2 = symbol
+Output parameters list : 
+1 = bestPrice 
+2 = bestQuantity 
+
+===================
+Node type identifier = GetBitfinexAssetBalanceNode
+Friendly Name (Not for use, just display purpose) = Get Bitfinex Asset Balance
+Node description = Get your balance of a specific asset on Bitfinex
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = bitfinex
+2 = symbol
+Output parameters list : 
+1 = balance 
+
+===================
+Node type identifier = BinanceAvgPriceNode
+Friendly Name (Not for use, just display purpose) = Get Binance Average Price
+Node description = Get the current average price on binance for a symbol
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+Output parameters list : 
+1 = averagePrice 
+
+===================
+Node type identifier = BinanceConnectorNode
+Friendly Name (Not for use, just display purpose) = Binance Connector
+Node description = Binance connector, for retrieve your ApiKey and ApiSecret go to your Binance account and create them
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = apiSecret
+Output parameters list : 
+1 = connection 
+
+===================
+Node type identifier = BinanceGetVolumeNode
+Friendly Name (Not for use, just display purpose) = Get Binance Volume
+Node description = Get the 24h volume on binance for a symbol
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+Output parameters list : 
+1 = baseVolume 
+2 = quoteVolume 
+
+===================
+Node type identifier = BinancePlaceLimitBuyOrderNode
+Friendly Name (Not for use, just display purpose) = Place Limit Buy Order
+Node description = Allows you to place a limit buy order on binance. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+4 = price
+Output parameters list : 
+1 = orderId 
+2 = result 
+
+===================
+Node type identifier = BinancePlaceLimitSellOrderNode
+Friendly Name (Not for use, just display purpose) = Place Limit Sell Order
+Node description = Allows you to place a limit Sell order on binance. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+4 = price
+Output parameters list : 
+1 = orderId 
+2 = result 
+
+===================
+Node type identifier = BinancePlaceMarketBuyOrderNode
+Friendly Name (Not for use, just display purpose) = Place Market Buy Order
+Node description = Allows you to place a market buy order on binance. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+Output parameters list : 
+1 = orderId 
+2 = price 
+3 = result 
+
+===================
+Node type identifier = BinancePlaceMarketSellOrderNode
+Friendly Name (Not for use, just display purpose) = Place Market Sell Order
+Node description = Allows you to place a market sell order on binance. example result : true for success order and false for fail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+3 = quantity
+Output parameters list : 
+1 = orderId 
+2 = price 
+3 = result 
+
+===================
+Node type identifier = GetBinanceFutureUSDTRSINode
+Friendly Name (Not for use, just display purpose) = Get Binance Future USDT RSI
+Node description = Get Binance Future USDT RSI for a symbol
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+Output parameters list : 
+1 = RSI 
+
+===================
+Node type identifier = GetBinanceMarketRSINode
+Friendly Name (Not for use, just display purpose) = Get Binance Market RSI
+Node description = Get Binance Market RSI for a symbol
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = connection
+2 = symbol
+Output parameters list : 
+1 = RSI 
+
+===================
+Node type identifier = OnBinancePairTickerUpdateNode
+Friendly Name (Not for use, just display purpose) = On Binance Pair Ticker Update
+Node description = Get a event when the book ticker is updated on Binance for a symbol
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = connection
+2 = symbol
+Output parameters list : 
+1 = bestAskPrice 
+2 = bestAskQuantity 
+3 = bestBidPrice 
+4 = bestBidQuantity 
+
+===================
+Node type identifier = GetPlayersOnlineNode
+Friendly Name (Not for use, just display purpose) = Get Players Online
+Node description = Get the amount of players online on a game
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = steam
+2 = appId
+Output parameters list : 
+1 = playersCount 
+
+===================
+Node type identifier = SteamWebAPIConnectorNode
+Friendly Name (Not for use, just display purpose) = Steam WebAPI Connector
+Node description = Steam WebAPI connector, allow you to request some informations on the steam platform
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+Output parameters list : 
+1 = steam 
+
+===================
+Node type identifier = OnUserTweetNode
+Friendly Name (Not for use, just display purpose) = On User Tweet
+Node description = This event allow you to track tweets from a user
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = twitter
+2 = user
+Output parameters list : 
+1 = message 
+2 = link 
+
+===================
+Node type identifier = TweetMessageNode
+Friendly Name (Not for use, just display purpose) = Tweet Message
+Node description = Tweet a message on Twitter
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = twitter
+2 = message
+Output parameters list : 
+
+===================
+Node type identifier = TwitterConnector
+Friendly Name (Not for use, just display purpose) = Twitter Connector
+Node description = Twitter connector, it allow you to track tweets users or tweet some text to create credentials go here https://developer.twitter.com/en/apps/create
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = consumerKey
+2 = consumerSecret
+3 = accessToken
+4 = accessTokenSecret
+Output parameters list : 
+1 = twitter 
+
+===================
+Node type identifier = JoinTwitchChannelNode
+Friendly Name (Not for use, just display purpose) = Join Twitch channel
+Node description = Join a twitch channel as a bot
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = twitch
+2 = channel
+Output parameters list : 
+
+===================
+Node type identifier = SendTwitchMessageNode
+Friendly Name (Not for use, just display purpose) = Send Twitch Message
+Node description = Send a message on Twitch on a channel
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = twitch
+2 = channel
+3 = message
+Output parameters list : 
+
+===================
+Node type identifier = TwitchConnector
+Friendly Name (Not for use, just display purpose) = Twitch Connector
+Node description = Twitch connector, it allow you to create twitch bot easily
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = twitchUsername
+2 = accessToken
+Output parameters list : 
+1 = twitch 
+
+===================
+Node type identifier = TwitchOnChannelJoinedNode
+Friendly Name (Not for use, just display purpose) = On Twitch Channel Joined
+Node description = This event trigger when your bot join a twitch channel
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = twitch
+Output parameters list : 
+1 = channel 
+
+===================
+Node type identifier = TwitchOnChatMessageNode
+Friendly Name (Not for use, just display purpose) = On Twitch Chat Message
+Node description = This event trigger when someone send a message in channel chat
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = twitch
+Output parameters list : 
+1 = id 
+2 = channel 
+3 = message 
+4 = userId 
+5 = displayName 
+6 = isSubscriber 
+7 = isFirstMessage 
+8 = isModerator 
+9 = isVip 
+10 = isHighlighted 
+11 = bits 
+12 = bitsInDollars 
+
+===================
+Node type identifier = TwitchOnConnected
+Friendly Name (Not for use, just display purpose) = On Twitch Connected
+Node description = This event allow you to do things after a twitch connection
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = twitch
+Output parameters list : 
+
+===================
+Node type identifier = OnMessageTelegramBotNode
+Friendly Name (Not for use, just display purpose) = On Telegram Message
+Node description = This event allow you to handle a message from Telegram in your graph
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = telegramBot
+Output parameters list : 
+1 = message 
+2 = chatId 
+3 = fromId 
+4 = from 
+
+===================
+Node type identifier = SendTelegramImageCaptionNode
+Friendly Name (Not for use, just display purpose) = Send Telegram Photo With Caption
+Node description = Send a photo on Telegram with a caption
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = telegramBot
+2 = chatId
+3 = photo
+4 = caption
+Output parameters list : 
+
+===================
+Node type identifier = SendTelegramImageNode
+Friendly Name (Not for use, just display purpose) = Send Telegram Photo
+Node description = Send a photo on Telegram
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = telegramBot
+2 = chatId
+3 = photo
+Output parameters list : 
+
+===================
+Node type identifier = SendTelegramMessageNode
+Friendly Name (Not for use, just display purpose) = Send Telegram Message
+Node description = Send a message on Telegram
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = telegramBot
+2 = chatId
+3 = message
+Output parameters list : 
+
+===================
+Node type identifier = TelegramBotInstanceNode
+Friendly Name (Not for use, just display purpose) = Telegram Bot
+Node description = Telegram connector, to retrieve your AccessToken talk to BotFather to create a new bot
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = accessToken
+Output parameters list : 
+1 = telegramBot 
+
+===================
+Node type identifier = AttachFileToSMTPMailNode
+Friendly Name (Not for use, just display purpose) = Attach File SMTP Mail
+Node description = Attach a file to smtp mail
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = mail
+2 = file
+3 = fileName
+Output parameters list : 
+1 = mailOut 
+
+===================
+Node type identifier = CreateSMTPMailNode
+Friendly Name (Not for use, just display purpose) = Create SMTP Mail
+Node description = Create a new smtp mail instance
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = subject
+2 = body
+Output parameters list : 
+1 = mail 
+
+===================
+Node type identifier = SendSMTPMailNode
+Friendly Name (Not for use, just display purpose) = Send SMTP Mail
+Node description = Send a mail with a smtp connector
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = smtp
+2 = mail
+3 = from
+4 = to
+Output parameters list : 
+
+===================
+Node type identifier = SetSMTPCredentialsNode
+Friendly Name (Not for use, just display purpose) = Set SMTP Credentials
+Node description = Set credentials for a SMTP connector
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = smtp
+2 = username
+3 = password
+Output parameters list : 
+
+===================
+Node type identifier = SMTPConnectorNode
+Friendly Name (Not for use, just display purpose) = SMTP Connector
+Node description = SMTP Connector, allow you to send email from your graph
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = host
+2 = port
+3 = useSSL
+Output parameters list : 
+1 = smtp 
+
+===================
+Node type identifier = ExpandLinkNode
+Friendly Name (Not for use, just display purpose) = Expand shortened URL
+Node description = Expand a Shortened URL using glq.link shortener
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = shortLink
+Output parameters list : 
+1 = originalLink 
+
+===================
+Node type identifier = ShortenLinkNode
+Friendly Name (Not for use, just display purpose) = Shorten a URL
+Node description = Shorten a long URL using glq.link shortener
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+2 = originalLink
+Output parameters list : 
+1 = shortLink 
+
+===================
+Node type identifier = PushOverConnectorNode
+Friendly Name (Not for use, just display purpose) = PushOver Connector
+Node description = PushOver is a service that allow you to send push notification to your smartphone
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+Output parameters list : 
+1 = pushOver 
+
+===================
+Node type identifier = SendPushOverAllDevicesNode
+Friendly Name (Not for use, just display purpose) = Send Push All Devices
+Node description = Send a push via PushOver on all your devices
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = pushOver
+2 = title
+3 = message
+Output parameters list : 
+
+===================
+Node type identifier = PushBulletConnectorNode
+Friendly Name (Not for use, just display purpose) = PushBullet Connector
+Node description = PushBullet is a service that allow you to send push notification to your smartphone
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = apiKey
+Output parameters list : 
+1 = pushBullet 
+
+===================
+Node type identifier = SendPushBulletAllDevicesNode
+Friendly Name (Not for use, just display purpose) = Send Push All Devices
+Node description = Send a push via PushBullet on all your devices
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = pushBullet
+2 = title
+3 = message
+Output parameters list : 
+
+===================
+Node type identifier = OpenAIConnectorNode
+Friendly Name (Not for use, just display purpose) = OpenAI Connector
+Node description = OpenAI connector, it allow you to interact with OpenAI API
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = openAIKey
+Output parameters list : 
+1 = openAI 
+
+===================
+Node type identifier = CreateConversationGPTNode
+Friendly Name (Not for use, just display purpose) = Create Conversation GPT
+Node description = Creation a conversation with ChatGPT API
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = openAI
+Output parameters list : 
+1 = conversation 
+
+===================
+Node type identifier = GeneratePromptGPTNode
+Friendly Name (Not for use, just display purpose) = Generate Prompt GPT
+Node description = Send a prompt to ChatGPT API
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = openAI
+2 = conversation
+3 = prompt
+Output parameters list : 
+1 = response 
+
+===================
+Node type identifier = AddEmojiOnMessageNode
+Friendly Name (Not for use, just display purpose) = Add Emoji On Message, example emojiName: 👀
+Node description = Add emoji on message
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = discord
+2 = channelId
+3 = messageId
+4 = guildId
+5 = emoji
+Output parameters list : 
+
+===================
+Node type identifier = AddRoleUserNode
+Friendly Name (Not for use, just display purpose) = Add Role User
+Node description = Add role for some user
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = discord
+2 = guildId
+3 = userId
+4 = roleName
+Output parameters list : 
+
+===================
+Node type identifier = DiscordConnector
+Friendly Name (Not for use, just display purpose) = Discord Connector
+Node description = Discord Connector, allow you to receive and send messages on discord guilds. example type : account or bot
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = token
+2 = type
+Output parameters list : 
+1 = discord 
+
+===================
+Node type identifier = OnDiscordChannelCommandNode
+Friendly Name (Not for use, just display purpose) = On Discord Command
+Node description = Trigger a event when receive a command in channel on Discord
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = discord
+2 = channelId
+3 = prefix
+4 = command
+Output parameters list : 
+1 = guildId 
+2 = channel 
+3 = params 
+
+===================
+Node type identifier = OnDiscordChannelMessageNode
+Friendly Name (Not for use, just display purpose) = On Discord Channel Message
+Node description = Trigger a event when receive a message in channel on Discord
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = discord
+2 = channelId
+Output parameters list : 
+1 = guildId 
+2 = channel 
+3 = message 
+
+===================
+Node type identifier = OnDiscordPrivateMessageNode
+Friendly Name (Not for use, just display purpose) = On Discord Private Message
+Node description = Trigger a event when you receive a private message on Discord
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = discord
+Output parameters list : 
+1 = from 
+2 = message 
+3 = messageId 
+4 = author 
+
+===================
+Node type identifier = OnReactionAddedNode
+Friendly Name (Not for use, just display purpose) = On Reaction Added Message
+Node description = Trigger a event when added a reaction in message on Discord
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = discord
+2 = channelId
+3 = messageId
+4 = emoteName
+Output parameters list : 
+1 = userId 
+
+===================
+Node type identifier = OnReactionRemovedNode
+Friendly Name (Not for use, just display purpose) = On Reaction Removed Message
+Node description = Trigger a event when remove a reaction in message on Discord
+Can be executed in execution flow = false
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = true
+Input parameters list : 
+1 = discord
+2 = channelId
+3 = messageId
+4 = emoteName
+Output parameters list : 
+1 = userId 
+
+===================
+Node type identifier = RemoveRoleUserNode
+Friendly Name (Not for use, just display purpose) = Remove Role User
+Node description = Remove role for some user
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = discord
+2 = guildId
+3 = userId
+4 = roleName
+Output parameters list : 
+
+===================
+Node type identifier = ReplyDiscordPrivateMessageNode
+Friendly Name (Not for use, just display purpose) = Reply Private Discord Message
+Node description = Send a reply to a private message
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = author
+2 = message
+Output parameters list : 
+1 = messageId 
+
+===================
+Node type identifier = SendDiscordFileOnGuildNode
+Friendly Name (Not for use, just display purpose) = Send Discord Channel File
+Node description = Send a file on a guild channel
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = discord
+2 = guildId
+3 = channel
+4 = file
+5 = fileName
+Output parameters list : 
+1 = messageId 
+
+===================
+Node type identifier = SendDiscordMessageOnGuildNode
+Friendly Name (Not for use, just display purpose) = Send Discord Channel Message
+Node description = Send a message on a guild channel
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = discord
+2 = guildId
+3 = channel
+4 = message
+Output parameters list : 
+1 = messageId 
+
+===================
+Node type identifier = AddMeasurementNode
+Friendly Name (Not for use, just display purpose) = Add Measurement Point
+Node description = Add a new point for the GraphLinq Analytics platform
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = bucket
+2 = value
+Output parameters list : 
+
+===================
+Node type identifier = GetLuaExportedParameterNode
+Friendly Name (Not for use, just display purpose) = Get Lua Exported Parameter
+Node description = Extract a output parameter from a lua execution context
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = exportedParameters
+2 = name
+Output parameters list : 
+1 = value 
+
+===================
+Node type identifier = JsonAbiNode
+Friendly Name (Not for use, just display purpose) = JSON ABI
+Node description = A string that contain a JSON ABI
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = abi 
+
+===================
+Node type identifier = LuaCustomSmartContractNode
+Friendly Name (Not for use, just display purpose) = Ethereum Smart Contract Lua Function
+Node description = Create a lua script to call smart contract fields or methods
+Can be executed in execution flow = true
+Can execute a other node in execution flow = true
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+1 = ethConnection
+2 = inputParameters
+3 = contractAddress
+4 = lua
+5 = abi
+Output parameters list : 
+1 = exportedParameters 
+
+===================
+Node type identifier = LuaScriptNode
+Friendly Name (Not for use, just display purpose) = Lua Script
+Node description = A string that contain a Lua Script
+Can be executed in execution flow = false
+Can execute a other node in execution flow = false
+Is Event Node, mean that one of his out parameters in a execution flow output = false
+Input parameters list : 
+Output parameters list : 
+1 = lua 
+
+===================

@@ -29,7 +29,9 @@ export default class NodeParameter {
                 mode: "ace/mode/" + this.node.schema.IDEParameters.ScriptType,
                 selectionStyle: "text",
                 theme: 'ace/theme/monokai',
-                fontSize: "14px"
+                fontSize: "14px",
+                maxLines: 20,
+                enableAutoIndent: true,
             });
             this.editor.renderer.setScrollMargin(10, 10);
             this.editor.setBehavioursEnabled(false);
