@@ -1,13 +1,15 @@
 #toolbar {
     position: fixed;
-    right: 20px;
-    top: 60px;
-    background-color: darken($primary-color, 8);
+    right: 40px;
+    top: 80px;
+    background-color: rgb(27, 33, 43);
     z-index: 999;
     animation-name: appearIn;
     animation-duration: 1s;
     user-select: none;
-    box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
 
     .toolbar-btn {
         padding: 12px;
@@ -29,7 +31,7 @@
         input {
             padding: 8px;
             font-size: 16px;
-            background: darken($primary-color, 8);
+            background-color: rgb(19, 23, 31);
             border: none;
             color: $text-color;
             text-align: center;

@@ -50,6 +50,11 @@
                 margin-right: 3px;
             }
         }
+        
+        .console-entry-container {
+            overflow: auto;
+            height: 190px;
+        }
     }
 
     .logs-entry-scroll {

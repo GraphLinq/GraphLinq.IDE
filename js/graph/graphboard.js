@@ -315,11 +315,11 @@ export default class GraphBoard {
         lineElement.setAttribute("stroke", color);
 
         if(dashed) {
-            lineElement.setAttribute("stroke-width", "3px");
+            lineElement.setAttribute("stroke-width", "2px");
             lineElement.setAttribute("stroke-dasharray", "5px");
         }
         else {
-            lineElement.setAttribute("stroke-width", "5px");
+            lineElement.setAttribute("stroke-width", "2px");
         }
         svgElement.appendChild(lineElement);
         return svgElement;

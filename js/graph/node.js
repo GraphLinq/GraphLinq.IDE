@@ -208,8 +208,8 @@ export default class Node {
         document.addEventListener("mousemove", (e) => {
             if (!this.focus) return;
             e = e || window.event;
-            let x = e.clientX;
-            let y = e.clientY;
+            let x = Math.round(e.clientX / 20) * 20;
+            let y = Math.round(e.clientY / 20) * 20;
             this.x = x - this.offset.x;
             this.y = y - this.offset.y;
 

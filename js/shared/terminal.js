@@ -18,7 +18,7 @@ export default class Terminal {
         entry.className = "console-entry " + type;
         entry.innerText = "[" + (moment().format("hh:mm:ss")) + "] " + text;
         this.container.querySelector(".console-entry-container").appendChild(entry);
-        this.container.querySelector(".console-entry-scroll").scrollTop = this.container.querySelector(".console-entry-scroll").scrollHeight;
+        this.container.querySelector(".console-entry-container").scrollTop = this.container.querySelector(".console-entry-container").scrollHeight;
     }
 
     appendGraphLogs(type, text, timestamp = 0) {
