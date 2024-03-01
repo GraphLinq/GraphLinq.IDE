@@ -15,7 +15,7 @@
 
     .inner-container {
         width: 10000%;
-        
+
         height: 10000%;
         position: absolute;
         top: 0;
@@ -36,6 +36,7 @@
             &:hover {
                 background-color: $background-color;
                 cursor: move;
+
                 .comment-toolbar .comment-toolbar-icon {
                     opacity: 1;
                 }
@@ -92,7 +93,7 @@
             background-color: lighten($color: $primary-color, $amount: 6);
             display: inline;
             border: 1px solid $accent2-color;
-            box-shadow: 0px 0px 24px -10px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 24px -10px rgba(0, 0, 0, 0.75);
             position: absolute;
             top: 50px;
             left: 50px;
@@ -103,12 +104,12 @@
             border-radius: 10px;
             transition: transform 0.25s, box-shadow 0.25s;
             transform: scale(1);
-            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.6);
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.6);
             padding-bottom: 5px;
 
             &:hover {
                 //transform: scale(1.03);
-                box-shadow: 0px 0px 24px 0px rgba(0,0,0,1);
+                box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 1);
             }
 
             .none-toolbar {
@@ -116,6 +117,42 @@
                 background-color: $accent-color;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
+
+                .node-type {
+                    background-color: red;
+                    width: 15px;
+                    height: 7px;
+                    border-radius: 7px;
+                    margin-right: 7px;
+
+                    &.connector {
+                        background-color: $node-type-connector-color;
+                    }
+
+                    &.event {
+                        background-color: $node-type-event-color;
+                    }
+
+                    &.function {
+                        background-color: $node-type-function-color;
+                    }
+
+                    &.variable {
+                        background-color: $node-type-variable-color;
+                    }
+
+                    &.condition {
+                        background-color: $node-type-condition-color;
+                    }
+
+                    &.entry-point {
+                        background-color: $node-type-entry-point-color;
+                    }
+
+                    &.deployer {
+                        background-color: $node-type-deployer-color;
+                    }
+                }
 
                 .node-title {
                     font-size: 13px;
@@ -299,7 +336,7 @@
                         }
 
                         .parameter-value-input {
-                            background-color: lighten($color: $primary-color, $amount: 20);
+                            background-color: #151920;
                             height: 23px;
                             margin-top: 8px;
                             width: 100%;
@@ -318,28 +355,30 @@
 
                             &.textarea {
                                 width: 130px;
-                                height: 40px;
+                                height: 37px;
                                 text-align: left;
                                 resize: none;
-                                padding: 3px;
+                                padding: 7px;
                                 font-family: Consolas, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
                             }
                         }
 
                         @keyframes pulsate {
                             0% {
-                              transform: scale(1);
-                              box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+                                transform: scale(1);
+                                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
                             }
+
                             70% {
-                              transform: scale(1.2);
-                              box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+                                transform: scale(1.2);
+                                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
                             }
+
                             100% {
-                              transform: scale(1);
-                              box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+                                transform: scale(1);
+                                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
                             }
-                          }
+                        }
 
                         .script-editor {
                             text-transform: none;
@@ -387,7 +426,7 @@
             background: transparent;
             fill: transparent;
             animation: dash 80s linear;
-            animation-iteration-count:infinite;
+            animation-iteration-count: infinite;
         }
     }
 
@@ -447,8 +486,8 @@
         margin-left: 45px;
         font-size: 20px;
         display: inline-block;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
         &:focus {
             outline: none;
         }
@@ -471,7 +510,7 @@
         justify-content: center;
         align-items: center;
     }
-    
+
     .dot {
         display: inline-block;
         width: 10px;
@@ -482,20 +521,21 @@
         background: linear-gradient(to right, rgb(144, 196, 255), rgb(30, 184, 255));
         box-shadow: 0px 0px 5px rgb(129, 194, 255);
     }
-    
+
     @keyframes bounce {
         from {
             transform: translateY(0);
         }
+
         to {
             transform: translateY(-10px);
         }
     }
-    
+
     #dot2 {
         animation-delay: 0.2s;
     }
-    
+
     #dot3 {
         animation-delay: 0.4s;
     }
@@ -504,40 +544,42 @@
         from {
             transform: rotate(0deg);
         }
-        to { 
+
+        to {
             transform: rotate(360deg);
         }
     }
-     
-    
-     @-webkit-keyframes rotate {
+
+
+    @-webkit-keyframes rotate {
         from {
             -webkit-transform: rotate(0deg);
         }
-        to { 
+
+        to {
             -webkit-transform: rotate(360deg);
         }
     }
-    
+
     .load {
         position: absolute;
         width: 45px;
         height: 45px;
         left: 10px;
-        border:solid 3px #227faa;
+        border: solid 3px #227faa;
         border-radius: 50%;
         border-right-color: transparent;
         border-bottom-color: transparent;
-         -webkit-transition: all 0.5s ease-in;
-        -webkit-animation-name:             rotate; 
-        -webkit-animation-duration:         1.0s; 
-        -webkit-animation-iteration-count:  infinite;
+        -webkit-transition: all 0.5s ease-in;
+        -webkit-animation-name: rotate;
+        -webkit-animation-duration: 1.0s;
+        -webkit-animation-iteration-count: infinite;
         -webkit-animation-timing-function: linear;
-            
-             transition: all 0.5s ease-in;
-        animation-name:             rotate; 
-        animation-duration:         1.0s; 
-        animation-iteration-count:  infinite;
-        animation-timing-function: linear; 
+
+        transition: all 0.5s ease-in;
+        animation-name: rotate;
+        animation-duration: 1.0s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
     }
 }
