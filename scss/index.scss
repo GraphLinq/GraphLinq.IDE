@@ -1,3 +1,4 @@
+@import "fonts.scss";
 @import "colors.scss";
 @import "animations.scss";
 @import "menu.scss";
@@ -15,9 +16,9 @@ body,
 html {
     margin: 0;
     padding: 0;
-    background-color: $primary-color;
+    background-color: $background-color;
     color: $text-color;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Gilroy", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 }
 

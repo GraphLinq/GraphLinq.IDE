@@ -1,14 +1,14 @@
 #console {
     position: fixed;
-    bottom: 0px;
-    left: 250px;
-    right: 0;
-    height: 20%;
-    background-color: $accent-color;
-    border-top: 1px solid $accent2-color;
+    bottom: 20px;
+    left: 330px;
+    right: 20px;
+    height: 240px;
     margin-left: 1px;
     padding-top: 5px;
     padding-left: 3px;
+    border-radius: 10px;
+    overflow: hidden;
     
     animation-name: appearInConsole;
     animation-duration: 1s;
@@ -28,15 +28,57 @@
 
     .logs-entry-container {
         flex: 1;
-        background-color: $accent-color;
         padding: 2px;
+    }
+
+    .console-entry-scroll {
+        background-color: $accent-color;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+
+        .title {
+            margin-top: 3px;
+            margin-bottom: 3px;
+            padding: 10px;
+            padding-left: 15px;
+            color: $text-hint;
+            font-weight: bold;
+            font-size: 15px;
+            background-color: #191d24;
+            svg {
+                margin-right: 3px;
+            }
+        }
+    }
+
+    .logs-entry-scroll {
+        background-color: $accent-color;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+
+        .title {
+            margin-top: 3px;
+            margin-bottom: 3px;
+            padding: 10px;
+            padding-left: 15px;
+            color: $text-hint;
+            font-weight: bold;
+            font-size: 15px;
+            background-color: #191d24;
+            svg {
+                margin-right: 3px;
+            }
+        }
     }
 
     .console-entry {
         margin: 2px;
+        padding: 4px;
         color: $text-color;
-        font-family:monospace;
-        font-size: 11px;
+        font-family: "Gilroy";
+        font-size: 15px;
         //animation-name: consoleEntryAnimation;
         //animation-duration: 0.3s;
 
@@ -45,7 +87,7 @@
         }
 
         &.success {
-            color: greenyellow;
+            color: #46dc82;
         }
 
         &.warning {

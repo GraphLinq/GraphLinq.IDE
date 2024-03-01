@@ -98,9 +98,11 @@ export default class Node {
         this.element.querySelector(".delete-node").addEventListener("click", () => {
             this.delete();
         });
+        /**
         this.element.querySelector(".help-node").addEventListener("click", () => {
             this.help();
         });
+         */
     }
 
     setupParameters() {
@@ -144,8 +146,8 @@ export default class Node {
         this.outNode = toNode.id;
         const fromDotPosition = this.element.getBoundingClientRect();
         const toDotPosition = toNode.element.getBoundingClientRect();
-        this.outNodeLineElement = this.graphboard.createLine(fromDotPosition.x + fromDotPosition.width, fromDotPosition.y + 44,
-            toDotPosition.x, toDotPosition.y + 44, "yellow", false);
+        this.outNodeLineElement = this.graphboard.createLine(fromDotPosition.x + fromDotPosition.width, fromDotPosition.y + 49,
+            toDotPosition.x, toDotPosition.y + 49, "#fcc537", false);
         this.graphboard.getGraphContainer().appendChild(this.outNodeLineElement);
     }
 
@@ -157,14 +159,14 @@ export default class Node {
         const lineElement = this.outNodeLineElement.querySelector("path");
         const offset = {x: this.graphboard.container.offsetLeft + this.graphboard.offset.x, y: this.graphboard.container.offsetTop + this.graphboard.offset.y};
         lineElement.setAttribute('d', curved(fromDotPosition.x + fromDotPosition.width - offset.x,
-            fromDotPosition.y + 44 - offset.y,
+            fromDotPosition.y + 49 - offset.y,
             toDotPosition.x - offset.x,
-            toDotPosition.y + 44 - offset.y))
+            toDotPosition.y + 49 - offset.y))
 
         lineElement.setAttribute("x1", fromDotPosition.x + fromDotPosition.width - offset.x);
-        lineElement.setAttribute("y1", fromDotPosition.y + 44 - offset.y);
+        lineElement.setAttribute("y1", fromDotPosition.y + 49 - offset.y);
         lineElement.setAttribute("x2", toDotPosition.x - offset.x);
-        lineElement.setAttribute("y2", toDotPosition.y + 44 - offset.y);
+        lineElement.setAttribute("y2", toDotPosition.y + 49 - offset.y);
     }
 
     async appendNodeToGraph() {

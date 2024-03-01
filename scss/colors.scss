@@ -1,23 +1,25 @@
-$primary-color: #24203f;
-$accent-color: #191630;
-$accent2-color: #2f175a;
-$accent3-color: #6e29e9;
-$text-color: #adadc2;
+$background-color: #0a0e15;
+$primary-color: #14181f;
+$accent-color: #14181f;
+$accent2-color: #191d24;
+$accent3-color: #69d2ff;
+$text-color: #7c8ba9;
+$text-hint: #6e7b94;
 
 // Node type colors
-$node-type-connector-color: rgb(58, 209, 209);
+$node-type-connector-color: rgb(130, 236, 236);
 $node-type-event-color: rgb(209, 169, 58);
 $node-type-entry-point-color: rgb(251, 255, 0);
-$node-type-function-color: rgb(58, 73, 209);
-$node-type-variable-color: rgb(0, 243, 81);
-$node-type-condition-color: rgb(235, 0, 243);
-$node-type-deployer-color: rgb(255, 81, 0);
+$node-type-function-color: rgb(96, 106, 199);
+$node-type-variable-color: #46dc82;
+$node-type-condition-color: rgb(226, 123, 230);
+$node-type-deployer-color: rgb(202, 94, 43);
 
 // Parameter colors
-$parameter-type-execution-color: rgb(238, 255, 0);
+$parameter-type-execution-color: #fcc537;
 $parameter-type-connector-color: rgb(58, 209, 209);
 $parameter-type-object-color: rgb(0, 102, 255);
-$parameter-type-string-color: rgb(0, 255, 55);
+$parameter-type-string-color: #46dc82;
 $parameter-type-int32-color: rgb(255, 123, 0);
 $parameter-type-int64-color: rgb(255, 123, 0);
 $parameter-type-uint64-color: rgb(255, 123, 0);

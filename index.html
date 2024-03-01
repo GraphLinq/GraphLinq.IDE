@@ -74,9 +74,7 @@
             </div>
         </div>
 
-        <!-- toolbox -->
         <div id="toolbox">
-            <!-- project-manager -->
             <div id="project-manager">
                 <div class="title">
                     <i class="fas fa-cube"></i> Projects
@@ -85,14 +83,23 @@
 
                 </div>
             </div>
-            <div class="searchbox">
-                <input type="text" id="toolbar-search-input" placeholder="Search a block by name"  autocomplete="off" />
-            </div>
-            <div class="col-exp-all expanded" id="collapse-expand-all" data-collapse-expand="expand">
-                Collapse All <i class='fas fa-chevron-down'></i>
-            </div>
-            <div class="group-container">
 
+            <div id="search-manager">
+                <div class="title">
+                    <i class="fas fa-search"></i> Search
+                </div>
+                <div class="searchbox">
+                    <input type="text" id="toolbar-search-input" placeholder="Search a block by name"  autocomplete="off" />
+                </div>
+            </div>
+            
+            <div id="node-manager">
+                <div class="title">
+                    <i class="fas fa-cubes"></i> Blocks
+                </div>
+                <div class="group-container">
+    
+                </div>
             </div>
         </div>
 
@@ -142,16 +149,24 @@
 
         <!-- console -->
         <div id="console">
+            <!--
             <div class="header">
                 <i class="fas fa-terminal"></i> Terminal
             </div>
-            <div style="display: flex; height: 100%;">
+            -->
+            <div style="display: flex; height: 100%; gap: 20px;">
                 <div class="console-entry-scroll" style="flex: 1; overflow: auto; height: 100%;">
+                    <div class="title">
+                        <i class="fas fa-terminal"></i> Terminal
+                    </div>
                     <div class="console-entry-container">
 
                     </div>
                 </div>
                 <div class="logs-entry-scroll" style="flex: 1; overflow: auto; height: 100%;">
+                    <div class="title">
+                        <i class="fas fa-download"></i> Execution Logs
+                    </div>
                     <div class="logs-entry-container">
 
                     </div>

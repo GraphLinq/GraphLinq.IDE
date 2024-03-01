@@ -1,48 +1,126 @@
 #toolbox {
     position: fixed;
-    top: 35px;
+    top: 50px;
     bottom: 0;
     left: 0;
-    width: 250px;
+    width: 300px;
     height: bottom;
-    background-color: $accent-color;
-    border-right: 1px solid $accent2-color;
     margin-top: 1px;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 999;
     animation-name: appearInToolbox;
     animation-duration: 1s;
+    padding: 10px;
 
-    #project-manager {
+    #search-manager {
+        background-color: $accent-color;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+
         .title {
             margin-top: 3px;
             margin-bottom: 3px;
-            padding: 5px;
-            padding-left: 10px;
-            color: white;
+            padding: 10px;
+            padding-left: 15px;
+            color: $text-hint;
             font-weight: bold;
             font-size: 15px;
-            background-color: darken($color: $accent-color, $amount: 2);
+            background-color: #191d24;
+            svg {
+                margin-right: 3px;
+            }
+        }
+    }
+
+    #node-manager {
+        background-color: $accent-color;
+        border-radius: 10px;
+        overflow: hidden;
+        position: absolute;
+        bottom: 20;
+        top: 490px;
+        left: 10;
+        right: 10;
+
+        .title {
+            margin-top: 3px;
+            margin-bottom: 3px;
+            padding: 10px;
+            padding-left: 15px;
+            color: $text-hint;
+            font-weight: bold;
+            font-size: 15px;
+            background-color: #191d24;
             svg {
                 margin-right: 3px;
             }
         }
 
+        .group-container {
+            overflow: auto;
+            height: 100%
+        }
+    }
+
+    #project-manager {
+        background-color: $accent-color;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+
+        .title {
+            margin-top: 3px;
+            margin-bottom: 3px;
+            padding: 10px;
+            padding-left: 15px;
+            color: $text-hint;
+            font-weight: bold;
+            font-size: 15px;
+            background-color: #191d24;
+            svg {
+                margin-right: 3px;
+            }
+        }
+
+        .projects-container {
+            overflow: auto;
+            height: 300px;
+        }
+
         .project-item{
-            padding: 5px 5px;
+            font-family: "Gilroy", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            padding: 12px;
+            padding-left: 15px;
+            padding-right: 15px;
             cursor: pointer;
             transition: 0.2s;
             position: relative;
-            font-size: 13px;
-            color: $text-color;
+            color: white;
             position: relative;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-weight: 600;
             
             animation-name: appearInToolbox;
             animation-duration: 1s;
+            border-bottom: 1px solid #252b36;
 
             svg {
-                margin-right: 3px;
+                margin-right: 6px;
+                font-size: 11px;
+            }
+
+            span {
+                width: 500px;
+                text-overflow: ellipsis;
+                text-wrap: nowrap;
+                font-size: 14px;
+                svg {
+                    color: $text-color;
+                }
             }
 
             .delete-item {
@@ -50,32 +128,28 @@
                 vertical-align: middle;
                 transition: 0.5s;
                 position: absolute;
-                top: 2px;
-                bottom: 2px;
+                top: 0px;
+                bottom: 0px;
                 right: 0px;
-                width: 27px;
+                width: 35px;
                 color: white;
-                padding-top: 5px;
+                padding-top: 15px;
                 text-align: center;
                 transform: translateX(50px);
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
+                font-size: 12px;
             }
 
             &:hover {
-                background-color: $accent3-color;
-                font-weight: bold;
-                padding-left: 10px;
+                background-color: darken($primary-color, 3);
                 color: white;
 
                 .delete-item {
                     opacity: 1;
-                    background-color: rgb(172, 37, 37);
+                    background-color: rgba(172, 37, 37, 0.7);
                     transform: translateX(0px);
 
                     &:hover {
-                        background-color: rgb(216, 25, 25);
-                        width: 35px;
+                        background-color: rgb(172, 37, 37);
                     }
                 }
             }
@@ -99,24 +173,20 @@
         text-align: center;
 
         input[type="text"] {
-            width: 190px;
+            width: 100%;
             padding: 8px;
             border: none;
-            background-color: lighten($color: $accent-color, $amount: 5);
+            background-color: transparent;
             color: $text-color;
             border-radius: 10px;
             text-align: center;
             transition: 0.2s;
-
-            &:hover {
-                width: 220px;
-                background-color: lighten($color: $accent-color, $amount: 8);
-            }
+            font-size: 16px;
+            outline-width: 0;
 
             &:focus {
-                width: 220px;
-                background-color: lighten($color: $accent-color, $amount: 8);
-                outline-width: 0;
+                color: white;
+                outline: none;
             }
 
             &::placeholder {
@@ -129,17 +199,24 @@
         user-select: none;
         font-size: 15px;
         color: white;
+        border-bottom: 1px solid #252b36;
+        padding-bottom: 10px;
 
         .group-title {
-            background-color: darken($color: $accent-color, $amount: 2);
+            //background-color: darken($color: $accent-color, $amount: 2);
             position: relative;
             cursor: pointer;
-            padding: 5px 6px;
+            padding: 15px 9px;
+            font-weight: 600;
 
             .expand {
                 position: absolute;
                 right: 10px;
-                top: 10px;
+                top: 18px;
+            }
+
+            svg:nth-child(1) {
+                margin-right: 10px;
             }
         }
 
@@ -150,11 +227,11 @@
             position: relative;
             font-size: 13px;
             color: $text-color;
+            padding-left: 40px;
 
             &:hover {
-                background-color: $accent3-color;
-                font-weight: bold;
-                padding-left: 10px;
+                background-color: darken($primary-color, 2);
+                padding-left: 50px;
                 color: white;
             }
 

@@ -3,9 +3,6 @@
         <div class="node-title {{schema.NodeBlockType}}">
             {{schema.FriendlyName}}
         </div>
-        <div class="node-toolbar-icon help-node no-drag">
-            <i class="fas fa-question-circle"></i>
-        </div>
         <div class="node-toolbar-icon delete-node no-drag">
             <i class="fas fa-times"></i>
         </div>
@@ -16,7 +13,7 @@
             {{#if schema.CanBeExecuted}}
                 <div class="node-parameter execution">
                     <div class="dot"></div>
-                    in
+                    <!-- in -->
                 </div>
             {{/if}}
             {{#eachProperty schema.InParameters}}
@@ -30,7 +27,7 @@
              {{#if schema.CanExecute}}
                 <div class="node-parameter execution">
                     <div class="dot"></div>
-                    out
+                    <!-- out -->
                 </div>
             {{/if}}
             {{#eachProperty schema.OutParameters}}

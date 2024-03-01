@@ -1,15 +1,17 @@
 #graph-container {
     position: fixed;
-    left: 250px;
-    bottom: 20.5%;
-    right: 0px;
-    top: 37px;
+    left: 330px;
+    bottom: 280px;
+    right: 16px;
+    top: 60px;
+    border-radius: 20px;
     transition: box-shadow 0.3s;
-    box-shadow: inset 0px 0px 66px -15px rgba(0,0,0,0.75);
-    background-image: linear-gradient(darken($primary-color, 1) .1em, transparent .1em), linear-gradient(90deg,darken($primary-color, 1) .1em, transparent .1em);
-    background-size: 1em 1em;
+    background-image: radial-gradient(#1a1d24 2.5px, transparent 0);
+    background-size: 2em 2em;
     animation-name: appearInGraph;
     animation-duration: 3s;
+    overflow: hidden;
+    background-color: $primary-color;
 
     .inner-container {
         width: 10000%;
@@ -18,7 +20,6 @@
         position: absolute;
         top: 0;
         left: 0;
-        outline: rgb(0 0 0 / 15%) solid 1000px;
 
         .node-comment {
             display: inline;
@@ -33,7 +34,7 @@
             border-radius: 15px;
 
             &:hover {
-                background-color: $accent-color;
+                background-color: $background-color;
                 cursor: move;
                 .comment-toolbar .comment-toolbar-icon {
                     opacity: 1;
@@ -102,6 +103,8 @@
             border-radius: 10px;
             transition: transform 0.25s, box-shadow 0.25s;
             transform: scale(1);
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.6);
+            padding-bottom: 5px;
 
             &:hover {
                 //transform: scale(1.03);
@@ -109,22 +112,21 @@
             }
 
             .none-toolbar {
-                display: flex;
+                position: relative;
                 background-color: $accent-color;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
 
                 .node-title {
                     font-size: 13px;
                     color: white;
-                    text-shadow: 1px 1px 2px rgb(0, 0, 0);
                     text-align: center;
+                    font-weight: 550;
                     cursor: move;
                     display: flex;
                     align-items: center;
-                    justify-content: center;
                     flex: 5;
-                    height: 25px;
+                    height: 30px;
                     vertical-align: center;
                     padding-right: 12px;
                     padding-left: 12px;
@@ -133,37 +135,35 @@
                     border-top-right-radius: 10px;
 
                     &.connector {
-                        background: linear-gradient(90deg, $node-type-connector-color 0%, rgba(243,50,255,0) 80%);
+                        background: rgba(130, 236, 236, 0.3);
                     }
 
                     &.deployer {
-                        background: linear-gradient(90deg, $node-type-deployer-color 0%, rgba(243,50,255,0) 80%);
+                        background: rgba(202, 94, 43, 0.3);
                     }
 
                     &.variable {
-                        background: linear-gradient(90deg, $node-type-variable-color 0%, rgba(243,50,255,0) 80%);
+                        background: #46dc824f;
                     }
 
                     &.function {
-                        background: linear-gradient(90deg, $node-type-function-color 0%, rgba(243,50,255,0) 80%);
+                        background: rgba(96, 106, 199, 0.3);
                     }
 
                     &.event {
-                        background: linear-gradient(90deg, $node-type-event-color 0%, rgba(243,50,255,0) 80%);
+                        background: rgba(209, 169, 58, 0.3);
                     }
 
                     &.condition {
-                        background: linear-gradient(90deg, $node-type-condition-color 0%, rgba(243,50,255,0) 80%);
+                        background: rgba(226, 123, 230, 0.3);
                     }
 
                     &.entry-point {
-                        background: linear-gradient(90deg, $node-type-entry-point-color 0%, rgba(243,50,255,0) 80%);
+                        background: rgba(209, 169, 58, 0.3);
                     }
                 }
 
                 .node-toolbar-icon {
-                    background-color: $accent-color;
-                    flex: 1;
                     text-align: center;
                     height: 25px;
                     align-items: center;
@@ -172,15 +172,18 @@
                     transition: 0.2s;
                     opacity: 0;
                     margin-left: 5px;
+                    position: absolute;
+                    top: 8;
+                    bottom: 0;
+                    right: 10;
 
                     &:hover {
-                        background-color: lighten($color: $accent-color, $amount: 3);
+                        color: white;
                     }
                 }
 
                 &:hover {
                     .node-toolbar-icon {
-                        display: flex;
                         opacity: 1;
                     }
                 }
@@ -298,7 +301,7 @@
                         .parameter-value-input {
                             background-color: lighten($color: $primary-color, $amount: 20);
                             height: 23px;
-                            margin-top: 3px;
+                            margin-top: 8px;
                             width: 100%;
                             border: none;
                             border-radius: 5px;
@@ -425,7 +428,7 @@
 
     #ai-prompt {
         position: absolute;
-        bottom: 50px;
+        bottom: 30px;
         left: 30px;
         right: 300px;
         height: 50px;

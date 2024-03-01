@@ -98,14 +98,6 @@ export default class Toolbox {
         document.querySelector("#toolbar-search-input").addEventListener("input", (e) => {
             this.refreshSearch(e.target.value);
         })
-
-        document.querySelector("#collapse-expand-all").onclick = () => {
-            document.querySelector("#collapse-expand-all").setAttribute("data-collapse-expand", document.querySelector("#collapse-expand-all").getAttribute("data-collapse-expand") == "collapse" ? "expand" : "collapse");
-            document.querySelector("#collapse-expand-all").innerHTML = (document.querySelector("#collapse-expand-all").getAttribute("data-collapse-expand") == "collapse" ? "Expand All <i class='fas fa-chevron-up'></i>" : "Collapse All <i class='fas fa-chevron-down'></i>");
-            for(const grp of document.querySelectorAll(".group-title")) {
-                this.onColExpAll(grp.getAttribute("data-toolbox-group"), document.querySelector("#collapse-expand-all").getAttribute("data-collapse-expand"));
-            }
-        }
     }
 
     refreshSearch(searchFor) {
