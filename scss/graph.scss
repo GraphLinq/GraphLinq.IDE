@@ -479,8 +479,8 @@
         border-radius: 50%;
         margin: 0 5px;
         animation: bounce 0.6s infinite alternate;
-        background: linear-gradient(to right, rgb(192, 144, 255), rgb(128, 30, 255));
-        box-shadow: 0px 0px 5px rgb(255, 129, 228);
+        background: linear-gradient(to right, rgb(144, 196, 255), rgb(30, 184, 255));
+        box-shadow: 0px 0px 5px rgb(129, 194, 255);
     }
     
     @keyframes bounce {
@@ -524,7 +524,7 @@
         width: 45px;
         height: 45px;
         left: 10px;
-        border:solid 3px #8822aa;
+        border:solid 3px #227faa;
         border-radius: 50%;
         border-right-color: transparent;
         border-bottom-color: transparent;
