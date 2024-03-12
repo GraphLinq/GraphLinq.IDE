@@ -1,5 +1,17 @@
 # GraphLinq IDE Changelog
 
+## 2.0
+- Revamp the entire design to match the new graphlinq website
+- Block snapping, now block move with a grid system that will improve the visual quality of the graph
+- When a graph is saved, the camera position is saved, when you reload the graph you will return at the exact position
+- Improve performance, for better experience
+- Minimap rework, the minimap now show the comments from the graph
+- Add Dextools blocks
+- Add lua script graph context execution, you can now execution lua script without smart contract context, to create complex workflow easily
+- Add icons for some blocks
+- New template wizard window, allow you to grab a existing template to start a project based on it
+- Lua engine improvement, introducing Lua HTTP call, that function allow you to call external services from the Lua Graphlinq Engine to create new blocks
+
 ## 1.3.7
 - URL Shortener Blocks - https://glq.link
 - WebSocket Blocks

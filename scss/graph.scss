@@ -224,6 +224,59 @@
                         opacity: 1;
                     }
                 }
+
+                .node-toolbar-custom-icon {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 7px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                    &.custom-icon-dextools {
+                        background-image: url("/assets/icons/dextools.png");
+                    }
+
+                    &.custom-icon-solana {
+                        background-image: url("/assets/icons/solana.png");
+                    }
+
+                    &.custom-icon-binance {
+                        background-image: url("/assets/icons/binance.png");
+                    }
+
+                    &.custom-icon-kucoin {
+                        background-image: url("/assets/icons/kucoin.png");
+                    }
+
+                    &.custom-icon-lua {
+                        background-image: url("/assets/icons/lua.png");
+                    }
+                    
+                    &.custom-icon-timer {
+                        background-image: url("/assets/icons/timer.png");
+                    }
+
+                    &.custom-icon-string {
+                        background-image: url("/assets/icons/string.png");
+                    }
+
+                    &.custom-icon-integer {
+                        background-image: url("/assets/icons/integer.png");
+                    }
+                    
+                    &.custom-icon-boolean {
+                        background-image: url("/assets/icons/boolean.png");
+                    }
+
+                    &.custom-icon-print {
+                        background-image: url("/assets/icons/print.png");
+                    }
+                    
+                    &.custom-icon-telegram {
+                        background-image: url("/assets/icons/telegram.webp");
+                    }
+                }
             }
 
             .node-parameters {
@@ -382,7 +435,7 @@
 
                         .script-editor {
                             text-transform: none;
-                            width: 450px;
+                            width: 650px;
                             min-height: 200px;
                             margin-left: 10px;
                             margin-top: 7px;
@@ -466,12 +519,45 @@
     }
 }
 
-#ai-prompt {
+#subgraph-toolbox {
+    display: flex;
     position: absolute;
     bottom: 280px;
     left: 330px;
     right: 20px;
     height: 50px;
+    animation-name: appearIn;
+    animation-duration: 1s;
+
+    .btn {
+        background-color: $primary-color;
+        margin-right: 15px;
+        text-align: center;
+        border-radius: 5px;
+        vertical-align: middle;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        padding-right: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-size: 21px;
+        user-select: none;
+
+        span {
+            margin-left: 7px;
+            font-weight: 500;
+        }
+
+        &:hover {
+            color: $primary-color;
+            background-color: $accent3-color;
+        }
+    }
+}
+
+#ai-prompt {
+    flex: 1;
     border-radius: 5px;
     opacity: 0.8;
     background-color: $primary-color;

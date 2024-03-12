@@ -183,6 +183,15 @@ export default class GraphBoard {
         this.currentLink = undefined;
     }
 
+    setMoveOffset(top, left, x, y) {
+        this.offset.x = x;
+        this.offset.y = y;
+        this.moveOffset.x = x;
+        this.moveOffset.y = y;
+        this.getGraphContainer().style.top = top;
+        this.getGraphContainer().style.left = left;
+    }
+
     setupEvents() {
         document.addEventListener("mousemove", (e) => {
             this.mousePosition.x = e.clientX;
@@ -265,6 +274,13 @@ export default class GraphBoard {
             this.cancelLinking();
             return false;
         }, false);
+    }
+
+    updateGraphName(name) {
+        document.querySelector(".graph-name input").value = name;
+        this.name = name;
+        this.app.currentProject.name = this.name;
+        this.app.currentProject.update();
     }
 
     cancelLinking() {

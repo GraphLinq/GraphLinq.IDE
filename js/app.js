@@ -15,6 +15,8 @@ import Popup from "./shared/node_help";
 import { registerInteropGlobalFunctions } from './graph/ide_interop';
 import AIPrompt from './shared/ai_prompt';
 import AISchema from './graph/ai/ai_schema';
+import * as TemplatePage from './graph/templatepage/index';
+import html2canvas from 'html2canvas';
 
 let Application = null;
 let Version = "1.3.7";
@@ -167,9 +169,23 @@ class App {
             this.aiSchema.buildJavascriptGraph();
         });
 
+        /**
+        document.querySelector("[data-app-menu='file.export_image']").addEventListener("click", () => {
+            html2canvas(document.querySelector("#graph-container .inner-container")).then(function(canvas) {
+                document.body.appendChild(canvas);
+            });
+        });
+         */
+
         document.querySelector("[data-app-menu='login']").addEventListener("click", () => {
             requestLogin();
         });
+
+        document.querySelector("#template-open-btn").addEventListener("click", () => {
+            TemplatePage.openTemplatePage();
+        });
+
+        TemplatePage.initEvents();
 
         document.getElementById("file-input").addEventListener("change", (event) => {
             event.stopPropagation();
@@ -200,6 +216,14 @@ class App {
         let graphJson = {
             project_id: this.currentProject.id,
             name: this.graphboard.name,
+            last_view_position: {
+                x: this.graphboard.moveOffset.x,
+                y: this.graphboard.moveOffset.y,
+            },
+            mouse_position: {
+                x: this.graphboard.offset.x,
+                y: this.graphboard.offset.y
+            },
             nodes: [],
             comments: []
         };
@@ -272,7 +296,14 @@ class App {
         document.getElementById("file-input").click();
     }
 
-    async newGraph() {
+    async newGraph(prompt = true) {
+        if(!prompt) {
+            this.graphboard.clear();
+            let project = await this.projectManager.createNewProject({});
+            this.currentProject = project;
+            this.saveGraph();
+            return;
+        }
         var response = confirm("Are you sure to initialize a new empty graph ?");
         if(response) {
             this.terminal.append("success", "Initialize new empty graph");
@@ -327,6 +358,14 @@ class App {
         this.graphboard.clear();
         this.graphboard.name = graph.name;
 
+        if(graph.last_view_position != null) {
+            if(graph.last_view_position.y != 0 && graph.last_view_position.x != 0) {
+                this.graphboard.setMoveOffset(graph.last_view_position.y, graph.last_view_position.x, graph.mouse_position.x, graph.mouse_position.y);
+                this.graphboard.cancelLinking();
+                this.graphboard.updatePosition()
+            }
+        }
+
         document.querySelector(".graph-name input").value = this.graphboard.name;
 
         for (const comment of graph.comments) {
@@ -344,6 +383,7 @@ class App {
                 this.terminal.append("error", "Missing block schema in the graph " + node.type);
                 continue;
             }
+            console.log(schema);
             const graphnode = await this.graphboard.appendNewNodeWithSchema(schema, {
                 id: node.id,
                 subgraphId: node.sub_graph_id,
@@ -440,4 +480,5 @@ export { Application, Version, ReleaseMode };
 
 document.addEventListener('DOMContentLoaded', () => {
     Application = new App();
+    window.Application = Application;
 }, false);

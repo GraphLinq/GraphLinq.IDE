@@ -187,7 +187,7 @@ export default class NodeParameter {
             const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
             const lineElement = this.svgLineElement.querySelector("path");
             let curved = require('svg-line-curved');
-            lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 44));
+            lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 49));
         }
     }
 
@@ -202,10 +202,10 @@ export default class NodeParameter {
         const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
         const parameterBound2 = this.node.graphboard.findNodeById(this.value).element.getBoundingClientRect();
         const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
-        lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 44));
+        lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 49));
 
-        lineElement.setAttribute("stroke", "yellow");
-        lineElement.setAttribute("stroke-width", "5px");
+        lineElement.setAttribute("stroke", "#fcc537");
+        lineElement.setAttribute("stroke-width", "2px");
 
         // Append to view
         svgElement.appendChild(lineElement);

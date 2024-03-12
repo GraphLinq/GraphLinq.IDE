@@ -14,7 +14,9 @@
     "@parcel/transformer-sass": "^2.0.0",
     "cssnano": "^4.1.11",
     "parcel-bundler": "^1.12.5",
-    "sass": "^1.32.7"
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "sass": "^1.32.7",
+    "vue-template-compiler": "^2.7.16"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
@@ -24,8 +26,11 @@
     "file-saver": "^2.0.5",
     "handlebars": "^4.7.7",
     "hotkeys-js": "^3.8.2",
+    "html2canvas": "^1.4.1",
     "js-cookie": "^2.2.1",
     "moment": "^2.29.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "regenerator-runtime": "^0.13.7",
     "svg-line-curved": "^1.0.0",
     "templates": "^1.2.9",

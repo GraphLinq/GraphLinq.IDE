@@ -1,7 +1,13 @@
 <div class="node" data-node-id={{id}}>
     <div class="none-toolbar">
         <div class="node-title {{schema.NodeBlockType}}">
-            <div class="node-type {{schema.NodeBlockType}}"></div> {{schema.FriendlyName}}
+            {{#if schema.CustomIcon}}
+                <div class="node-toolbar-custom-icon custom-icon-{{schema.CustomIcon}}">
+                </div> 
+            {{else}}
+                <div class="node-type {{schema.NodeBlockType}}"></div> 
+            {{/if}}
+            {{schema.FriendlyName}}
         </div>
         <div class="node-toolbar-icon delete-node no-drag">
             <i class="fas fa-times"></i>

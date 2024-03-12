@@ -39,6 +39,11 @@
                     <div class="sub-menu-item" data-app-menu="file.export_js">
                         <i class="fas fa-scroll"></i> Export javascript
                     </div>
+                    <!--
+                    <div class="sub-menu-item" data-app-menu="file.export_image">
+                        <i class="fas fa-images"></i> Export as image
+                    </div>
+                    -->
                 </div>
             </div>
             <div class="menu-item">
@@ -124,27 +129,50 @@
                     <i class="fas fa-ban"></i> Cancel
                 </div>
             </div>
-
-            <div id="minimap">
-                <canvas width="250" height="140"></canvas>
-            </div>
         </div>
 
+        <!-- template-page -->
+        <div id="template-page">
+            <div class="overlay"></div>
+            <div class="page">
+                <div class="exit-btn" data-action="close-template-page">
+                    <div class="icon"><i class="fas fa-arrow-left"></i></div> Return to IDE
+                </div>
+
+                <div class="container">
+                    
+                </div>
+            </div>
+        </div>
         
         <!-- sub-graph-tab-container -->
         <div id="sub-graph-tab-container">
             <div class="sub-graph-tab"><i class="fas fa-project-diagram"></i> Main Graph</div>
         </div>
 
-        <div id="ai-prompt">
-            <div id="ai-thinking-loading" class="bouncing-dots">
-                <div class="dot" id="dot1"></div>
-                <div class="dot" id="dot2"></div>
-                <div class="dot" id="dot3"></div>
+        <div id="subgraph-toolbox">
+            <div id="template-open-btn" class="btn">
+                <i class="fas fa-book"></i>
+                <span>Templates</span>
             </div>
-            <div class="load"></div>
-            <i class="fas fa-robot"></i>
-            <input type="text" placeholder="<Ask to the Graphlinq AI to create a graph for you>" />
+
+            <!--
+            <div id="dependencies-open-btn" class="btn">
+                <i class="fas fa-link"></i>
+                <span>Dependencies</span>
+            </div>
+            -->
+            
+            <div id="ai-prompt">
+                <div id="ai-thinking-loading" class="bouncing-dots">
+                    <div class="dot" id="dot1"></div>
+                    <div class="dot" id="dot2"></div>
+                    <div class="dot" id="dot3"></div>
+                </div>
+                <div class="load"></div>
+                <i class="fas fa-robot"></i>
+                <input type="text" placeholder="<Ask to the Graphlinq AI to create a graph for you>" />
+            </div>
         </div>
 
         <!-- console -->
@@ -169,6 +197,9 @@
                     </div>
                     <div class="logs-entry-container">
 
+                    </div>
+                    <div id="minimap">
+                        <canvas width="250" height="140"></canvas>
                     </div>
                 </div>
             </div>
