@@ -4,7 +4,7 @@ import Toolbox from "./shared/toolbox";
 import GraphBoard from "./graph/graphboard";
 import toastr from "toastr";
 import { addHandlebarsHelpers } from "./graph/utils/utils";
-import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate, fetchHelp } from "./services/api";
+import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate, fetchHelp, getEngineUrl } from "./services/api";
 import hotkeys from 'hotkeys-js';
 import { saveAs } from 'file-saver';
 import { getToken, initWeb3, isLogged, requestLogin } from "./auth/blockchain";
@@ -19,7 +19,7 @@ import * as TemplatePage from './graph/templatepage/index';
 import html2canvas from 'html2canvas';
 
 let Application = null;
-let Version = "1.3.7";
+let Version = "2.0";
 let ReleaseMode = "prod";
 
 class App {
@@ -92,6 +92,9 @@ class App {
             await fetchTemplatesFromGithub();
 
             registerInteropGlobalFunctions();
+
+            // Register base engine url
+            this.terminal.append("debug", "Engine URL set to " + getEngineUrl())
         })();
     }
 
@@ -210,6 +213,10 @@ class App {
                 size: "12px"
             })
         });
+
+        document.querySelector("[data-app-menu='graph.add_group_comment']").addEventListener("click", () => {
+            this.graphboard.appendCommentGroupToGraph({})
+        });
     }
 
     exportGraphAsJSON() {
@@ -225,7 +232,8 @@ class App {
                 y: this.graphboard.offset.y
             },
             nodes: [],
-            comments: []
+            comments: [],
+            commentGroups: []
         };
         this.terminal.append("debug", "Compressing graph ..");
         for (const node of this.graphboard.nodes) {
@@ -273,6 +281,17 @@ class App {
                 "_y": comment.y
             };
             graphJson.comments.push(commentJson);
+        }
+        for (const commentGroup of this.graphboard.commentGroups) {
+            const commentJson = {
+                "id": commentGroup.id,
+                "title": commentGroup.title,
+                "description": commentGroup.description,
+                "_x": commentGroup.x,
+                "_y": commentGroup.y,
+                "size": { "width": commentGroup.size.width, "height": commentGroup.size.height }
+            };
+            graphJson.commentGroups.push(commentJson);
         }
         this.terminal.append("debug", "Graph compressed");
         return graphJson;
@@ -377,13 +396,25 @@ class App {
             })
         }
 
+        if(graph.commentGroups) {
+            for (const commentGroup of graph.commentGroups) {
+                this.graphboard.appendCommentGroupToGraph({
+                    id: commentGroup.id,
+                    x: commentGroup._x,
+                    y: commentGroup._y,
+                    title: commentGroup.title,
+                    description: commentGroup.description,
+                    size: { width: commentGroup.size.width, height: commentGroup.size.height }
+                })
+            }
+        }
+
         for (const node of graph.nodes) {
             const schema = this.toolbox.schema.filter(x => x.NodeType == node.type)[0];
             if(!schema) {
                 this.terminal.append("error", "Missing block schema in the graph " + node.type);
                 continue;
             }
-            console.log(schema);
             const graphnode = await this.graphboard.appendNewNodeWithSchema(schema, {
                 id: node.id,
                 subgraphId: node.sub_graph_id,

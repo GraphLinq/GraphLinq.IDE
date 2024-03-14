@@ -116,12 +116,16 @@
                 <div class="toolbar-btn" data-app-menu="graph.add_comment">
                     <i class="fas fa-comment"></i>
                 </div>
+                <div class="toolbar-btn" data-app-menu="graph.add_group_comment">
+                    <i class="fas fa-layer-group"></i>
+                </div>
             </center>
         </div>
 
         <!-- graph-container -->
         <div id="graph-container">
             <div class="inner-container">
+                
             </div>
 
             <div id="linker-block" class="disable">
@@ -162,7 +166,7 @@
                 <span>Dependencies</span>
             </div>
             -->
-            
+
             <div id="ai-prompt">
                 <div id="ai-thinking-loading" class="bouncing-dots">
                     <div class="dot" id="dot1"></div>
@@ -189,6 +193,9 @@
                     </div>
                     <div class="console-entry-container">
 
+                    </div>
+                    <div class="console-input">
+                        <input type="text" />
                     </div>
                 </div>
                 <div class="logs-entry-scroll" style="flex: 1; overflow: auto; height: 100%;">

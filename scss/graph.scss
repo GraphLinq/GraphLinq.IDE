@@ -15,11 +15,103 @@
 
     .inner-container {
         width: 10000%;
-
         height: 10000%;
         position: absolute;
         top: 0;
         left: 0;
+
+        .node-comment-group {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            animation-name: appearIn;
+            animation-duration: 0.3s;
+            user-select: none;
+            border: 6px solid #0a0e15b2;
+            background-color: #2d344144;
+            z-index: 0;
+            min-width: 700px;
+            min-height: 300px;
+
+            .node-comment-group-title {
+                width: 100%;
+                font-size: 19px;
+                font-weight: 500;
+                align-items: center;
+                background-color: #0a0e158c;
+                //background-color: red;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                cursor: move;
+                transition: 0.2s;
+                border-bottom: 2px solid #0a0e15b2;
+
+                input {
+                    transition: 0.2s;
+                    margin-left: 10px;
+                    font-size: 19px;
+                    border: none;
+                    background-color: transparent;
+                    color: white;
+                    width: 70%;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                svg {
+                    transition: 0.2s;
+                    margin-left: 20px;
+                }
+            }
+
+            .delete-group-btn {
+                position: absolute;
+                right: 15px;
+                top: 14px;
+                font-size: 25px;
+                cursor: pointer;
+
+                &:hover {
+                    color: red;
+                }
+            }
+
+            .node-comment-group-description {
+                width: 100%;
+                font-size: 15px;
+                font-weight: 500;
+                background-color: #252e3d8c;
+                padding-top: 7px;
+                padding-bottom: 7px;
+                border-bottom: 2px solid #0a0e15b2;
+
+                input {
+                    transition: 0.2s;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    font-size: 16px;
+                    border: none;
+                    background-color: transparent;
+                    color: $text-color;
+                    width: 100%;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            .resize-handle {
+                position: absolute;
+                right: -15px;
+                bottom: -15px;
+                width: 30px;
+                height: 30px;
+                cursor: se-resize;
+            }
+        }
 
         .node-comment {
             display: inline;
@@ -32,6 +124,7 @@
             animation-duration: 0.3s;
             transition: background-color 0.3s;
             border-radius: 15px;
+            z-index: 1;
 
             &:hover {
                 background-color: $background-color;
@@ -106,6 +199,7 @@
             transform: scale(1);
             box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.6);
             padding-bottom: 5px;
+            z-index: 1;
 
             &:hover {
                 //transform: scale(1.03);
@@ -252,7 +346,7 @@
                     &.custom-icon-lua {
                         background-image: url("/assets/icons/lua.png");
                     }
-                    
+
                     &.custom-icon-timer {
                         background-image: url("/assets/icons/timer.png");
                     }
@@ -264,7 +358,7 @@
                     &.custom-icon-integer {
                         background-image: url("/assets/icons/integer.png");
                     }
-                    
+
                     &.custom-icon-boolean {
                         background-image: url("/assets/icons/boolean.png");
                     }
@@ -272,7 +366,7 @@
                     &.custom-icon-print {
                         background-image: url("/assets/icons/print.png");
                     }
-                    
+
                     &.custom-icon-telegram {
                         background-image: url("/assets/icons/telegram.webp");
                     }

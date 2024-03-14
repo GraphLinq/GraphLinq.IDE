@@ -1,6 +1,7 @@
 import toastr from "toastr";
 import Node from "./node";
 import Comment from "./comment";
+import CommentGroup from "./comment_group";
 
 export default class GraphBoard {
     constructor(app) {
@@ -11,6 +12,7 @@ export default class GraphBoard {
         this.container = document.querySelector("#graph-container");
         this.nodes = [];
         this.comments = [];
+        this.commentGroups = [];
         this.move = false;
         this.offset = {x:0,y:0};
         this.moveOriginOffset = {x:0,y:0};
@@ -57,6 +59,7 @@ export default class GraphBoard {
     clear() {
         this.nodes = [];
         this.comments = [];
+        this.commentGroups = [];
         this.subGraphList = [];
         this.name = "NEW_GRAPH";
         document.querySelector(".graph-name input").value = this.name;
@@ -345,5 +348,11 @@ export default class GraphBoard {
         const comment = new Comment(this, options);
         await comment.appendToGraph();
         this.comments.push(comment);
+    }
+
+    async appendCommentGroupToGraph(options) {
+        const commentGroup = new CommentGroup(this, options);
+        await commentGroup.appendToGraph();
+        this.commentGroups.push(commentGroup);
     }
 }

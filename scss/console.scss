@@ -55,6 +55,23 @@
             overflow: auto;
             height: 190px;
         }
+
+        .console-input {
+            display: none;
+            input {
+                background-color: transparent;
+                width: 100%;
+                border: none;
+                font-size: 18px;
+                padding-left: 20px;
+                padding-right: 20px;
+                color: white;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
     }
 
     .logs-entry-scroll {
@@ -105,6 +122,14 @@
 
         &.ai {
             color: rgb(0, 132, 255);
+        }
+
+        a {
+            color: $accent3-color;
+            letter-spacing: 0.4px;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-right: 5px;
         }
     }
 }
