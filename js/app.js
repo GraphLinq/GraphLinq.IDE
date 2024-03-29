@@ -4,7 +4,7 @@ import Toolbox from "./shared/toolbox";
 import GraphBoard from "./graph/graphboard";
 import toastr from "toastr";
 import { addHandlebarsHelpers } from "./graph/utils/utils";
-import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate, fetchHelp, getEngineUrl } from "./services/api";
+import { deployGraph, fetchCompressed, fetchDecompress, fetchLogs, fetchTemplate, fetchHelp, getEngineUrl, needAuth } from "./services/api";
 import hotkeys from 'hotkeys-js';
 import { saveAs } from 'file-saver';
 import { getToken, initWeb3, isLogged, requestLogin } from "./auth/blockchain";
@@ -16,10 +16,11 @@ import { registerInteropGlobalFunctions } from './graph/ide_interop';
 import AIPrompt from './shared/ai_prompt';
 import AISchema from './graph/ai/ai_schema';
 import * as TemplatePage from './graph/templatepage/index';
+import * as DependencyPage from './graph/dependency/index';
 import html2canvas from 'html2canvas';
 
 let Application = null;
-let Version = "2.0";
+let Version = "2.1";
 let ReleaseMode = "prod";
 
 class App {
@@ -36,6 +37,8 @@ class App {
         this.aiPrompt = new AIPrompt(this);
         this.aiSchema = new AISchema(this);
         this.currentProject = null;
+
+        DependencyPage.initEvents(this);
 
         this.lastGraphHashLaunched = "";
 
@@ -92,6 +95,10 @@ class App {
             await fetchTemplatesFromGithub();
 
             registerInteropGlobalFunctions();
+
+            if(!needAuth()) {
+                document.querySelector("#menu .right-container").style.display = "none";
+            }
 
             // Register base engine url
             this.terminal.append("debug", "Engine URL set to " + getEngineUrl())
@@ -197,12 +204,26 @@ class App {
             var reader = new FileReader();
             reader.readAsText(file, "UTF-8");
             reader.onload = async (readEvt) => {
-                await this.loadGraphFromJSON(readEvt.target.result, !readEvt.target.result.startsWith("{"));
+                const projectId = await this.loadGraphFromJSON(readEvt.target.result, !readEvt.target.result.startsWith("{"));
+
+                // Preload dependencies
+                for(const deps of JSON.parse(readEvt.target.result).rawDeps) {
+                    const depJson = JSON.parse(deps);
+                    await this.projectManager.createNewProject({
+                        id: depJson.project_id,
+                        name: depJson.name
+                    })
+                    localStorage.setItem("graph/" + depJson.project_id, deps);
+                    this.terminal.append("success", "Dependency saved");
+                }
+
                 this.currentProject = await this.projectManager.createNewProject({
+                    id: projectId,
                     name: this.graphboard.name
                 })
                 this.terminal.append("success", "Graph " + this.graphboard.name + " loaded from file");
                 this.saveGraph();
+                DependencyPage.updateView();
             }
         });
 
@@ -217,6 +238,36 @@ class App {
         document.querySelector("[data-app-menu='graph.add_group_comment']").addEventListener("click", () => {
             this.graphboard.appendCommentGroupToGraph({})
         });
+
+        document.querySelector("#minimine-terminal-btn").addEventListener("click", () => {
+            this.toogleTerminal();
+        });
+
+        document.querySelector("#maximize-terminal-btn").addEventListener("click", () => {
+            this.toogleTerminal();
+        });
+
+        document.querySelector("#dependencies-open-btn").addEventListener("click", () => {
+            if(document.querySelector("#dependency-page").className == "active") {
+                DependencyPage.closeDependencyPage();
+            } else {
+                DependencyPage.openDependencyPage();
+            }
+            
+            DependencyPage.updateView();
+        });
+    }
+
+    toogleTerminal() {
+        if(document.querySelector("#console").classList != "minimized") {
+            document.querySelector("#console").classList = "minimized";
+            document.querySelector("#graph-container").classList = "maximized";
+            document.querySelector("#subgraph-toolbox").classList = "maximized";
+        } else {
+            document.querySelector("#console").classList = "";
+            document.querySelector("#graph-container").classList = "";
+            document.querySelector("#subgraph-toolbox").classList = "";
+        }
     }
 
     exportGraphAsJSON() {
@@ -233,7 +284,9 @@ class App {
             },
             nodes: [],
             comments: [],
-            commentGroups: []
+            commentGroups: [],
+            deps: [],
+            rawDeps: []
         };
         this.terminal.append("debug", "Compressing graph ..");
         for (const node of this.graphboard.nodes) {
@@ -289,16 +342,32 @@ class App {
                 "description": commentGroup.description,
                 "_x": commentGroup.x,
                 "_y": commentGroup.y,
-                "size": { "width": commentGroup.size.width, "height": commentGroup.size.height }
+                "size": { "width": commentGroup.size.width, "height": commentGroup.size.height },
+                "color": commentGroup.color
             };
             graphJson.commentGroups.push(commentJson);
         }
+
+        // Merge dependencies
+        this.terminal.append("debug", "Merging " + this.graphboard.deps.length + " sub graph(s)")
+        graphJson.deps = this.graphboard.deps;
+        for(const d of graphJson.deps) {
+            let project = this.projectManager.projects.find(x => x.id == d);
+            if(project != null) {
+                const depJson = localStorage.getItem('graph/' + project.id);
+                graphJson.rawDeps.push(depJson);
+            }
+            else {
+                this.terminal.append("error", "Missing dependency " + d + " for the graph");
+            }
+        }
+
         this.terminal.append("debug", "Graph compressed");
         return graphJson;
     }
 
     async launchGraph() {
-        if(!isLogged()) {
+        if(!isLogged() && needAuth()) {
             toastr.error("You need to be logged first");
             return;
         }
@@ -330,6 +399,8 @@ class App {
             let project = await this.projectManager.createNewProject({});
             this.currentProject = project;
             this.saveGraph();
+            
+            DependencyPage.updateView();
         }
     }
 
@@ -404,7 +475,8 @@ class App {
                     y: commentGroup._y,
                     title: commentGroup.title,
                     description: commentGroup.description,
-                    size: { width: commentGroup.size.width, height: commentGroup.size.height }
+                    size: { width: commentGroup.size.width, height: commentGroup.size.height },
+                    color: commentGroup.color
                 })
             }
         }
@@ -464,8 +536,14 @@ class App {
                 }
             }
         }
-        this.terminal.append("debug", "Found " + this.graphboard.subGraphList.length + " sub graphs in the graph");
+        if(graph.deps != null) {
+            this.graphboard.deps = graph.deps;
+            this.terminal.append("debug", "Loaded " + this.graphboard.deps.length + " dependencies in the graph");
+        }
         this.graphboard.initSubgraph();
+        DependencyPage.updateView();
+        
+        return graph.project_id;
     }
 
     async fetchHelp() {

@@ -19,6 +19,9 @@ export default class Toolbox {
     onClickItem(item) {
         const model = this.schema.filter(x => x.NodeType == item)[0];
         this.app.graphboard.appendNewNodeWithSchema(model);
+        
+        this.refreshSearch("");
+        document.querySelector("#toolbar-search-input").value = "";
     }
 
     onClickGroup(grp) {

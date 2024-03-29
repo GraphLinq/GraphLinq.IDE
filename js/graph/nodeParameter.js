@@ -1,4 +1,4 @@
-import {isParameterIsEditable} from "./utils/utils";
+import { isParameterIsEditable } from "./utils/utils";
 import { v4 as uuidv4 } from 'uuid';
 import ace from 'brace';
 import 'brace/mode/lua';
@@ -21,7 +21,7 @@ export default class NodeParameter {
         this.svgLineElement = null;
         this.setupEvents();
 
-        if(this.isScriptingValue()) {
+        if (this.isScriptingValue()) {
             let scriptEditorElement = this.element.querySelector(".script-editor");
             this.editor = ace.edit(scriptEditorElement)
             console.log(this.node.schema.IDEParameters.ScriptType);
@@ -48,7 +48,7 @@ export default class NodeParameter {
     setupEvents() {
         this.dot.addEventListener("click", (e) => {
             e.stopPropagation();
-            if(this.isReference()) {
+            if (this.isReference()) {
                 this.node.graphboard.beginLinkReference(this.node, this);
             }
             else {
@@ -61,10 +61,24 @@ export default class NodeParameter {
             this.deleteAssignment();
         });
 
-        if(isParameterIsEditable(this.schema.ValueType) && this.element.querySelector(".parameter-value-input") != null) {
-            this.element.querySelector(".parameter-value-input").addEventListener("keyup", (e) => {
-                this.value = e.target.value;
-            })
+        if (isParameterIsEditable(this.schema.ValueType)) {
+            let inputElement = this.element.querySelector(".parameter-value-input");
+            console.log(this.schema.ValueType);
+            if (this.schema.ValueType.startsWith("System.Boolean")) {
+                inputElement = this.element.querySelector(".parameter-value-checkbox");
+            }
+
+            if (inputElement) {
+                if (this.schema.ValueType.startsWith("System.Boolean")) {
+                    inputElement.addEventListener("change", (e) => {
+                        this.value = e.target.checked ? "true" : "false";
+                    });
+                } else {
+                    inputElement.addEventListener("keyup", (e) => {
+                        this.value = e.target.value;
+                    });
+                }
+            }
         }
     }
 
@@ -88,7 +102,7 @@ export default class NodeParameter {
             outNode = this.node;
             outParameter = this;
         }
-        if(otherParameter != null) {
+        if (otherParameter != null) {
             inParameter.assignment = otherParameter.id;
             inParameter.assignmentNode = otherNode.id;
             inParameter.createLine();
@@ -96,29 +110,29 @@ export default class NodeParameter {
     }
 
     linkExecution(otherNode) {
-        if(otherNode == null) return;
+        if (otherNode == null) return;
         this.value = otherNode.id;
         this.createReferenceLine();
     }
 
     deleteAssignment() {
-        for(const n of this.node.graphboard.nodes) {
-            for(const p of n.parameters) {
-                if(p.assignment == this.id) {
+        for (const n of this.node.graphboard.nodes) {
+            for (const p of n.parameters) {
+                if (p.assignment == this.id) {
                     p.assignment = "";
                     p.assignmentNode = "";
                     p.svgLineElement.remove();
                     p.svgLineElement = null;
                 }
-                if(p.id == this.assignment) {
+                if (p.id == this.assignment) {
                     this.assignment = "";
                     this.assignmentNode = "";
                     this.svgLineElement.remove();
                     this.svgLineElement = null;
                 }
 
-                if(p.isReference() && p.value != "" && p.value == this.id) {
-                    if(p.svgLineElement != null) {
+                if (p.isReference() && p.value != "" && p.value == this.id) {
+                    if (p.svgLineElement != null) {
                         p.value = "";
                         p.svgLineElement.remove();
                         p.svgLineElement = null;
@@ -127,8 +141,8 @@ export default class NodeParameter {
             }
         }
 
-        if(this.isReference() && this.value != "") {
-            if(this.svgLineElement != null) {
+        if (this.isReference() && this.value != "") {
+            if (this.svgLineElement != null) {
                 this.value = "";
                 this.svgLineElement.remove();
                 this.svgLineElement = null;
@@ -138,12 +152,26 @@ export default class NodeParameter {
 
     setValue(value) {
         this.value = value;
-        if(this.isScriptingValue()) {
+
+        // Check if the parameter is meant for scripting and set the editor's value if so
+        if (this.isScriptingValue()) {
             this.editor.setValue(this.value == null ? "" : this.value);
-        }
-        else {
-            if (isParameterIsEditable(this.schema.ValueType) && this.element.querySelector(".parameter-value-input") != null) {
-                this.element.querySelector(".parameter-value-input").value = this.value;
+        } else {
+            // For non-scripting values, check if the parameter is editable
+            if (isParameterIsEditable(this.schema.ValueType)) {
+                const inputElement = this.element.querySelector(".parameter-value-input");
+                const checkboxElement = this.element.querySelector(".parameter-value-checkbox");
+
+                // Check if the schema value type is a boolean and we have a checkbox element
+                if (this.schema.ValueType.startsWith("System.Boolean") && checkboxElement) {
+                    // Set the checkbox's checked state based on the value
+                    if(this.value != null) {
+                        checkboxElement.checked = this.value.toLowerCase() === "true";
+                    }
+                } else if (inputElement) {
+                    // For other editable parameters, set the input element's value
+                    inputElement.value = this.value;
+                }
             }
         }
     }
@@ -158,10 +186,13 @@ export default class NodeParameter {
         const lineElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
         const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
         const parameterBound2 = this.node.graphboard.findNodeById(this.assignmentNode).getParameterById(this.assignment).element.querySelector(".dot").getBoundingClientRect();
-        const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
+        const offset = { x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y };
+
+        // Get the background color of the dot
+        const dotColor = window.getComputedStyle(this.dot).backgroundColor;
 
         lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x + 5, parameterBound2.y - offset.y + 5))
-        lineElement.setAttribute("stroke", "white");
+        lineElement.setAttribute("stroke", dotColor); // Use the dot's color for the line
         lineElement.setAttribute("stroke-width", "3px");
         lineElement.setAttribute("stroke-dasharray", "5px");
 
@@ -175,7 +206,7 @@ export default class NodeParameter {
         if (this.assignment != "" && this.assignmentNode != "" && this.svgLineElement != null) {
             const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
             const parameterBound2 = this.node.graphboard.findNodeById(this.assignmentNode).getParameterById(this.assignment).element.querySelector(".dot").getBoundingClientRect();
-            const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
+            const offset = { x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y };
             const lineElement = this.svgLineElement.querySelector("path");
             let curved = require('svg-line-curved');
             lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x + 5, parameterBound2.y - offset.y + 5))
@@ -184,7 +215,7 @@ export default class NodeParameter {
         if (this.value != "" && this.isReference() && this.svgLineElement != null) {
             const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
             const parameterBound2 = this.node.graphboard.findNodeById(this.value).element.getBoundingClientRect();
-            const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
+            const offset = { x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y };
             const lineElement = this.svgLineElement.querySelector("path");
             let curved = require('svg-line-curved');
             lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 49));
@@ -201,7 +232,7 @@ export default class NodeParameter {
         let curved = require('svg-line-curved');
         const parameterBound1 = this.element.querySelector(".dot").getBoundingClientRect();
         const parameterBound2 = this.node.graphboard.findNodeById(this.value).element.getBoundingClientRect();
-        const offset = {x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y};
+        const offset = { x: this.node.graphboard.container.offsetLeft + this.node.graphboard.offset.x, y: this.node.graphboard.container.offsetTop + this.node.graphboard.offset.y };
         lineElement.setAttribute('d', curved(parameterBound1.x - offset.x + 5, parameterBound1.y - offset.y + 5, parameterBound2.x - offset.x, parameterBound2.y - offset.y + 49));
 
         lineElement.setAttribute("stroke", "#fcc537");

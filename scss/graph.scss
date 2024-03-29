@@ -13,6 +13,10 @@
     overflow: hidden;
     background-color: $primary-color;
 
+    &.maximized {
+        bottom: 20px;
+    }
+
     .inner-container {
         width: 10000%;
         height: 10000%;
@@ -32,6 +36,28 @@
             z-index: 0;
             min-width: 700px;
             min-height: 300px;
+
+            .color-container {
+                position: absolute;
+                right: 55px;
+                top: 10px;
+                font-size: 25px;
+
+                .color-item {
+                    display: inline-block;
+                    background-color: white;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 5px;
+                    margin-left: 2px;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
 
             .node-comment-group-title {
                 width: 100%;
@@ -510,6 +536,14 @@
                             }
                         }
 
+                        .parameter-value-checkbox {
+                            margin-top: 15px;
+                            margin-bottom: 10px;
+                            transform: scale(1.5);
+                            accent-color: $accent3-color;
+                            filter: invert(100%) hue-rotate(18deg) brightness(1.5);
+                        }
+
                         @keyframes pulsate {
                             0% {
                                 transform: scale(1);
@@ -622,6 +656,22 @@
     height: 50px;
     animation-name: appearIn;
     animation-duration: 1s;
+
+    &.maximized {
+        bottom: 40px;
+        left: 350px;
+
+        #minimine-terminal-btn {
+            display: none;
+        }
+        #maximize-terminal-btn {
+            display: block;
+        }
+    }
+
+    #maximize-terminal-btn {
+        display: none;
+    }
 
     .btn {
         background-color: $primary-color;

@@ -6,6 +6,7 @@ export default class Project {
     constructor(options, projectManager) {
         this.projectManager = projectManager;
         this.id = options.id ? options.id : uuidv4();
+        console.log(options.id, this.id);
         this.name = options.name ? options.name : "Untitled Graph";
         this.container = document.querySelector(".projects-container");
         this.element = null;

@@ -58,7 +58,11 @@
                                         {{/isScriptInput}}
                                     {{/isSecretInput}}
                                 {{else}}
-                                    <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" no-drag="true" />
+                                    {{#ifEqualsNormalize value.ValueType "system-boolean"}}
+                                        <input type="checkbox" class="parameter-value-checkbox" />
+                                    {{else}}
+                                        <input type="text" class="parameter-value-input" placeholder="..." spellcheck="false" no-drag="true" />
+                                    {{/ifEqualsNormalize}}
                                 {{/ifEqualsNormalize}}
                             </div>
                         {{/ifEquals}}

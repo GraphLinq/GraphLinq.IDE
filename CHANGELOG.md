@@ -1,5 +1,14 @@
 # GraphLinq IDE Changelog
 
+## 2.1
+- Implement a Dependency System: Introduce a dependency management feature that enables users to embed sub-graphs within other graphs. This integration facilitates the reuse of functions without the need for duplication, streamlining the development process.
+- New Node Group System: Implement a system for grouping nodes, allowing users to move them collectively. This enhancement will boost productivity and improve the user experience by simplifying the organization and manipulation of graph components.
+- Color-Coded Parameter Lines for Nodes: Introduce color-coding for node parameter lines based on their data types. This visual cue will enhance readability and make it easier for users to understand the flow of data types across the graph.
+- Sub-graph Merging on Export: Ensure that when a graph containing sub-graphs is exported, the sub-graphs are merged into the main graph. This approach guarantees that when a graph with dependencies is imported into the Integrated Development Environment (IDE), all associated dependencies are automatically included, streamlining the import process.
+- Dependency Checking Mechanism: Add a mechanism to check for dependencies in graphs containing sub-graphs. This feature aims to prevent compilation if a graph includes sub-graph dependencies, thereby avoiding potential execution errors or undesired behavior during runtime.
+- Added a checkbox for the boolean type instead of typing "true" or "false"
+- The search node input will now reset when a node is selected
+
 ## 2.0
 - Revamp the entire design to match the new graphlinq website
 - Block snapping, now block move with a grid system that will improve the visual quality of the graph

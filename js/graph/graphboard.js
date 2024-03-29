@@ -13,6 +13,7 @@ export default class GraphBoard {
         this.nodes = [];
         this.comments = [];
         this.commentGroups = [];
+        this.deps = [];
         this.move = false;
         this.offset = {x:0,y:0};
         this.moveOriginOffset = {x:0,y:0};
@@ -20,6 +21,9 @@ export default class GraphBoard {
         this.mousePosition = {x:0,y:0};
         this.currentScale = 1;
         this.currentLink = undefined;
+
+        this.currentScale = 1; // Initial scale
+        this.zoomFactor = 0.1; // Adjust this value to control zoom speed
 
         //this.clear();
         this.setupEvents();
@@ -37,6 +41,11 @@ export default class GraphBoard {
                 n.subgraphId = this.currentSubGraph;
             }
         }
+    }
+
+    setDeps(_deps) {
+        this.deps = _deps;
+        console.log(this.deps);
     }
 
     selectSubGraph(subGraph) {
@@ -61,6 +70,7 @@ export default class GraphBoard {
         this.comments = [];
         this.commentGroups = [];
         this.subGraphList = [];
+        this.deps = [];
         this.name = "NEW_GRAPH";
         document.querySelector(".graph-name input").value = this.name;
         this.container.querySelector(".inner-container").innerHTML = "";

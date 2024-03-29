@@ -221,4 +221,10 @@ export default class Node {
 
         this.setupEvents();
     }
+
+    updatePosition() {
+        this.element.style.top = this.y;
+        this.element.style.left = this.x;
+        this.graphboard.updatePosition();
+    }
 }

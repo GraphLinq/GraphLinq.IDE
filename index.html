@@ -13,6 +13,13 @@
         <link rel="icon" href="favicon.png" />
     </head>
     <body>
+        <div id="loading-screen">
+            <div class="logo">
+                <img
+                    src="./assets/logo_2.svg" />
+            </div>
+        </div>
+        
         <!-- menu -->
         <div id="menu">
             <div class="logo"></div>
@@ -128,6 +135,15 @@
                 
             </div>
 
+            <div id="dependency-page">
+                <div class="page-title">
+                    <i class="fas fa-link"></i> Dependencies
+                </div>
+                <div class="container">
+                    
+                </div>
+            </div>
+
             <div id="linker-block" class="disable">
                 <div class="btn red btn-cancel">
                     <i class="fas fa-ban"></i> Cancel
@@ -155,17 +171,21 @@
         </div>
 
         <div id="subgraph-toolbox">
+            <div id="minimine-terminal-btn" class="btn">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <div id="maximize-terminal-btn" class="btn">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            
+            <div id="dependencies-open-btn" class="btn">
+                <i class="fas fa-link"></i>
+            </div>
+
             <div id="template-open-btn" class="btn">
                 <i class="fas fa-book"></i>
                 <span>Templates</span>
             </div>
-
-            <!--
-            <div id="dependencies-open-btn" class="btn">
-                <i class="fas fa-link"></i>
-                <span>Dependencies</span>
-            </div>
-            -->
 
             <div id="ai-prompt">
                 <div id="ai-thinking-loading" class="bouncing-dots">
