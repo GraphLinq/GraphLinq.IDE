@@ -5,7 +5,8 @@
     right: 16px;
     top: 60px;
     border-radius: 20px;
-    transition: box-shadow 0.3s;
+    transition: 0.3s;
+    transition-property: box-shadow;
     background-image: radial-gradient(#1a1d24 3px, transparent 0);
     background-size: 2em 2em;
     animation-name: appearInGraph;
@@ -56,6 +57,22 @@
                     &:hover {
                         transform: scale(1.1);
                     }
+                }
+            }
+
+            .embed-content {
+                padding: 10px;
+                position: absolute;
+                top: 90px;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                
+                iframe {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
                 }
             }
 
@@ -112,6 +129,12 @@
                 padding-top: 7px;
                 padding-bottom: 7px;
                 border-bottom: 2px solid #0a0e15b2;
+
+                &:hover {
+                    input {
+                        color: white;
+                    }
+                }
 
                 input {
                     transition: 0.2s;
@@ -230,6 +253,7 @@
             &:hover {
                 //transform: scale(1.03);
                 box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 1);
+
             }
 
             .none-toolbar {
@@ -570,6 +594,11 @@
                             margin-bottom: 10px;
                             border-radius: 8px;
                             border: 1px solid $accent-color;
+                            
+                            &[data-collapsed="true"] {
+                                min-height: 0;
+                                transform: scaleY(0);
+                            }
                         }
                     }
 

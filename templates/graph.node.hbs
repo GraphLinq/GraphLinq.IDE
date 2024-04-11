@@ -52,7 +52,7 @@
                                         <input type="password" class="parameter-value-input" placeholder="..." spellcheck="false" no-drag="true" />
                                     {{else}}
                                         {{#isScriptInput ../schema.IDEParameters}}
-                                            <div class="script-editor" no-drag="true"></div>
+                                            <div class="script-editor" data-collapsed="false" no-drag="true"></div>
                                         {{else}}
                                             <textarea spellcheck="false"  placeholder="..." class="parameter-value-input textarea" rows="5" no-drag="true"></textarea>
                                         {{/isScriptInput}}

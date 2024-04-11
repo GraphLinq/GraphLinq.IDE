@@ -8,6 +8,7 @@
 - Dependency Checking Mechanism: Add a mechanism to check for dependencies in graphs containing sub-graphs. This feature aims to prevent compilation if a graph includes sub-graph dependencies, thereby avoiding potential execution errors or undesired behavior during runtime.
 - Added a checkbox for the boolean type instead of typing "true" or "false"
 - The search node input will now reset when a node is selected
+- You can now embed html elements in your graph, to add videos for examples using the description of a comment group and using the prefix !embed
 
 ## 2.0
 - Revamp the entire design to match the new graphlinq website

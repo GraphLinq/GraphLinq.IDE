@@ -97,6 +97,7 @@ class App {
             registerInteropGlobalFunctions();
 
             if(!needAuth()) {
+                alert(needAuth())
                 document.querySelector("#menu .right-container").style.display = "none";
             }
 

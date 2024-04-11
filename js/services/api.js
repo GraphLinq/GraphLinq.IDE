@@ -1,10 +1,10 @@
 let engineBaseUrl = "http://localhost:1337";
 let apiBaseUrl = "https://api.graphlinq.io";
 
-let engineBasedAPI = true;
+let engineBasedAPI = false;
 
 export const needAuth = () => {
-    return engineBaseUrl ? false : true;
+    return engineBasedAPI ? false : true;
 }
 
 window.enableEngineMode = (engineUrl = "http://localhost:1337") => {

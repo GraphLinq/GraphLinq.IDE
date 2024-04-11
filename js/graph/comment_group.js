@@ -48,6 +48,7 @@ export default class CommentGroup {
         })
         this.element.querySelector(".node-comment-group-description input").addEventListener("keyup", (e) => {
             this.description = e.target.value;
+            this.refreshEmbedContent();
         })
 
         this.element.querySelector(".node-comment-group-title .delete-group-btn").addEventListener("click", () => {
@@ -76,6 +77,16 @@ export default class CommentGroup {
         this.element.querySelector(".node-comment-group-title input").value = this.title;
         this.element.querySelector(".node-comment-group-description input").value = this.description;
         this.element.style.backgroundColor = this.color;
+        
+        this.refreshEmbedContent();
+    }
+
+    refreshEmbedContent() {
+        if(this.description.startsWith("!embed")) {
+            this.element.querySelector(".embed-content").innerHTML = this.description.substring(7);
+        } else {
+            this.element.querySelector(".embed-content").innerHTML = "";
+        }
     }
 
     resize() {
