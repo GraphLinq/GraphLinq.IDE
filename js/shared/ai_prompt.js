@@ -66,7 +66,7 @@ export default class AIPrompt {
         this.currentRun = runId;
         let currentRunState = "in_progress";
         let loopCount = 0;
-        while(currentRunState == "in_progress") {
+        while(currentRunState == "in_progress" || currentRunState == "queued") {
             this.app.terminal.append("ai", "Graphlinq AI is thinking since " + ((loopCount * 3) + 3) + "s ...");
             const checkRunStateResult = await checkRun(this.currentThread, this.currentRun);
             currentRunState = checkRunStateResult.state;
